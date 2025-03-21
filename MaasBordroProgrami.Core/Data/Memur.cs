@@ -23,7 +23,7 @@ namespace MaasBordroProgrami.Core.Data
         {
             get
             {
-                return _calismaSaati;
+                return _calismaSaati+ekMesaiSaati;
             }
             set
             {

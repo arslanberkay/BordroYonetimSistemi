@@ -33,7 +33,7 @@ namespace MaasBordroProgrami.Core.Data
 
         public decimal SaatlikUcret => 600;
 
-        public decimal Bonus => 700;
+        public decimal Bonus => 1000;
 
         public string Derece
         {
@@ -44,7 +44,7 @@ namespace MaasBordroProgrami.Core.Data
 
         public decimal MaasHesapla()
         {
-            return CalismaSaati * SaatlikUcret + Bonus;
+            return (CalismaSaati * SaatlikUcret) + Bonus;
         }
     }
 }

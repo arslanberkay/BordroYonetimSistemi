@@ -67,7 +67,7 @@
             // 
             lstvPersonelBordrosu.Location = new Point(47, 223);
             lstvPersonelBordrosu.Name = "lstvPersonelBordrosu";
-            lstvPersonelBordrosu.Size = new Size(1304, 94);
+            lstvPersonelBordrosu.Size = new Size(1342, 104);
             lstvPersonelBordrosu.TabIndex = 3;
             lstvPersonelBordrosu.UseCompatibleStateImageBehavior = false;
             // 
@@ -86,7 +86,7 @@
             // 
             AutoScaleDimensions = new SizeF(12F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1392, 400);
+            ClientSize = new Size(1423, 400);
             Controls.Add(btnAnaSayfayaGeriGec);
             Controls.Add(lstvPersonelBordrosu);
             Controls.Add(btnBordroHesapla);
