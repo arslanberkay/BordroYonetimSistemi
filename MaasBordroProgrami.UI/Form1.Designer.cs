@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             label1 = new Label();
-            button3 = new Button();
-            button1 = new Button();
-            button2 = new Button();
-            button4 = new Button();
+            btnPersonelYonetimi = new Button();
+            btnBordroHesaplama = new Button();
+            btnTopluBordroGoruntule = new Button();
+            btnUygulamadanCik = new Button();
             SuspendLayout();
             // 
             // label1
@@ -46,54 +46,55 @@
             label1.TabIndex = 0;
             label1.Text = "Yapmak İstediğiniz İşlemi Seçin";
             // 
-            // button3
+            // btnPersonelYonetimi
             // 
-            button3.Location = new Point(182, 131);
-            button3.Name = "button3";
-            button3.Size = new Size(282, 58);
-            button3.TabIndex = 1;
-            button3.Text = "Personel Yönetimi";
-            button3.UseVisualStyleBackColor = true;
+            btnPersonelYonetimi.Location = new Point(182, 131);
+            btnPersonelYonetimi.Name = "btnPersonelYonetimi";
+            btnPersonelYonetimi.Size = new Size(282, 58);
+            btnPersonelYonetimi.TabIndex = 1;
+            btnPersonelYonetimi.Text = "Personel Yönetimi";
+            btnPersonelYonetimi.UseVisualStyleBackColor = true;
+            btnPersonelYonetimi.Click += btnPersonelYonetimi_Click;
             // 
-            // button1
+            // btnBordroHesaplama
             // 
-            button1.Location = new Point(182, 207);
-            button1.Name = "button1";
-            button1.Size = new Size(282, 58);
-            button1.TabIndex = 1;
-            button1.Text = "Bordro Hesaplama";
-            button1.UseVisualStyleBackColor = true;
+            btnBordroHesaplama.Location = new Point(182, 207);
+            btnBordroHesaplama.Name = "btnBordroHesaplama";
+            btnBordroHesaplama.Size = new Size(282, 58);
+            btnBordroHesaplama.TabIndex = 1;
+            btnBordroHesaplama.Text = "Bordro Hesaplama";
+            btnBordroHesaplama.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnTopluBordroGoruntule
             // 
-            button2.Location = new Point(182, 283);
-            button2.Name = "button2";
-            button2.Size = new Size(282, 58);
-            button2.TabIndex = 1;
-            button2.Text = "Toplu Bordro Görüntüle";
-            button2.UseVisualStyleBackColor = true;
+            btnTopluBordroGoruntule.Location = new Point(182, 283);
+            btnTopluBordroGoruntule.Name = "btnTopluBordroGoruntule";
+            btnTopluBordroGoruntule.Size = new Size(282, 58);
+            btnTopluBordroGoruntule.TabIndex = 1;
+            btnTopluBordroGoruntule.Text = "Toplu Bordro Görüntüle";
+            btnTopluBordroGoruntule.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // btnUygulamadanCik
             // 
-            button4.Location = new Point(182, 359);
-            button4.Name = "button4";
-            button4.Size = new Size(282, 58);
-            button4.TabIndex = 1;
-            button4.Text = "Uygulamadan Çık";
-            button4.UseVisualStyleBackColor = true;
+            btnUygulamadanCik.Location = new Point(182, 359);
+            btnUygulamadanCik.Name = "btnUygulamadanCik";
+            btnUygulamadanCik.Size = new Size(282, 58);
+            btnUygulamadanCik.TabIndex = 1;
+            btnUygulamadanCik.Text = "Uygulamadan Çık";
+            btnUygulamadanCik.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(691, 578);
-            Controls.Add(button4);
-            Controls.Add(button1);
-            Controls.Add(button2);
-            Controls.Add(button3);
+            Controls.Add(btnUygulamadanCik);
+            Controls.Add(btnBordroHesaplama);
+            Controls.Add(btnTopluBordroGoruntule);
+            Controls.Add(btnPersonelYonetimi);
             Controls.Add(label1);
             Font = new Font("Segoe UI", 12F);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -103,9 +104,9 @@
         #endregion
 
         private Label label1;
-        private Button button3;
-        private Button button1;
-        private Button button2;
-        private Button button4;
+        private Button btnPersonelYonetimi;
+        private Button btnBordroHesaplama;
+        private Button btnTopluBordroGoruntule;
+        private Button btnUygulamadanCik;
     }
 }

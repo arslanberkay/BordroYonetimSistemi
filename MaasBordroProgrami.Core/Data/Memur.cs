@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MaasBordroProgrami.Core.Data
@@ -12,9 +13,10 @@ namespace MaasBordroProgrami.Core.Data
     public class Memur : IPersonel
     {
         public string AdSoyad { get; set; }
+        public string Kadro { get; set; } = "Memur";
 
         private int ekMesaiSaati;
-        public MemurDerecesi MemurDerecesi { get; set; }
+        public string Derece { get; set; } = "Düz Memur";
 
         private int _calismaSaati;
         public int CalismaSaati
@@ -47,18 +49,18 @@ namespace MaasBordroProgrami.Core.Data
         {
             get
             {
-                return MemurDerecesi switch
+                return Derece switch
                 {
-                    MemurDerecesi.BasMemur => 700,
-                    MemurDerecesi.UzmanMemur => 650,
-                    MemurDerecesi.KidemliMemur => 600,
-                    MemurDerecesi.Memur => 550,
-                    MemurDerecesi.YeniMemur => 500
+                    "Baş Memur" => 650,
+                    "Uzman Memur" => 600,
+                    "Kıdemli Memur" => 550,
+                    "Düz Memur" => 500,
+
                 };
             }
-
-
         }
+
+
 
         public decimal MaasHesapla()
         {

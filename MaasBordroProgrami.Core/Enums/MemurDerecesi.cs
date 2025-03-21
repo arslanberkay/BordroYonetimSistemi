@@ -8,10 +8,11 @@ namespace MaasBordroProgrami.Core.Enums
 {
     public enum MemurDerecesi
     {
-        BasMemur = 1,
-        UzmanMemur,
-        KidemliMemur,
+        YeniMemur,
         Memur,
-        YeniMemur
+        KidemliMemur,
+        UzmanMemur,
+        BasMemur
+
     }
 }
