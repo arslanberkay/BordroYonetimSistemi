@@ -30,8 +30,8 @@
         {
             groupBox1 = new GroupBox();
             mtxtCalismaSaati = new MaskedTextBox();
+            cbKadro = new ComboBox();
             cbDerece = new ComboBox();
-            txtKadro = new TextBox();
             txtAdSoyad = new TextBox();
             label4 = new Label();
             label3 = new Label();
@@ -39,7 +39,7 @@
             label1 = new Label();
             btnSil = new Button();
             btnGuncelle = new Button();
-            button1 = new Button();
+            btnAnaSayfayaGeriGec = new Button();
             dgvPersonelYonetimi = new DataGridView();
             btnYeniPersonelKayit = new Button();
             groupBox1.SuspendLayout();
@@ -49,8 +49,8 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(mtxtCalismaSaati);
+            groupBox1.Controls.Add(cbKadro);
             groupBox1.Controls.Add(cbDerece);
-            groupBox1.Controls.Add(txtKadro);
             groupBox1.Controls.Add(txtAdSoyad);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
@@ -74,20 +74,21 @@
             mtxtCalismaSaati.TabIndex = 3;
             mtxtCalismaSaati.ValidatingType = typeof(int);
             // 
+            // cbKadro
+            // 
+            cbKadro.FormattingEnabled = true;
+            cbKadro.Location = new Point(151, 78);
+            cbKadro.Name = "cbKadro";
+            cbKadro.Size = new Size(203, 36);
+            cbKadro.TabIndex = 2;
+            // 
             // cbDerece
             // 
             cbDerece.FormattingEnabled = true;
-            cbDerece.Location = new Point(151, 120);
+            cbDerece.Location = new Point(151, 121);
             cbDerece.Name = "cbDerece";
             cbDerece.Size = new Size(203, 36);
             cbDerece.TabIndex = 2;
-            // 
-            // txtKadro
-            // 
-            txtKadro.Location = new Point(151, 78);
-            txtKadro.Name = "txtKadro";
-            txtKadro.Size = new Size(203, 34);
-            txtKadro.TabIndex = 1;
             // 
             // txtAdSoyad
             // 
@@ -152,15 +153,16 @@
             btnGuncelle.UseVisualStyleBackColor = true;
             btnGuncelle.Click += btnGuncelle_Click_1;
             // 
-            // button1
+            // btnAnaSayfayaGeriGec
             // 
-            button1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            button1.Location = new Point(29, 22);
-            button1.Name = "button1";
-            button1.Size = new Size(44, 46);
-            button1.TabIndex = 1;
-            button1.Text = "<";
-            button1.UseVisualStyleBackColor = true;
+            btnAnaSayfayaGeriGec.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            btnAnaSayfayaGeriGec.Location = new Point(29, 22);
+            btnAnaSayfayaGeriGec.Name = "btnAnaSayfayaGeriGec";
+            btnAnaSayfayaGeriGec.Size = new Size(44, 46);
+            btnAnaSayfayaGeriGec.TabIndex = 1;
+            btnAnaSayfayaGeriGec.Text = "<";
+            btnAnaSayfayaGeriGec.UseVisualStyleBackColor = true;
+            btnAnaSayfayaGeriGec.Click += btnAnaSayfayaGeriGec_Click;
             // 
             // dgvPersonelYonetimi
             // 
@@ -191,7 +193,7 @@
             Controls.Add(btnYeniPersonelKayit);
             Controls.Add(dgvPersonelYonetimi);
             Controls.Add(btnGuncelle);
-            Controls.Add(button1);
+            Controls.Add(btnAnaSayfayaGeriGec);
             Controls.Add(btnSil);
             Controls.Add(groupBox1);
             Font = new Font("Segoe UI", 12F);
@@ -214,12 +216,12 @@
         private Label label2;
         private Label label1;
         private Button btnGuncelle;
-        private Button button1;
+        private Button btnAnaSayfayaGeriGec;
         private DataGridView dgvPersonelYonetimi;
         private MaskedTextBox mtxtCalismaSaati;
         private ComboBox cbDerece;
         private TextBox txtAdSoyad;
         private Button btnYeniPersonelKayit;
-        private TextBox txtKadro;
+        private ComboBox cbKadro;
     }
 }

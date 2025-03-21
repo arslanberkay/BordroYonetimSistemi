@@ -35,7 +35,12 @@ namespace MaasBordroProgrami.Core.Data
 
         public decimal Bonus => 700;
 
-        public string Derece { get; set; } = "-";
+        public string Derece
+        {
+            get { return "-"; }
+            set { }
+
+        }
 
         public decimal MaasHesapla()
         {

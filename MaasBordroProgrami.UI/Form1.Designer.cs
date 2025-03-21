@@ -64,6 +64,7 @@
             btnBordroHesaplama.TabIndex = 1;
             btnBordroHesaplama.Text = "Bordro Hesaplama";
             btnBordroHesaplama.UseVisualStyleBackColor = true;
+            btnBordroHesaplama.Click += btnBordroHesaplama_Click;
             // 
             // btnTopluBordroGoruntule
             // 

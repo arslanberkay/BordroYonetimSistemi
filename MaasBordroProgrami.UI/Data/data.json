@@ -1,20 +1,26 @@
 [
   {
     "AdSoyad": "Doğa Yıldız",
-    "CalismaSaati": 15,
-    "Kadro": "Memur",
-    "Derece": "Baş Memur"
-  },
-  {
-    "AdSoyad": "Sibel Arslan",
-    "CalismaSaati": 0,
-    "Kadro": "Memur",
-    "Derece": "Düz Memur"
+    "CalismaSaati": 150,
+    "Kadro": "Yönetici",
+    "Derece": "-"
   },
   {
     "AdSoyad": "Berkay Arslan",
-    "CalismaSaati": 0,
+    "CalismaSaati": 15,
     "Kadro": "Yönetici",
     "Derece": "-"
+  },
+  {
+    "AdSoyad": "Talha Din",
+    "CalismaSaati": 150,
+    "Kadro": "Memur",
+    "Derece": "Kıdemli Memur"
+  },
+  {
+    "AdSoyad": "Ekrem Hosanlı",
+    "CalismaSaati": 125,
+    "Kadro": "Memur",
+    "Derece": "Uzman Memur"
   }
 ]

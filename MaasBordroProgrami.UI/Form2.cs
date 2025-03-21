@@ -27,9 +27,13 @@ namespace MaasBordroProgrami.UI
             personeller = JSONDosya.PersonelListesiOku();
             dgvPersonelYonetimi.DataSource = personeller;
 
-            txtAdSoyad.ReadOnly = txtKadro.ReadOnly = true;
+            dgvPersonelYonetimi.ReadOnly = true;
 
-           
+            //txtAdSoyad.ReadOnly = txtKadro.ReadOnly = true;
+
+            cbKadro.Items.Add("Memur");
+            cbKadro.Items.Add("Yönetici");
+
             cbDerece.Items.Add("Düz Memur");
             cbDerece.Items.Add("Kıdemli Memur");
             cbDerece.Items.Add("Uzman Memur");
@@ -63,13 +67,17 @@ namespace MaasBordroProgrami.UI
             if (dgvPersonelYonetimi.SelectedRows.Count > 0)
             {
                 txtAdSoyad.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[0].Value.ToString();
-                txtKadro.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[3].Value.ToString();
+                cbKadro.SelectedItem = dgvPersonelYonetimi.SelectedRows[0].Cells[3].Value.ToString();
+                cbDerece.SelectedItem = dgvPersonelYonetimi.SelectedRows[0].Cells[4].Value.ToString();
+                mtxtCalismaSaati.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[1].Value.ToString();
+
             }
 
             int seciliIndex = dgvPersonelYonetimi.SelectedRows[0].Index;
             IPersonel seciliPersonel = personeller[seciliIndex];
             if (seciliPersonel.Kadro == "Yönetici")
             {
+                cbDerece.SelectedItem = null;
                 cbDerece.Enabled = false;
             }
             else
@@ -87,18 +95,22 @@ namespace MaasBordroProgrami.UI
                 MessageBox.Show("Çalışma saati boş olmamalıdır!");
                 return;
             }
-            if (cbDerece.SelectedItem==null)
+            if (cbDerece.SelectedItem == null && cbKadro.SelectedItem == "Memur")
             {
-                MessageBox.Show("Lütfen Personel seçiniz!");
+                MessageBox.Show("Lütfen derece seçiniz!");
                 return;
             }
             int seciliIndex = dgvPersonelYonetimi.SelectedRows[0].Index;
             IPersonel seciliPersonel = personeller[seciliIndex];
 
-            seciliPersonel.CalismaSaati = Convert.ToInt32(mtxtCalismaSaati.Text);
+            seciliPersonel.AdSoyad = txtAdSoyad.Text;
+            seciliPersonel.Kadro = cbKadro.SelectedItem.ToString();
+            if (seciliPersonel.Kadro == "Memur")
+            {
+                seciliPersonel.Derece = cbDerece.SelectedItem.ToString();
+            }
 
-            
-            seciliPersonel.Derece = cbDerece.SelectedItem.ToString();
+            seciliPersonel.CalismaSaati = Convert.ToInt32(mtxtCalismaSaati.Text);
 
             dgvPersonelYonetimi.DataSource = null;
             dgvPersonelYonetimi.DataSource = personeller;
@@ -119,6 +131,13 @@ namespace MaasBordroProgrami.UI
             JSONDosya.PersonelListesineKaydet(personeller.ToList());
 
             MessageBox.Show("Silme işlemi başarıyla gerçekleşti");
+        }
+
+        private void btnAnaSayfayaGeriGec_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 form1 = new Form1();  
+            form1.ShowDialog();
         }
     }
 }
