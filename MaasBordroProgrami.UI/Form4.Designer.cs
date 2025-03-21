@@ -28,12 +28,85 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Form4";
+            label1 = new Label();
+            cbPersonelAdSoyad = new ComboBox();
+            btnBordroHesapla = new Button();
+            lstvPersonelBordrosu = new ListView();
+            btnAnaSayfayaGeriGec = new Button();
+            SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(47, 86);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(484, 25);
+            label1.TabIndex = 0;
+            label1.Text = "Bordrosunu Hesaplamak İstediğiniz Personeli Seçiniz :";
+            // 
+            // cbPersonelAdSoyad
+            // 
+            cbPersonelAdSoyad.FormattingEnabled = true;
+            cbPersonelAdSoyad.Location = new Point(538, 83);
+            cbPersonelAdSoyad.Name = "cbPersonelAdSoyad";
+            cbPersonelAdSoyad.Size = new Size(251, 33);
+            cbPersonelAdSoyad.TabIndex = 1;
+            // 
+            // btnBordroHesapla
+            // 
+            btnBordroHesapla.Location = new Point(538, 140);
+            btnBordroHesapla.Name = "btnBordroHesapla";
+            btnBordroHesapla.Size = new Size(253, 52);
+            btnBordroHesapla.TabIndex = 2;
+            btnBordroHesapla.Text = "Bordro Hesapla";
+            btnBordroHesapla.UseVisualStyleBackColor = true;
+            btnBordroHesapla.Click += btnBordroHesapla_Click;
+            // 
+            // lstvPersonelBordrosu
+            // 
+            lstvPersonelBordrosu.Location = new Point(47, 223);
+            lstvPersonelBordrosu.Name = "lstvPersonelBordrosu";
+            lstvPersonelBordrosu.Size = new Size(1304, 94);
+            lstvPersonelBordrosu.TabIndex = 3;
+            lstvPersonelBordrosu.UseCompatibleStateImageBehavior = false;
+            // 
+            // btnAnaSayfayaGeriGec
+            // 
+            btnAnaSayfayaGeriGec.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold);
+            btnAnaSayfayaGeriGec.Location = new Point(47, 23);
+            btnAnaSayfayaGeriGec.Name = "btnAnaSayfayaGeriGec";
+            btnAnaSayfayaGeriGec.Size = new Size(60, 41);
+            btnAnaSayfayaGeriGec.TabIndex = 4;
+            btnAnaSayfayaGeriGec.Text = "<";
+            btnAnaSayfayaGeriGec.UseVisualStyleBackColor = true;
+            btnAnaSayfayaGeriGec.Click += btnAnaSayfayaGeriGec_Click;
+            // 
+            // Form4
+            // 
+            AutoScaleDimensions = new SizeF(12F, 25F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1392, 400);
+            Controls.Add(btnAnaSayfayaGeriGec);
+            Controls.Add(lstvPersonelBordrosu);
+            Controls.Add(btnBordroHesapla);
+            Controls.Add(cbPersonelAdSoyad);
+            Controls.Add(label1);
+            Font = new Font("Microsoft Sans Serif", 12F);
+            Margin = new Padding(4);
+            Name = "Form4";
+            Text = "Form4";
+            Load += Form4_Load;
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
+
+        private Label label1;
+        private ComboBox cbPersonelAdSoyad;
+        private Button btnBordroHesapla;
+        private ListView lstvPersonelBordrosu;
+        private Button btnAnaSayfayaGeriGec;
     }
 }
