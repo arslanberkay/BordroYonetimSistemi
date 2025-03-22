@@ -30,9 +30,9 @@
         {
             lstvTumPersonelBordrosu = new ListView();
             btnAnaSayfayaGeriGec = new Button();
-            button2 = new Button();
-            button3 = new Button();
-            button4 = new Button();
+            btnPdfOlustur = new Button();
+            btnExcelOlustur = new Button();
+            btnMailGonder = new Button();
             SuspendLayout();
             // 
             // lstvTumPersonelBordrosu
@@ -53,42 +53,45 @@
             btnAnaSayfayaGeriGec.TabIndex = 1;
             btnAnaSayfayaGeriGec.Text = "<";
             btnAnaSayfayaGeriGec.UseVisualStyleBackColor = true;
+            btnAnaSayfayaGeriGec.Click += btnAnaSayfayaGeriGec_Click;
             // 
-            // button2
+            // btnPdfOlustur
             // 
-            button2.Location = new Point(265, 546);
-            button2.Name = "button2";
-            button2.Size = new Size(349, 58);
-            button2.TabIndex = 1;
-            button2.Text = "PDF Oluştur";
-            button2.UseVisualStyleBackColor = true;
+            btnPdfOlustur.Location = new Point(265, 546);
+            btnPdfOlustur.Name = "btnPdfOlustur";
+            btnPdfOlustur.Size = new Size(349, 58);
+            btnPdfOlustur.TabIndex = 1;
+            btnPdfOlustur.Text = "PDF Oluştur";
+            btnPdfOlustur.UseVisualStyleBackColor = true;
+            btnPdfOlustur.Click += btnPdfOlustur_Click;
             // 
-            // button3
+            // btnExcelOlustur
             // 
-            button3.Location = new Point(666, 546);
-            button3.Name = "button3";
-            button3.Size = new Size(349, 58);
-            button3.TabIndex = 1;
-            button3.Text = "EXCEL Oluştur";
-            button3.UseVisualStyleBackColor = true;
+            btnExcelOlustur.Location = new Point(666, 546);
+            btnExcelOlustur.Name = "btnExcelOlustur";
+            btnExcelOlustur.Size = new Size(349, 58);
+            btnExcelOlustur.TabIndex = 1;
+            btnExcelOlustur.Text = "EXCEL Oluştur";
+            btnExcelOlustur.UseVisualStyleBackColor = true;
+            btnExcelOlustur.Click += btnExcelOlustur_Click;
             // 
-            // button4
+            // btnMailGonder
             // 
-            button4.Location = new Point(1067, 546);
-            button4.Name = "button4";
-            button4.Size = new Size(349, 58);
-            button4.TabIndex = 1;
-            button4.Text = "Mail Gönder";
-            button4.UseVisualStyleBackColor = true;
+            btnMailGonder.Location = new Point(1067, 546);
+            btnMailGonder.Name = "btnMailGonder";
+            btnMailGonder.Size = new Size(349, 58);
+            btnMailGonder.TabIndex = 1;
+            btnMailGonder.Text = "Mail Gönder";
+            btnMailGonder.UseVisualStyleBackColor = true;
             // 
             // Form5
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1511, 721);
-            Controls.Add(button4);
-            Controls.Add(button3);
-            Controls.Add(button2);
+            Controls.Add(btnMailGonder);
+            Controls.Add(btnExcelOlustur);
+            Controls.Add(btnPdfOlustur);
             Controls.Add(btnAnaSayfayaGeriGec);
             Controls.Add(lstvTumPersonelBordrosu);
             Font = new Font("Segoe UI", 12F);
@@ -103,8 +106,8 @@
 
         private ListView lstvTumPersonelBordrosu;
         private Button btnAnaSayfayaGeriGec;
-        private Button button2;
-        private Button button3;
-        private Button button4;
+        private Button btnPdfOlustur;
+        private Button btnExcelOlustur;
+        private Button btnMailGonder;
     }
 }

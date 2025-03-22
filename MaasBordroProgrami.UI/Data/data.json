@@ -7,16 +7,20 @@
   },
   {
     "AdSoyad": "Berkay Arslan",
-    "CalismaSaati": 15,
+    "CalismaSaati": 125,
     "Kadro": "Yönetici",
     "Derece": "-"
   },
-
   {
     "AdSoyad": "Bünyamin Arslan",
     "CalismaSaati": 200,
     "Kadro": "Memur",
     "Derece": "Uzman Memur"
   },
-  
+  {
+    "AdSoyad": "Ekrem Hosanlı",
+    "CalismaSaati": 140,
+    "Kadro": "Memur",
+    "Derece": "Kıdemli Memur"
+  }
 ]
