@@ -67,7 +67,7 @@
             // 
             lstvPersonelBordrosu.Location = new Point(47, 223);
             lstvPersonelBordrosu.Name = "lstvPersonelBordrosu";
-            lstvPersonelBordrosu.Size = new Size(1342, 104);
+            lstvPersonelBordrosu.Size = new Size(1334, 90);
             lstvPersonelBordrosu.TabIndex = 3;
             lstvPersonelBordrosu.UseCompatibleStateImageBehavior = false;
             // 

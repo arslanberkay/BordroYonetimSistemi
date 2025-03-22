@@ -19,16 +19,17 @@ namespace MaasBordroProgrami.UI
             InitializeComponent();
         }
 
+
         private void TabloOlustur()
         {
             lstvPersonelBordrosu.View = View.Details;
             lstvPersonelBordrosu.GridLines = true;
             lstvPersonelBordrosu.Columns.Add("Personel Ad - Soyad", 225);
-            lstvPersonelBordrosu.Columns.Add("Kadro", 225, HorizontalAlignment.Center);
-            lstvPersonelBordrosu.Columns.Add("Çalışma Saati", 225, HorizontalAlignment.Center);
-            lstvPersonelBordrosu.Columns.Add("Ana Ödeme", 225, HorizontalAlignment.Center);
-            lstvPersonelBordrosu.Columns.Add("Mesai Ücreti", 225, HorizontalAlignment.Center);
-            lstvPersonelBordrosu.Columns.Add("Toplam Ödeme", 225, HorizontalAlignment.Center);
+            lstvPersonelBordrosu.Columns.Add("Kadro", 220, HorizontalAlignment.Center);
+            lstvPersonelBordrosu.Columns.Add("Çalışma Saati", 220, HorizontalAlignment.Center);
+            lstvPersonelBordrosu.Columns.Add("Ana Ödeme", 220, HorizontalAlignment.Center);
+            lstvPersonelBordrosu.Columns.Add("Mesai Ücreti", 220, HorizontalAlignment.Center);
+            lstvPersonelBordrosu.Columns.Add("Toplam Ödeme", 220, HorizontalAlignment.Center);
 
         }
 
@@ -55,6 +56,9 @@ namespace MaasBordroProgrami.UI
 
         private void btnBordroHesapla_Click(object sender, EventArgs e)
         {
+            lstvPersonelBordrosu.Clear();
+            TabloOlustur();
+
             if (cbPersonelAdSoyad.SelectedItem == null)
             {
                 MessageBox.Show("Personel seçimi boş geçilemez!");
@@ -67,12 +71,16 @@ namespace MaasBordroProgrami.UI
             MaasBordro maasBordro = new MaasBordro();
             maasBordro.PersonelIsmi = seciliPersonel.AdSoyad;
             maasBordro.CalismaSaati = seciliPersonel.CalismaSaati;
-            maasBordro.ToplamOdeme = seciliPersonel.MaasHesapla();
+            maasBordro.AnaOdeme = seciliPersonel.MaasHesapla();
+            maasBordro.MesaiUcreti = seciliPersonel.MesaiHesapla();
+            maasBordro.ToplamOdeme = seciliPersonel.MaasHesapla() + seciliPersonel.MesaiHesapla();
 
             ListViewItem listViewItem = new ListViewItem();
             listViewItem.Text = maasBordro.PersonelIsmi;
             listViewItem.SubItems.Add(seciliPersonel.Kadro.ToString());
             listViewItem.SubItems.Add(maasBordro.CalismaSaati.ToString());
+            listViewItem.SubItems.Add(maasBordro.AnaOdeme.ToString());
+            listViewItem.SubItems.Add(maasBordro.MesaiUcreti.ToString());
             listViewItem.SubItems.Add(maasBordro.ToplamOdeme.ToString());
 
             lstvPersonelBordrosu.Items.Add(listViewItem);

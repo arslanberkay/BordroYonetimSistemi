@@ -21,5 +21,12 @@ namespace MaasBordroProgrami.UI
             Form4 form4 = new Form4();
             form4.ShowDialog();
         }
+
+        private void btnTopluBordroGoruntule_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form5 form5 = new Form5();
+            form5.ShowDialog();
+        }
     }
 }

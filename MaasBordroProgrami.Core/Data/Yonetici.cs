@@ -44,7 +44,12 @@ namespace MaasBordroProgrami.Core.Data
 
         public decimal MaasHesapla()
         {
-            return (CalismaSaati * SaatlikUcret) + Bonus;
+            return (CalismaSaati * SaatlikUcret)  ;
+        }
+
+        public decimal MesaiHesapla()
+        {
+            return Bonus;
         }
     }
 }

@@ -74,6 +74,7 @@
             btnTopluBordroGoruntule.TabIndex = 1;
             btnTopluBordroGoruntule.Text = "Toplu Bordro Görüntüle";
             btnTopluBordroGoruntule.UseVisualStyleBackColor = true;
+            btnTopluBordroGoruntule.Click += btnTopluBordroGoruntule_Click;
             // 
             // btnUygulamadanCik
             // 

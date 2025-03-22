@@ -18,5 +18,7 @@ namespace MaasBordroProgrami.Core.Interfaces
         public string Derece { get; set; }
 
         public  decimal MaasHesapla();
+        public decimal MesaiHesapla();
+
     }
 }

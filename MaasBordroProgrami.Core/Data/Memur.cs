@@ -60,11 +60,14 @@ namespace MaasBordroProgrami.Core.Data
             }
         }
 
-
-
         public decimal MaasHesapla()
         {
-            return (SaatlikUcret * CalismaSaati) + (ekMesaiSaati * SaatlikUcret * 1.5m);
+            return (SaatlikUcret * CalismaSaati - ekMesaiSaati);
+        }
+
+        public decimal MesaiHesapla()
+        {
+            return (ekMesaiSaati * (SaatlikUcret * 3 / 2));
         }
     }
 }
