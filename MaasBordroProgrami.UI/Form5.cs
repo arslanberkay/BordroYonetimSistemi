@@ -11,6 +11,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ClosedXML.Excel;
+using System.Net.Mail;
+using Microsoft.VisualBasic.Devices;
+using System.Net;
 
 namespace MaasBordroProgrami.UI
 {
@@ -190,8 +193,60 @@ namespace MaasBordroProgrami.UI
                         MessageBox.Show("Excel dosyası başarıyla oluşturuldu.");
                     }
                 }
+            }
+        }
 
+        private void btnMailGonder_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string excelDosyaYolu = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "BordroRaporu.xlsx");
+                using (var workbook = new XLWorkbook())
+                {
+                    var worksheet = workbook.Worksheets.Add("Bordro Raporu");
 
+                    for (int col = 0; col < lstvTumPersonelBordrosu.Columns.Count; col++)
+                    {
+                        var headerCell = worksheet.Cell(1, col + 1);
+                        headerCell.Value = lstvTumPersonelBordrosu.Columns[col].Text;
+                        headerCell.Style.Font.Bold = true; 
+                        headerCell.Style.Fill.BackgroundColor = XLColor.LightBlue; 
+                        headerCell.Style.Border.OutsideBorder = XLBorderStyleValues.Thin; 
+                    }
+
+                    int row = 2;
+                    foreach (ListViewItem listviewitem in lstvTumPersonelBordrosu.Items)
+                    {
+                        for (int i = 0; i < listviewitem.SubItems.Count; i++)
+                        {
+                            var cell = worksheet.Cell(row, i + 1);
+                            cell.Value = listviewitem.SubItems[i].Text;
+                            cell.Style.Border.OutsideBorder = XLBorderStyleValues.Thin; 
+                        }
+                        row++;
+                    }
+                    worksheet.Columns().AdjustToContents();
+                    workbook.SaveAs(excelDosyaYolu);
+                }
+
+                MailMessage mail = new MailMessage();
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com");
+
+                mail.From = new MailAddress("berkayarslanyzl@gmail.com");
+                mail.To.Add("linaa.arslann@gmail.com");
+                mail.Body = "Maaş bordro raporu ektedir.";
+
+                mail.Attachments.Add(new Attachment(excelDosyaYolu));
+                smtpClient.Port = 587;
+                smtpClient.Credentials = new NetworkCredential("berkayarslanyzl@gmail.com", "dvkcizljotgfubov");
+                smtpClient.EnableSsl = true;
+                smtpClient.Send(mail);
+
+                MessageBox.Show("Mail başarıyla gönderildi.");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Mail gönderimi sırasında bir hata oluştur.\n Hata mesajı : {ex.Message}");
             }
         }
     }

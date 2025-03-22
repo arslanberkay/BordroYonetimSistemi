@@ -83,6 +83,7 @@
             btnMailGonder.TabIndex = 1;
             btnMailGonder.Text = "Mail Gönder";
             btnMailGonder.UseVisualStyleBackColor = true;
+            btnMailGonder.Click += btnMailGonder_Click;
             // 
             // Form5
             // 
