@@ -74,6 +74,26 @@ namespace MaasBordroProgrami.Core.Data
 
         }
 
+        public static void PersonelAdinaKaydet(MaasBordro personelBordro, string personelAdSoyad)
+        {
+
+            string masaUstuYolu = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+            string klasorYolu = Path.Combine(masaUstuYolu, personelAdSoyad.ToUpper());
+            if (!Directory.Exists(klasorYolu))
+            {
+                Directory.CreateDirectory(klasorYolu);
+            }
+
+            string dosyaYolu = Path.Combine(klasorYolu, $"{personelAdSoyad.ToLower()}bordro.json");
+
+            var jsonAyarlar = new JsonSerializerOptions { WriteIndented = true };
+            string jsonPersonel = System.Text.Json.JsonSerializer.Serialize(personelBordro,jsonAyarlar);
+            File.WriteAllText(dosyaYolu, jsonPersonel);
+
+            
+        }
+
     }
 }
 

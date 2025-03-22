@@ -84,8 +84,34 @@ namespace MaasBordroProgrami.UI
             listViewItem.SubItems.Add(maasBordro.ToplamOdeme.ToString());
 
             lstvPersonelBordrosu.Items.Add(listViewItem);
+        }
 
+        private void btnJsonDosyaKaydet_Click(object sender, EventArgs e)
+        {
+            if (cbPersonelAdSoyad.SelectedItem == null)
+            {
+                MessageBox.Show("Lütfen bir personel seçniniz!");
+                return;
+            }
+            if (lstvPersonelBordrosu.Items.Count == 0)
+            {
+                MessageBox.Show("Lütfen önce bordro hesaplaması yapınız!");
+                return;
+            }
 
+            int seciliIndex = cbPersonelAdSoyad.SelectedIndex;
+            IPersonel seciliPersonel = personelListesi[seciliIndex];
+
+            MaasBordro maasBordro = new MaasBordro();
+            maasBordro.PersonelIsmi = seciliPersonel.AdSoyad;
+            maasBordro.CalismaSaati = seciliPersonel.CalismaSaati;
+            maasBordro.AnaOdeme = seciliPersonel.MaasHesapla();
+            maasBordro.MesaiUcreti = seciliPersonel.MesaiHesapla();
+            maasBordro.ToplamOdeme = seciliPersonel.MaasHesapla() + seciliPersonel.MesaiHesapla();
+
+            JSONDosya.PersonelAdinaKaydet(maasBordro, maasBordro.PersonelIsmi);
+
+            MessageBox.Show($"{maasBordro.PersonelIsmi} için bordro masaüstüne kaydedildi.");
         }
     }
 }

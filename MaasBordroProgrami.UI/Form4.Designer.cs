@@ -33,6 +33,7 @@
             btnBordroHesapla = new Button();
             lstvPersonelBordrosu = new ListView();
             btnAnaSayfayaGeriGec = new Button();
+            btnJsonDosyaKaydet = new Button();
             SuspendLayout();
             // 
             // label1
@@ -82,13 +83,24 @@
             btnAnaSayfayaGeriGec.UseVisualStyleBackColor = true;
             btnAnaSayfayaGeriGec.Click += btnAnaSayfayaGeriGec_Click;
             // 
+            // btnJsonDosyaKaydet
+            // 
+            btnJsonDosyaKaydet.Location = new Point(1031, 330);
+            btnJsonDosyaKaydet.Name = "btnJsonDosyaKaydet";
+            btnJsonDosyaKaydet.Size = new Size(350, 62);
+            btnJsonDosyaKaydet.TabIndex = 2;
+            btnJsonDosyaKaydet.Text = "Dosya Olarak Kaydet";
+            btnJsonDosyaKaydet.UseVisualStyleBackColor = true;
+            btnJsonDosyaKaydet.Click += btnJsonDosyaKaydet_Click;
+            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(12F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1423, 400);
+            ClientSize = new Size(1423, 426);
             Controls.Add(btnAnaSayfayaGeriGec);
             Controls.Add(lstvPersonelBordrosu);
+            Controls.Add(btnJsonDosyaKaydet);
             Controls.Add(btnBordroHesapla);
             Controls.Add(cbPersonelAdSoyad);
             Controls.Add(label1);
@@ -108,5 +120,6 @@
         private Button btnBordroHesapla;
         private ListView lstvPersonelBordrosu;
         private Button btnAnaSayfayaGeriGec;
+        private Button btnJsonDosyaKaydet;
     }
 }
