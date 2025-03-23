@@ -1,4 +1,4 @@
-﻿using MaasBordroProgrami.Core.Enums;
+﻿
 using MaasBordroProgrami.Core.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -44,7 +44,7 @@ namespace MaasBordroProgrami.Core.Data
 
         public decimal MaasHesapla()
         {
-            return (CalismaSaati * SaatlikUcret)  ;
+            return (CalismaSaati * SaatlikUcret);
         }
 
         public decimal MesaiHesapla()

@@ -84,6 +84,21 @@ namespace MaasBordroProgrami.UI
 
         private void btnPdfOlustur_Click(object sender, EventArgs e)
         {
+            PDFOlustur();
+        }
+
+        private void btnExcelOlustur_Click(object sender, EventArgs e)
+        {
+            ExcelOlustur();
+        }
+
+        private void btnMailGonder_Click(object sender, EventArgs e)
+        {
+            MailGonderExcelPDF();
+        }
+
+        public void PDFOlustur()
+        {
             Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
 
             SaveFileDialog saveFileDialog = new SaveFileDialog();
@@ -143,7 +158,7 @@ namespace MaasBordroProgrami.UI
             }
         }
 
-        private void btnExcelOlustur_Click(object sender, EventArgs e)
+        public void ExcelOlustur()
         {
             using (var workbook = new XLWorkbook())
             {
@@ -196,11 +211,14 @@ namespace MaasBordroProgrami.UI
             }
         }
 
-        private void btnMailGonder_Click(object sender, EventArgs e)
+        public void MailGonderExcelPDF()
         {
             try
             {
-                string excelDosyaYolu = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "BordroRaporu.xlsx");
+                string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+                string excelDosyaYolu = Path.Combine(desktopPath, "BordroRaporu.xlsx");
+                string pdfDosyaYolu = Path.Combine(desktopPath, "BordroRaporu.pdf");
+
                 using (var workbook = new XLWorkbook())
                 {
                     var worksheet = workbook.Worksheets.Add("Bordro Raporu");
@@ -209,9 +227,9 @@ namespace MaasBordroProgrami.UI
                     {
                         var headerCell = worksheet.Cell(1, col + 1);
                         headerCell.Value = lstvTumPersonelBordrosu.Columns[col].Text;
-                        headerCell.Style.Font.Bold = true; 
-                        headerCell.Style.Fill.BackgroundColor = XLColor.LightBlue; 
-                        headerCell.Style.Border.OutsideBorder = XLBorderStyleValues.Thin; 
+                        headerCell.Style.Font.Bold = true;
+                        headerCell.Style.Fill.BackgroundColor = XLColor.LightBlue;
+                        headerCell.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
                     }
 
                     int row = 2;
@@ -221,12 +239,64 @@ namespace MaasBordroProgrami.UI
                         {
                             var cell = worksheet.Cell(row, i + 1);
                             cell.Value = listviewitem.SubItems[i].Text;
-                            cell.Style.Border.OutsideBorder = XLBorderStyleValues.Thin; 
+                            cell.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
                         }
                         row++;
                     }
                     worksheet.Columns().AdjustToContents();
                     workbook.SaveAs(excelDosyaYolu);
+                }
+
+                Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+
+                using (FileStream fs = new FileStream(pdfDosyaYolu, FileMode.Create, FileAccess.Write, FileShare.None))
+                {
+                    Document document = new Document();
+                    PdfWriter.GetInstance(document, fs);
+                    document.Open();
+
+                    string arialTtf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "arial.ttf");
+                    BaseFont bf = BaseFont.CreateFont(arialTtf, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+
+                    iTextSharp.text.Font baslikFont = new iTextSharp.text.Font(bf, 18, iTextSharp.text.Font.BOLD);
+                    iTextSharp.text.Font kalinFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.BOLD);
+                    iTextSharp.text.Font normalFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.NORMAL);
+                    iTextSharp.text.Font dateFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.ITALIC);
+
+                    Paragraph baslik = new Paragraph("Personel Bordrosu Raporu", baslikFont);
+                    baslik.Alignment = Element.ALIGN_CENTER;
+                    baslik.SpacingAfter = 10f;
+                    document.Add(baslik);
+
+                    string currentDateTime = DateTime.Now.ToString("dd MMMM yyyy HH:mm");
+                    Paragraph date = new Paragraph("Oluşturulma Tarihi: " + currentDateTime, dateFont);
+                    date.Alignment = Element.ALIGN_RIGHT;
+                    date.SpacingAfter = 20f;
+                    document.Add(date);
+
+                    PdfPTable table = new PdfPTable(lstvTumPersonelBordrosu.Columns.Count);
+                    table.WidthPercentage = 100;
+
+                    foreach (ColumnHeader column in lstvTumPersonelBordrosu.Columns)
+                    {
+                        PdfPCell cell = new PdfPCell(new Phrase(column.Text, kalinFont));
+                        cell.BackgroundColor = BaseColor.LIGHT_GRAY;
+                        cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        table.AddCell(cell);
+                    }
+
+                    foreach (ListViewItem listviewItem in lstvTumPersonelBordrosu.Items)
+                    {
+                        foreach (ListViewItem.ListViewSubItem subItem in listviewItem.SubItems)
+                        {
+                            PdfPCell cell = new PdfPCell(new Phrase(subItem.Text, normalFont));
+                            cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                            table.AddCell(cell);
+                        }
+                    }
+
+                    document.Add(table);
+                    document.Close();
                 }
 
                 MailMessage mail = new MailMessage();
@@ -237,6 +307,8 @@ namespace MaasBordroProgrami.UI
                 mail.Body = "Maaş bordro raporu ektedir.";
 
                 mail.Attachments.Add(new Attachment(excelDosyaYolu));
+                mail.Attachments.Add(new Attachment(pdfDosyaYolu));
+
                 smtpClient.Port = 587;
                 smtpClient.Credentials = new NetworkCredential("berkayarslanyzl@gmail.com", "dvkcizljotgfubov");
                 smtpClient.EnableSsl = true;
@@ -246,9 +318,15 @@ namespace MaasBordroProgrami.UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Mail gönderimi sırasında bir hata oluştur.\n Hata mesajı : {ex.Message}");
+                MessageBox.Show($"Mail gönderimi sırasında bir hata oluştur.\n Hata mesajı : {ex.Message}");
             }
         }
+
+
+
     }
+
+
 }
+
 

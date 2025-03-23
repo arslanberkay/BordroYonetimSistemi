@@ -72,5 +72,6 @@ namespace MaasBordroProgrami.UI
             form2.ShowDialog();
 
         }
+
     }
 }

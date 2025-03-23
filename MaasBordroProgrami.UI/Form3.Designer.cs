@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             groupBox1 = new GroupBox();
             cbPersonelKadro = new ComboBox();
@@ -35,6 +36,7 @@
             label2 = new Label();
             btnPersonelEkle = new Button();
             btnPersonelYonetimSayfasinaGeriGec = new Button();
+            toolTip1 = new ToolTip(components);
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
@@ -54,7 +56,7 @@
             groupBox1.Controls.Add(txtPersonelAdSoyad);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(73, 66);
+            groupBox1.Location = new Point(73, 50);
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4);
@@ -90,7 +92,7 @@
             // 
             // btnPersonelEkle
             // 
-            btnPersonelEkle.Location = new Point(73, 228);
+            btnPersonelEkle.Location = new Point(73, 217);
             btnPersonelEkle.Name = "btnPersonelEkle";
             btnPersonelEkle.Size = new Size(336, 57);
             btnPersonelEkle.TabIndex = 1;
@@ -113,7 +115,8 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(478, 315);
+            BackColor = Color.FromArgb(44, 62, 80);
+            ClientSize = new Size(480, 296);
             Controls.Add(btnPersonelYonetimSayfasinaGeriGec);
             Controls.Add(btnPersonelEkle);
             Controls.Add(groupBox1);
@@ -136,5 +139,6 @@
         private ComboBox cbPersonelKadro;
         private TextBox txtPersonelAdSoyad;
         private Button btnPersonelYonetimSayfasinaGeriGec;
+        private ToolTip toolTip1;
     }
 }

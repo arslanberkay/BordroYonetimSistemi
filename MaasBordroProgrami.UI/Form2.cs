@@ -29,15 +29,13 @@ namespace MaasBordroProgrami.UI
 
             dgvPersonelYonetimi.ReadOnly = true;
 
-            //txtAdSoyad.ReadOnly = txtKadro.ReadOnly = true;
-
-            cbKadro.Items.Add("Memur");
-            cbKadro.Items.Add("Yönetici");
+            txtKadro.ReadOnly = true;
 
             cbDerece.Items.Add("Düz Memur");
             cbDerece.Items.Add("Kıdemli Memur");
             cbDerece.Items.Add("Uzman Memur");
             cbDerece.Items.Add("Baş Memur");
+
 
         }
 
@@ -67,7 +65,7 @@ namespace MaasBordroProgrami.UI
             if (dgvPersonelYonetimi.SelectedRows.Count > 0)
             {
                 txtAdSoyad.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[0].Value.ToString();
-                cbKadro.SelectedItem = dgvPersonelYonetimi.SelectedRows[0].Cells[3].Value.ToString();
+                txtKadro.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[3].Value.ToString();
                 cbDerece.SelectedItem = dgvPersonelYonetimi.SelectedRows[0].Cells[4].Value.ToString();
                 mtxtCalismaSaati.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[1].Value.ToString();
 
@@ -87,7 +85,6 @@ namespace MaasBordroProgrami.UI
         }
 
 
-
         private void btnGuncelle_Click_1(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(mtxtCalismaSaati.Text))
@@ -95,7 +92,7 @@ namespace MaasBordroProgrami.UI
                 MessageBox.Show("Çalışma saati boş olmamalıdır!");
                 return;
             }
-            if (cbDerece.SelectedItem == null && cbKadro.SelectedItem == "Memur")
+            if (cbDerece.SelectedItem == null)
             {
                 MessageBox.Show("Lütfen derece seçiniz!");
                 return;
@@ -104,7 +101,7 @@ namespace MaasBordroProgrami.UI
             IPersonel seciliPersonel = personeller[seciliIndex];
 
             seciliPersonel.AdSoyad = txtAdSoyad.Text;
-            seciliPersonel.Kadro = cbKadro.SelectedItem.ToString();
+
             if (seciliPersonel.Kadro == "Memur")
             {
                 seciliPersonel.Derece = cbDerece.SelectedItem.ToString();
@@ -136,8 +133,10 @@ namespace MaasBordroProgrami.UI
         private void btnAnaSayfayaGeriGec_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 form1 = new Form1();  
+            Form1 form1 = new Form1();
             form1.ShowDialog();
         }
+
+        
     }
 }

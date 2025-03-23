@@ -48,55 +48,64 @@
             // 
             // btnPersonelYonetimi
             // 
-            btnPersonelYonetimi.Location = new Point(182, 131);
+            btnPersonelYonetimi.BackColor = Color.FromArgb(240, 244, 248);
+            btnPersonelYonetimi.FlatStyle = FlatStyle.Flat;
+            btnPersonelYonetimi.Location = new Point(182, 132);
             btnPersonelYonetimi.Name = "btnPersonelYonetimi";
             btnPersonelYonetimi.Size = new Size(282, 58);
             btnPersonelYonetimi.TabIndex = 1;
             btnPersonelYonetimi.Text = "Personel Yönetimi";
-            btnPersonelYonetimi.UseVisualStyleBackColor = true;
+            btnPersonelYonetimi.UseVisualStyleBackColor = false;
             btnPersonelYonetimi.Click += btnPersonelYonetimi_Click;
             // 
             // btnBordroHesaplama
             // 
-            btnBordroHesaplama.Location = new Point(182, 207);
+            btnBordroHesaplama.BackColor = Color.FromArgb(240, 244, 248);
+            btnBordroHesaplama.FlatStyle = FlatStyle.Flat;
+            btnBordroHesaplama.Location = new Point(182, 208);
             btnBordroHesaplama.Name = "btnBordroHesaplama";
             btnBordroHesaplama.Size = new Size(282, 58);
             btnBordroHesaplama.TabIndex = 1;
             btnBordroHesaplama.Text = "Bordro Hesaplama";
-            btnBordroHesaplama.UseVisualStyleBackColor = true;
+            btnBordroHesaplama.UseVisualStyleBackColor = false;
             btnBordroHesaplama.Click += btnBordroHesaplama_Click;
             // 
             // btnTopluBordroGoruntule
             // 
+            btnTopluBordroGoruntule.BackColor = Color.FromArgb(240, 244, 248);
+            btnTopluBordroGoruntule.FlatStyle = FlatStyle.Flat;
             btnTopluBordroGoruntule.Location = new Point(182, 283);
             btnTopluBordroGoruntule.Name = "btnTopluBordroGoruntule";
             btnTopluBordroGoruntule.Size = new Size(282, 58);
             btnTopluBordroGoruntule.TabIndex = 1;
             btnTopluBordroGoruntule.Text = "Toplu Bordro Görüntüle";
-            btnTopluBordroGoruntule.UseVisualStyleBackColor = true;
+            btnTopluBordroGoruntule.UseVisualStyleBackColor = false;
             btnTopluBordroGoruntule.Click += btnTopluBordroGoruntule_Click;
             // 
             // btnUygulamadanCik
             // 
+            btnUygulamadanCik.BackColor = Color.FromArgb(240, 244, 248);
+            btnUygulamadanCik.FlatStyle = FlatStyle.Flat;
             btnUygulamadanCik.Location = new Point(182, 359);
             btnUygulamadanCik.Name = "btnUygulamadanCik";
             btnUygulamadanCik.Size = new Size(282, 58);
             btnUygulamadanCik.TabIndex = 1;
             btnUygulamadanCik.Text = "Uygulamadan Çık";
-            btnUygulamadanCik.UseVisualStyleBackColor = true;
+            btnUygulamadanCik.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(691, 578);
+            BackColor = Color.FromArgb(44, 62, 80);
+            ClientSize = new Size(694, 524);
             Controls.Add(btnUygulamadanCik);
             Controls.Add(btnBordroHesaplama);
             Controls.Add(btnTopluBordroGoruntule);
             Controls.Add(btnPersonelYonetimi);
             Controls.Add(label1);
             Font = new Font("Segoe UI", 12F);
-            Margin = new Padding(4);
+            Margin = new Padding(4, 3, 4, 3);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);

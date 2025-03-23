@@ -28,10 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             groupBox1 = new GroupBox();
             mtxtCalismaSaati = new MaskedTextBox();
-            cbKadro = new ComboBox();
             cbDerece = new ComboBox();
+            txtKadro = new TextBox();
             txtAdSoyad = new TextBox();
             label4 = new Label();
             label3 = new Label();
@@ -49,13 +50,14 @@
             // groupBox1
             // 
             groupBox1.Controls.Add(mtxtCalismaSaati);
-            groupBox1.Controls.Add(cbKadro);
             groupBox1.Controls.Add(cbDerece);
+            groupBox1.Controls.Add(txtKadro);
             groupBox1.Controls.Add(txtAdSoyad);
             groupBox1.Controls.Add(label4);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
+            groupBox1.ForeColor = Color.White;
             groupBox1.Location = new Point(89, 60);
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
@@ -74,14 +76,6 @@
             mtxtCalismaSaati.TabIndex = 3;
             mtxtCalismaSaati.ValidatingType = typeof(int);
             // 
-            // cbKadro
-            // 
-            cbKadro.FormattingEnabled = true;
-            cbKadro.Location = new Point(151, 78);
-            cbKadro.Name = "cbKadro";
-            cbKadro.Size = new Size(203, 36);
-            cbKadro.TabIndex = 2;
-            // 
             // cbDerece
             // 
             cbDerece.FormattingEnabled = true;
@@ -89,6 +83,13 @@
             cbDerece.Name = "cbDerece";
             cbDerece.Size = new Size(203, 36);
             cbDerece.TabIndex = 2;
+            // 
+            // txtKadro
+            // 
+            txtKadro.Location = new Point(151, 81);
+            txtKadro.Name = "txtKadro";
+            txtKadro.Size = new Size(203, 34);
+            txtKadro.TabIndex = 1;
             // 
             // txtAdSoyad
             // 
@@ -100,6 +101,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.ForeColor = Color.White;
             label4.Location = new Point(14, 163);
             label4.Name = "label4";
             label4.Size = new Size(136, 28);
@@ -109,6 +111,7 @@
             // label3
             // 
             label3.AutoSize = true;
+            label3.ForeColor = Color.White;
             label3.Location = new Point(14, 122);
             label3.Name = "label3";
             label3.Size = new Size(81, 28);
@@ -118,6 +121,7 @@
             // label2
             // 
             label2.AutoSize = true;
+            label2.ForeColor = Color.White;
             label2.Location = new Point(14, 81);
             label2.Name = "label2";
             label2.Size = new Size(74, 28);
@@ -127,6 +131,7 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.ForeColor = Color.White;
             label1.Location = new Point(14, 40);
             label1.Name = "label1";
             label1.Size = new Size(106, 28);
@@ -135,61 +140,80 @@
             // 
             // btnSil
             // 
+            btnSil.BackColor = Color.Gainsboro;
+            btnSil.FlatStyle = FlatStyle.Flat;
             btnSil.Location = new Point(593, 153);
             btnSil.Name = "btnSil";
-            btnSil.Size = new Size(119, 52);
+            btnSil.Size = new Size(206, 52);
             btnSil.TabIndex = 1;
             btnSil.Text = "Sil";
-            btnSil.UseVisualStyleBackColor = true;
+            btnSil.UseVisualStyleBackColor = false;
             btnSil.Click += btnSil_Click;
             // 
             // btnGuncelle
             // 
+            btnGuncelle.BackColor = Color.Gainsboro;
+            btnGuncelle.FlatStyle = FlatStyle.Flat;
             btnGuncelle.Location = new Point(593, 211);
             btnGuncelle.Name = "btnGuncelle";
-            btnGuncelle.Size = new Size(119, 52);
+            btnGuncelle.Size = new Size(206, 52);
             btnGuncelle.TabIndex = 1;
             btnGuncelle.Text = "Güncelle";
-            btnGuncelle.UseVisualStyleBackColor = true;
+            btnGuncelle.UseVisualStyleBackColor = false;
             btnGuncelle.Click += btnGuncelle_Click_1;
             // 
             // btnAnaSayfayaGeriGec
             // 
-            btnAnaSayfayaGeriGec.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            btnAnaSayfayaGeriGec.Location = new Point(29, 22);
+            btnAnaSayfayaGeriGec.BackColor = Color.Gainsboro;
+            btnAnaSayfayaGeriGec.FlatStyle = FlatStyle.Flat;
+            btnAnaSayfayaGeriGec.Font = new Font("Segoe UI Symbol", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAnaSayfayaGeriGec.Location = new Point(35, 24);
             btnAnaSayfayaGeriGec.Name = "btnAnaSayfayaGeriGec";
-            btnAnaSayfayaGeriGec.Size = new Size(44, 46);
+            btnAnaSayfayaGeriGec.Size = new Size(47, 49);
             btnAnaSayfayaGeriGec.TabIndex = 1;
             btnAnaSayfayaGeriGec.Text = "<";
-            btnAnaSayfayaGeriGec.UseVisualStyleBackColor = true;
+            btnAnaSayfayaGeriGec.UseVisualStyleBackColor = false;
             btnAnaSayfayaGeriGec.Click += btnAnaSayfayaGeriGec_Click;
             // 
             // dgvPersonelYonetimi
             // 
-            dgvPersonelYonetimi.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvPersonelYonetimi.Location = new Point(89, 300);
+            dgvPersonelYonetimi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvPersonelYonetimi.BackgroundColor = Color.Gainsboro;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvPersonelYonetimi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dgvPersonelYonetimi.ColumnHeadersHeight = 40;
+            dgvPersonelYonetimi.GridColor = Color.LightGray;
+            dgvPersonelYonetimi.Location = new Point(67, 310);
+            dgvPersonelYonetimi.MultiSelect = false;
             dgvPersonelYonetimi.Name = "dgvPersonelYonetimi";
-            dgvPersonelYonetimi.RowHeadersWidth = 51;
+            dgvPersonelYonetimi.RowHeadersWidth = 30;
             dgvPersonelYonetimi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPersonelYonetimi.Size = new Size(928, 290);
+            dgvPersonelYonetimi.Size = new Size(768, 227);
             dgvPersonelYonetimi.TabIndex = 2;
             dgvPersonelYonetimi.CellClick += dgvPersonelYonetimi_CellClick;
             // 
             // btnYeniPersonelKayit
             // 
+            btnYeniPersonelKayit.BackColor = Color.Gainsboro;
+            btnYeniPersonelKayit.FlatStyle = FlatStyle.Flat;
             btnYeniPersonelKayit.Location = new Point(593, 85);
             btnYeniPersonelKayit.Name = "btnYeniPersonelKayit";
             btnYeniPersonelKayit.Size = new Size(206, 57);
             btnYeniPersonelKayit.TabIndex = 3;
             btnYeniPersonelKayit.Text = "Yeni Personel Kayıt";
-            btnYeniPersonelKayit.UseVisualStyleBackColor = true;
+            btnYeniPersonelKayit.UseVisualStyleBackColor = false;
             btnYeniPersonelKayit.Click += btnYeniPersonelKayit_Click;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1080, 630);
+            BackColor = Color.FromArgb(44, 62, 80);
+            ClientSize = new Size(891, 586);
             Controls.Add(btnYeniPersonelKayit);
             Controls.Add(dgvPersonelYonetimi);
             Controls.Add(btnGuncelle);
@@ -222,6 +246,6 @@
         private ComboBox cbDerece;
         private TextBox txtAdSoyad;
         private Button btnYeniPersonelKayit;
-        private ComboBox cbKadro;
+        private TextBox txtKadro;
     }
 }

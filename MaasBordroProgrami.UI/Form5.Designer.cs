@@ -57,7 +57,7 @@
             // 
             // btnPdfOlustur
             // 
-            btnPdfOlustur.Location = new Point(265, 546);
+            btnPdfOlustur.Location = new Point(268, 562);
             btnPdfOlustur.Name = "btnPdfOlustur";
             btnPdfOlustur.Size = new Size(349, 58);
             btnPdfOlustur.TabIndex = 1;
@@ -67,7 +67,7 @@
             // 
             // btnExcelOlustur
             // 
-            btnExcelOlustur.Location = new Point(666, 546);
+            btnExcelOlustur.Location = new Point(669, 562);
             btnExcelOlustur.Name = "btnExcelOlustur";
             btnExcelOlustur.Size = new Size(349, 58);
             btnExcelOlustur.TabIndex = 1;
@@ -77,7 +77,7 @@
             // 
             // btnMailGonder
             // 
-            btnMailGonder.Location = new Point(1067, 546);
+            btnMailGonder.Location = new Point(1070, 562);
             btnMailGonder.Name = "btnMailGonder";
             btnMailGonder.Size = new Size(349, 58);
             btnMailGonder.TabIndex = 1;
@@ -89,6 +89,7 @@
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.FromArgb(44, 62, 80);
             ClientSize = new Size(1511, 721);
             Controls.Add(btnMailGonder);
             Controls.Add(btnExcelOlustur);
