@@ -13,13 +13,13 @@ namespace MaasBordroProgrami.Core.Data
     public class Memur : IPersonel
     {
         public string AdSoyad { get; set; }
-        public string Kadro { get; set; } = "Memur";
+        public string Kadro { get; set; } = "Memur"; //Varsayılan olarak değer atadım.
 
         private int ekMesaiSaati;
-        public string Derece { get; set; } = "Düz Memur";
+        public string Derece { get; set; } = "Düz Memur"; //Eğer seçilmezse varsayılan olarak Düz Memur olur.
 
         private int _calismaSaati;
-        public int CalismaSaati
+        public int CalismaSaati //Çalışma saatini ve ek mesai süresini hesaplar.
         {
             get
             {
@@ -48,14 +48,13 @@ namespace MaasBordroProgrami.Core.Data
         public decimal SaatlikUcret
         {
             get
-            {
-                return Derece switch
+            {   //Memurun Derecesine göre saatlik ücretini döndürür.
+                return Derece switch  //switch expression kullandım.
                 {
                     "Baş Memur" => 575,
                     "Uzman Memur" => 550,
                     "Kıdemli Memur" => 525,
                     "Düz Memur" => 500,
-
                 };
             }
         }
