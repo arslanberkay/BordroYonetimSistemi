@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
             lstvTumPersonelBordrosu = new ListView();
             btnAnaSayfayaGeriGec = new Button();
+            ımageList1 = new ImageList(components);
             btnPdfOlustur = new Button();
+            ımageList2 = new ImageList(components);
             btnExcelOlustur = new Button();
             btnMailGonder = new Button();
             SuspendLayout();
@@ -38,10 +42,10 @@
             // lstvTumPersonelBordrosu
             // 
             lstvTumPersonelBordrosu.BackColor = Color.WhiteSmoke;
-            lstvTumPersonelBordrosu.Location = new Point(58, 95);
+            lstvTumPersonelBordrosu.Location = new Point(80, 75);
             lstvTumPersonelBordrosu.Margin = new Padding(4);
             lstvTumPersonelBordrosu.Name = "lstvTumPersonelBordrosu";
-            lstvTumPersonelBordrosu.Size = new Size(1355, 420);
+            lstvTumPersonelBordrosu.Size = new Size(1291, 362);
             lstvTumPersonelBordrosu.TabIndex = 0;
             lstvTumPersonelBordrosu.UseCompatibleStateImageBehavior = false;
             // 
@@ -49,31 +53,54 @@
             // 
             btnAnaSayfayaGeriGec.BackColor = Color.Gainsboro;
             btnAnaSayfayaGeriGec.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            btnAnaSayfayaGeriGec.Location = new Point(58, 26);
+            btnAnaSayfayaGeriGec.ImageIndex = 0;
+            btnAnaSayfayaGeriGec.ImageList = ımageList1;
+            btnAnaSayfayaGeriGec.Location = new Point(30, 25);
             btnAnaSayfayaGeriGec.Name = "btnAnaSayfayaGeriGec";
-            btnAnaSayfayaGeriGec.Size = new Size(62, 44);
+            btnAnaSayfayaGeriGec.Size = new Size(37, 35);
             btnAnaSayfayaGeriGec.TabIndex = 1;
-            btnAnaSayfayaGeriGec.Text = "<";
             btnAnaSayfayaGeriGec.UseVisualStyleBackColor = false;
             btnAnaSayfayaGeriGec.Click += btnAnaSayfayaGeriGec_Click;
+            // 
+            // ımageList1
+            // 
+            ımageList1.ColorDepth = ColorDepth.Depth32Bit;
+            ımageList1.ImageStream = (ImageListStreamer)resources.GetObject("ımageList1.ImageStream");
+            ımageList1.TransparentColor = Color.Transparent;
+            ımageList1.Images.SetKeyName(0, "9054423_bx_arrow_back_icon.png");
             // 
             // btnPdfOlustur
             // 
             btnPdfOlustur.BackColor = Color.Gainsboro;
-            btnPdfOlustur.Location = new Point(268, 562);
+            btnPdfOlustur.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPdfOlustur.ImageIndex = 1;
+            btnPdfOlustur.ImageList = ımageList2;
+            btnPdfOlustur.Location = new Point(635, 460);
             btnPdfOlustur.Name = "btnPdfOlustur";
-            btnPdfOlustur.Size = new Size(349, 58);
+            btnPdfOlustur.Size = new Size(214, 58);
             btnPdfOlustur.TabIndex = 1;
             btnPdfOlustur.Text = "PDF Oluştur";
             btnPdfOlustur.UseVisualStyleBackColor = false;
             btnPdfOlustur.Click += btnPdfOlustur_Click;
             // 
+            // ımageList2
+            // 
+            ımageList2.ColorDepth = ColorDepth.Depth32Bit;
+            ımageList2.ImageStream = (ImageListStreamer)resources.GetObject("ımageList2.ImageStream");
+            ımageList2.TransparentColor = Color.Transparent;
+            ımageList2.Images.SetKeyName(0, "4202011_email_gmail_mail_logo_social_icon.png");
+            ımageList2.Images.SetKeyName(1, "4518956_adobe_file_pdf_type_icon.png");
+            ımageList2.Images.SetKeyName(2, "6296676_excel_microsoft_office_office365_icon.png");
+            // 
             // btnExcelOlustur
             // 
             btnExcelOlustur.BackColor = Color.Gainsboro;
-            btnExcelOlustur.Location = new Point(669, 562);
+            btnExcelOlustur.ImageAlign = ContentAlignment.MiddleLeft;
+            btnExcelOlustur.ImageIndex = 2;
+            btnExcelOlustur.ImageList = ımageList2;
+            btnExcelOlustur.Location = new Point(873, 460);
             btnExcelOlustur.Name = "btnExcelOlustur";
-            btnExcelOlustur.Size = new Size(349, 58);
+            btnExcelOlustur.Size = new Size(245, 58);
             btnExcelOlustur.TabIndex = 1;
             btnExcelOlustur.Text = "EXCEL Oluştur";
             btnExcelOlustur.UseVisualStyleBackColor = false;
@@ -82,9 +109,12 @@
             // btnMailGonder
             // 
             btnMailGonder.BackColor = Color.Gainsboro;
-            btnMailGonder.Location = new Point(1070, 562);
+            btnMailGonder.ImageAlign = ContentAlignment.MiddleLeft;
+            btnMailGonder.ImageKey = "4202011_email_gmail_mail_logo_social_icon.png";
+            btnMailGonder.ImageList = ımageList2;
+            btnMailGonder.Location = new Point(1144, 460);
             btnMailGonder.Name = "btnMailGonder";
-            btnMailGonder.Size = new Size(349, 58);
+            btnMailGonder.Size = new Size(227, 58);
             btnMailGonder.TabIndex = 1;
             btnMailGonder.Text = "Mail Gönder";
             btnMailGonder.UseVisualStyleBackColor = false;
@@ -95,7 +125,7 @@
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
-            ClientSize = new Size(1511, 721);
+            ClientSize = new Size(1420, 554);
             Controls.Add(btnMailGonder);
             Controls.Add(btnExcelOlustur);
             Controls.Add(btnPdfOlustur);
@@ -117,5 +147,7 @@
         private Button btnPdfOlustur;
         private Button btnExcelOlustur;
         private Button btnMailGonder;
+        private ImageList ımageList1;
+        private ImageList ımageList2;
     }
 }

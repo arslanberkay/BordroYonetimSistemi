@@ -33,7 +33,7 @@ namespace MaasBordroProgrami.Core.Data
 
         public decimal SaatlikUcret => 600;
 
-        public decimal Bonus => 1000;
+        public decimal Bonus => 10000;
 
         public string Derece
         {

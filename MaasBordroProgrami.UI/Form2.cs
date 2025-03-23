@@ -36,7 +36,9 @@ namespace MaasBordroProgrami.UI
             cbDerece.Items.Add("Uzman Memur");
             cbDerece.Items.Add("Baş Memur");
 
+            dgvPersonelYonetimi.ClearSelection();
 
+        
         }
 
         private void VerileriYukle()
@@ -50,14 +52,6 @@ namespace MaasBordroProgrami.UI
             {
                 MessageBox.Show("Veri yüklenirken hata oluştu: " + ex.Message);
             }
-        }
-
-        private void btnYeniPersonelKayit_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form3 form3 = new Form3();
-            form3.ShowDialog();
-
         }
 
         private void dgvPersonelYonetimi_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -75,6 +69,7 @@ namespace MaasBordroProgrami.UI
             IPersonel seciliPersonel = personeller[seciliIndex];
             if (seciliPersonel.Kadro == "Yönetici")
             {
+                cbDerece.Text = string.Empty;
                 cbDerece.SelectedItem = null;
                 cbDerece.Enabled = false;
             }
@@ -87,16 +82,22 @@ namespace MaasBordroProgrami.UI
 
         private void btnGuncelle_Click_1(object sender, EventArgs e)
         {
+            if (dgvPersonelYonetimi.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Lütfen güncellemek istediğiniz kullanıcıyı seçiniz!");
+                return;
+            }
             if (string.IsNullOrWhiteSpace(mtxtCalismaSaati.Text))
             {
                 MessageBox.Show("Çalışma saati boş olmamalıdır!");
                 return;
             }
-            if (cbDerece.SelectedItem == null)
+            if (cbDerece.SelectedItem == null && txtKadro.Text == "Memur")
             {
                 MessageBox.Show("Lütfen derece seçiniz!");
                 return;
             }
+
             int seciliIndex = dgvPersonelYonetimi.SelectedRows[0].Index;
             IPersonel seciliPersonel = personeller[seciliIndex];
 
@@ -118,6 +119,11 @@ namespace MaasBordroProgrami.UI
 
         private void btnSil_Click(object sender, EventArgs e)
         {
+            if (dgvPersonelYonetimi.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Lütfen silmek istediğiniz personeli seçiniz!");
+                return;
+            }
             int seciliIndex = dgvPersonelYonetimi.SelectedRows[0].Index;
 
             personeller.RemoveAt(seciliIndex);
@@ -137,6 +143,6 @@ namespace MaasBordroProgrami.UI
             form1.ShowDialog();
         }
 
-        
+       
     }
 }

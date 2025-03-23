@@ -59,7 +59,7 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(73, 56);
+            groupBox1.Location = new Point(77, 66);
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4);
@@ -103,7 +103,7 @@
             btnPersonelEkle.ImageAlign = ContentAlignment.MiddleLeft;
             btnPersonelEkle.ImageIndex = 0;
             btnPersonelEkle.ImageList = ımageList1;
-            btnPersonelEkle.Location = new Point(208, 218);
+            btnPersonelEkle.Location = new Point(212, 228);
             btnPersonelEkle.Name = "btnPersonelEkle";
             btnPersonelEkle.Size = new Size(217, 52);
             btnPersonelEkle.TabIndex = 1;
@@ -117,16 +117,18 @@
             ımageList1.ImageStream = (ImageListStreamer)resources.GetObject("ımageList1.ImageStream");
             ımageList1.TransparentColor = Color.Transparent;
             ımageList1.Images.SetKeyName(0, "9035989_person_add_sharp_icon.png");
+            ımageList1.Images.SetKeyName(1, "9054423_bx_arrow_back_icon.png");
             // 
             // btnPersonelYonetimSayfasinaGeriGec
             // 
             btnPersonelYonetimSayfasinaGeriGec.BackColor = Color.Gainsboro;
             btnPersonelYonetimSayfasinaGeriGec.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
-            btnPersonelYonetimSayfasinaGeriGec.Location = new Point(22, 21);
+            btnPersonelYonetimSayfasinaGeriGec.ImageIndex = 1;
+            btnPersonelYonetimSayfasinaGeriGec.ImageList = ımageList1;
+            btnPersonelYonetimSayfasinaGeriGec.Location = new Point(30, 25);
             btnPersonelYonetimSayfasinaGeriGec.Name = "btnPersonelYonetimSayfasinaGeriGec";
-            btnPersonelYonetimSayfasinaGeriGec.Size = new Size(44, 46);
+            btnPersonelYonetimSayfasinaGeriGec.Size = new Size(37, 35);
             btnPersonelYonetimSayfasinaGeriGec.TabIndex = 2;
-            btnPersonelYonetimSayfasinaGeriGec.Text = "<";
             btnPersonelYonetimSayfasinaGeriGec.UseVisualStyleBackColor = false;
             btnPersonelYonetimSayfasinaGeriGec.Click += btnPersonelYonetimSayfasinaGeriGec_Click;
             // 
@@ -135,7 +137,7 @@
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
-            ClientSize = new Size(480, 296);
+            ClientSize = new Size(490, 313);
             Controls.Add(btnPersonelYonetimSayfasinaGeriGec);
             Controls.Add(btnPersonelEkle);
             Controls.Add(groupBox1);

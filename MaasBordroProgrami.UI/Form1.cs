@@ -29,6 +29,17 @@ namespace MaasBordroProgrami.UI
             form5.ShowDialog();
         }
 
-        
+        private void btnYeniPersonelKayit_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form3 form3 = new Form3();
+            form3.ShowDialog();
+
+        }
+
+        private void btnUygulamadanCik_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

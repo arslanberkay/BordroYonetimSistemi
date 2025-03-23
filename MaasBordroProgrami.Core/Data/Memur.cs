@@ -51,9 +51,9 @@ namespace MaasBordroProgrami.Core.Data
             {
                 return Derece switch
                 {
-                    "Baş Memur" => 650,
-                    "Uzman Memur" => 600,
-                    "Kıdemli Memur" => 550,
+                    "Baş Memur" => 575,
+                    "Uzman Memur" => 550,
+                    "Kıdemli Memur" => 525,
                     "Düz Memur" => 500,
 
                 };

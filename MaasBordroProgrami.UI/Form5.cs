@@ -30,6 +30,7 @@ namespace MaasBordroProgrami.UI
         {
             var personelListesi = JSONDosya.PersonelListesiOku().ToList();
 
+            tumPersonelBordro.Clear();
             foreach (var item in personelListesi)
             {
                 MaasBordro maasBordro = new MaasBordro();
@@ -61,6 +62,7 @@ namespace MaasBordroProgrami.UI
             TabloOlustur();
             TumCalisanBordroHesapla();
 
+            lstvTumPersonelBordrosu.Items.Clear();
             foreach (var personel in tumPersonelBordro)
             {
                 ListViewItem listViewItem = new ListViewItem();
