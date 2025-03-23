@@ -29,21 +29,23 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             label1 = new Label();
             groupBox1 = new GroupBox();
             cbPersonelKadro = new ComboBox();
             txtPersonelAdSoyad = new TextBox();
             label2 = new Label();
             btnPersonelEkle = new Button();
+            ımageList1 = new ImageList(components);
             btnPersonelYonetimSayfasinaGeriGec = new Button();
-            toolTip1 = new ToolTip(components);
             groupBox1.SuspendLayout();
             SuspendLayout();
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(27, 45);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(20, 45);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(106, 28);
@@ -56,34 +58,38 @@
             groupBox1.Controls.Add(txtPersonelAdSoyad);
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
-            groupBox1.Location = new Point(73, 50);
+            groupBox1.ForeColor = Color.White;
+            groupBox1.Location = new Point(73, 56);
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4);
-            groupBox1.Size = new Size(361, 145);
+            groupBox1.Size = new Size(352, 145);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Personel Bilgileri";
             // 
             // cbPersonelKadro
             // 
+            cbPersonelKadro.BackColor = Color.WhiteSmoke;
             cbPersonelKadro.FormattingEnabled = true;
-            cbPersonelKadro.Location = new Point(140, 91);
+            cbPersonelKadro.Location = new Point(135, 94);
             cbPersonelKadro.Name = "cbPersonelKadro";
-            cbPersonelKadro.Size = new Size(189, 36);
+            cbPersonelKadro.Size = new Size(191, 36);
             cbPersonelKadro.TabIndex = 2;
             // 
             // txtPersonelAdSoyad
             // 
-            txtPersonelAdSoyad.Location = new Point(140, 42);
+            txtPersonelAdSoyad.BackColor = Color.WhiteSmoke;
+            txtPersonelAdSoyad.Location = new Point(135, 45);
             txtPersonelAdSoyad.Name = "txtPersonelAdSoyad";
-            txtPersonelAdSoyad.Size = new Size(189, 34);
+            txtPersonelAdSoyad.Size = new Size(191, 34);
             txtPersonelAdSoyad.TabIndex = 1;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(27, 94);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(20, 94);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(74, 28);
@@ -92,23 +98,36 @@
             // 
             // btnPersonelEkle
             // 
-            btnPersonelEkle.Location = new Point(73, 217);
+            btnPersonelEkle.BackColor = Color.Gainsboro;
+            btnPersonelEkle.ForeColor = Color.Black;
+            btnPersonelEkle.ImageAlign = ContentAlignment.MiddleLeft;
+            btnPersonelEkle.ImageIndex = 0;
+            btnPersonelEkle.ImageList = ımageList1;
+            btnPersonelEkle.Location = new Point(208, 218);
             btnPersonelEkle.Name = "btnPersonelEkle";
-            btnPersonelEkle.Size = new Size(336, 57);
+            btnPersonelEkle.Size = new Size(217, 52);
             btnPersonelEkle.TabIndex = 1;
             btnPersonelEkle.Text = "Personel Ekle";
-            btnPersonelEkle.UseVisualStyleBackColor = true;
+            btnPersonelEkle.UseVisualStyleBackColor = false;
             btnPersonelEkle.Click += btnPersonelEkle_Click;
+            // 
+            // ımageList1
+            // 
+            ımageList1.ColorDepth = ColorDepth.Depth32Bit;
+            ımageList1.ImageStream = (ImageListStreamer)resources.GetObject("ımageList1.ImageStream");
+            ımageList1.TransparentColor = Color.Transparent;
+            ımageList1.Images.SetKeyName(0, "9035989_person_add_sharp_icon.png");
             // 
             // btnPersonelYonetimSayfasinaGeriGec
             // 
+            btnPersonelYonetimSayfasinaGeriGec.BackColor = Color.Gainsboro;
             btnPersonelYonetimSayfasinaGeriGec.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
             btnPersonelYonetimSayfasinaGeriGec.Location = new Point(22, 21);
             btnPersonelYonetimSayfasinaGeriGec.Name = "btnPersonelYonetimSayfasinaGeriGec";
             btnPersonelYonetimSayfasinaGeriGec.Size = new Size(44, 46);
             btnPersonelYonetimSayfasinaGeriGec.TabIndex = 2;
             btnPersonelYonetimSayfasinaGeriGec.Text = "<";
-            btnPersonelYonetimSayfasinaGeriGec.UseVisualStyleBackColor = true;
+            btnPersonelYonetimSayfasinaGeriGec.UseVisualStyleBackColor = false;
             btnPersonelYonetimSayfasinaGeriGec.Click += btnPersonelYonetimSayfasinaGeriGec_Click;
             // 
             // Form3
@@ -123,6 +142,7 @@
             Font = new Font("Segoe UI", 12F);
             Margin = new Padding(4);
             Name = "Form3";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form3";
             Load += Form3_Load;
             groupBox1.ResumeLayout(false);
@@ -139,6 +159,6 @@
         private ComboBox cbPersonelKadro;
         private TextBox txtPersonelAdSoyad;
         private Button btnPersonelYonetimSayfasinaGeriGec;
-        private ToolTip toolTip1;
+        private ImageList ımageList1;
     }
 }

@@ -39,6 +39,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14F);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(153, 72);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
@@ -48,7 +49,7 @@
             // 
             // btnPersonelYonetimi
             // 
-            btnPersonelYonetimi.BackColor = Color.FromArgb(240, 244, 248);
+            btnPersonelYonetimi.BackColor = Color.Gainsboro;
             btnPersonelYonetimi.FlatStyle = FlatStyle.Flat;
             btnPersonelYonetimi.Location = new Point(182, 132);
             btnPersonelYonetimi.Name = "btnPersonelYonetimi";
@@ -60,7 +61,7 @@
             // 
             // btnBordroHesaplama
             // 
-            btnBordroHesaplama.BackColor = Color.FromArgb(240, 244, 248);
+            btnBordroHesaplama.BackColor = Color.Gainsboro;
             btnBordroHesaplama.FlatStyle = FlatStyle.Flat;
             btnBordroHesaplama.Location = new Point(182, 208);
             btnBordroHesaplama.Name = "btnBordroHesaplama";
@@ -72,7 +73,7 @@
             // 
             // btnTopluBordroGoruntule
             // 
-            btnTopluBordroGoruntule.BackColor = Color.FromArgb(240, 244, 248);
+            btnTopluBordroGoruntule.BackColor = Color.Gainsboro;
             btnTopluBordroGoruntule.FlatStyle = FlatStyle.Flat;
             btnTopluBordroGoruntule.Location = new Point(182, 283);
             btnTopluBordroGoruntule.Name = "btnTopluBordroGoruntule";
@@ -84,7 +85,7 @@
             // 
             // btnUygulamadanCik
             // 
-            btnUygulamadanCik.BackColor = Color.FromArgb(240, 244, 248);
+            btnUygulamadanCik.BackColor = Color.Gainsboro;
             btnUygulamadanCik.FlatStyle = FlatStyle.Flat;
             btnUygulamadanCik.Location = new Point(182, 359);
             btnUygulamadanCik.Name = "btnUygulamadanCik";
@@ -105,8 +106,10 @@
             Controls.Add(btnPersonelYonetimi);
             Controls.Add(label1);
             Font = new Font("Segoe UI", 12F);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4, 3, 4, 3);
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ResumeLayout(false);
             PerformLayout();

@@ -58,7 +58,7 @@
             groupBox1.Controls.Add(label2);
             groupBox1.Controls.Add(label1);
             groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(89, 60);
+            groupBox1.Location = new Point(88, 67);
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4);
@@ -142,7 +142,7 @@
             // 
             btnSil.BackColor = Color.Gainsboro;
             btnSil.FlatStyle = FlatStyle.Flat;
-            btnSil.Location = new Point(593, 153);
+            btnSil.Location = new Point(592, 160);
             btnSil.Name = "btnSil";
             btnSil.Size = new Size(206, 52);
             btnSil.TabIndex = 1;
@@ -154,7 +154,7 @@
             // 
             btnGuncelle.BackColor = Color.Gainsboro;
             btnGuncelle.FlatStyle = FlatStyle.Flat;
-            btnGuncelle.Location = new Point(593, 211);
+            btnGuncelle.Location = new Point(592, 218);
             btnGuncelle.Name = "btnGuncelle";
             btnGuncelle.Size = new Size(206, 52);
             btnGuncelle.TabIndex = 1;
@@ -178,7 +178,7 @@
             // dgvPersonelYonetimi
             // 
             dgvPersonelYonetimi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dgvPersonelYonetimi.BackgroundColor = Color.Gainsboro;
+            dgvPersonelYonetimi.BackgroundColor = Color.WhiteSmoke;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
@@ -187,7 +187,7 @@
             dgvPersonelYonetimi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPersonelYonetimi.ColumnHeadersHeight = 40;
             dgvPersonelYonetimi.GridColor = Color.LightGray;
-            dgvPersonelYonetimi.Location = new Point(67, 310);
+            dgvPersonelYonetimi.Location = new Point(66, 317);
             dgvPersonelYonetimi.MultiSelect = false;
             dgvPersonelYonetimi.Name = "dgvPersonelYonetimi";
             dgvPersonelYonetimi.RowHeadersWidth = 30;
@@ -200,7 +200,7 @@
             // 
             btnYeniPersonelKayit.BackColor = Color.Gainsboro;
             btnYeniPersonelKayit.FlatStyle = FlatStyle.Flat;
-            btnYeniPersonelKayit.Location = new Point(593, 85);
+            btnYeniPersonelKayit.Location = new Point(592, 92);
             btnYeniPersonelKayit.Name = "btnYeniPersonelKayit";
             btnYeniPersonelKayit.Size = new Size(206, 57);
             btnYeniPersonelKayit.TabIndex = 3;
@@ -223,6 +223,7 @@
             Font = new Font("Segoe UI", 12F);
             Margin = new Padding(4);
             Name = "Form2";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form2";
             Load += Form2_Load;
             groupBox1.ResumeLayout(false);

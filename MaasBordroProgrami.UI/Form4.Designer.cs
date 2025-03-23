@@ -39,33 +39,38 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            label1.ForeColor = Color.White;
             label1.Location = new Point(47, 86);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(484, 25);
+            label1.Size = new Size(559, 31);
             label1.TabIndex = 0;
             label1.Text = "Bordrosunu Hesaplamak İstediğiniz Personeli Seçiniz :";
             // 
             // cbPersonelAdSoyad
             // 
+            cbPersonelAdSoyad.BackColor = Color.WhiteSmoke;
             cbPersonelAdSoyad.FormattingEnabled = true;
-            cbPersonelAdSoyad.Location = new Point(538, 83);
+            cbPersonelAdSoyad.Location = new Point(613, 88);
             cbPersonelAdSoyad.Name = "cbPersonelAdSoyad";
             cbPersonelAdSoyad.Size = new Size(251, 33);
             cbPersonelAdSoyad.TabIndex = 1;
             // 
             // btnBordroHesapla
             // 
-            btnBordroHesapla.Location = new Point(538, 140);
+            btnBordroHesapla.BackColor = Color.Gainsboro;
+            btnBordroHesapla.Location = new Point(613, 145);
             btnBordroHesapla.Name = "btnBordroHesapla";
             btnBordroHesapla.Size = new Size(253, 52);
             btnBordroHesapla.TabIndex = 2;
             btnBordroHesapla.Text = "Bordro Hesapla";
-            btnBordroHesapla.UseVisualStyleBackColor = true;
+            btnBordroHesapla.UseVisualStyleBackColor = false;
             btnBordroHesapla.Click += btnBordroHesapla_Click;
             // 
             // lstvPersonelBordrosu
             // 
+            lstvPersonelBordrosu.BackColor = Color.WhiteSmoke;
             lstvPersonelBordrosu.Location = new Point(47, 223);
             lstvPersonelBordrosu.Name = "lstvPersonelBordrosu";
             lstvPersonelBordrosu.Size = new Size(1334, 90);
@@ -74,23 +79,25 @@
             // 
             // btnAnaSayfayaGeriGec
             // 
+            btnAnaSayfayaGeriGec.BackColor = Color.Gainsboro;
             btnAnaSayfayaGeriGec.Font = new Font("Microsoft Sans Serif", 14F, FontStyle.Bold);
             btnAnaSayfayaGeriGec.Location = new Point(47, 23);
             btnAnaSayfayaGeriGec.Name = "btnAnaSayfayaGeriGec";
-            btnAnaSayfayaGeriGec.Size = new Size(60, 41);
+            btnAnaSayfayaGeriGec.Size = new Size(60, 44);
             btnAnaSayfayaGeriGec.TabIndex = 4;
             btnAnaSayfayaGeriGec.Text = "<";
-            btnAnaSayfayaGeriGec.UseVisualStyleBackColor = true;
+            btnAnaSayfayaGeriGec.UseVisualStyleBackColor = false;
             btnAnaSayfayaGeriGec.Click += btnAnaSayfayaGeriGec_Click;
             // 
             // btnJsonDosyaKaydet
             // 
+            btnJsonDosyaKaydet.BackColor = Color.Gainsboro;
             btnJsonDosyaKaydet.Location = new Point(1031, 330);
             btnJsonDosyaKaydet.Name = "btnJsonDosyaKaydet";
             btnJsonDosyaKaydet.Size = new Size(350, 62);
             btnJsonDosyaKaydet.TabIndex = 2;
             btnJsonDosyaKaydet.Text = "Dosya Olarak Kaydet";
-            btnJsonDosyaKaydet.UseVisualStyleBackColor = true;
+            btnJsonDosyaKaydet.UseVisualStyleBackColor = false;
             btnJsonDosyaKaydet.Click += btnJsonDosyaKaydet_Click;
             // 
             // Form4
@@ -108,6 +115,7 @@
             Font = new Font("Microsoft Sans Serif", 12F);
             Margin = new Padding(4);
             Name = "Form4";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form4";
             Load += Form4_Load;
             ResumeLayout(false);
