@@ -24,37 +24,41 @@ namespace MaasBordroProgrami.UI
             InitializeComponent();
         }
 
-        public static List<MaasBordro> tumPersonelBordro = new List<MaasBordro>();
+        public static List<MaasBordro> tumPersonelBordro = new List<MaasBordro>(); //Tüm personelin bordro bilgilerini tutan bir listedir.
 
         private void TumCalisanBordroHesapla()
         {
-            var personelListesi = JSONDosya.PersonelListesiOku().ToList();
+            var personelListesi = JSONDosya.PersonelListesiOku().ToList(); //JSON dosyasından personel bilgilerini alır.
 
             tumPersonelBordro.Clear();
-            foreach (var item in personelListesi)
+            foreach (var personel in personelListesi)
             {
+                //Tüm personellerin maaş bordrosu hesaplanır 
                 MaasBordro maasBordro = new MaasBordro();
-                maasBordro.PersonelIsmi = item.AdSoyad;
-                maasBordro.Kadro = item.Kadro;
-                maasBordro.CalismaSaati = item.CalismaSaati;
-                maasBordro.AnaOdeme = item.MaasHesapla();
-                maasBordro.MesaiUcreti = item.MesaiHesapla();
-                maasBordro.ToplamOdeme = item.MaasHesapla() + item.MesaiHesapla();
+                maasBordro.PersonelIsmi = personel.AdSoyad;
+                maasBordro.Kadro = personel.Kadro;
+                maasBordro.CalismaSaati = personel.CalismaSaati;
+                maasBordro.AnaOdeme = personel.MaasHesapla();
+                maasBordro.MesaiUcreti = personel.MesaiHesapla();
+                maasBordro.ToplamOdeme = personel.MaasHesapla() + personel.MesaiHesapla();
 
-                tumPersonelBordro.Add(maasBordro);
+                tumPersonelBordro.Add(maasBordro); //Hesaplanan bilgiler listeye eklenir.
             }
         }
 
+        /// <summary>
+        /// ListView için başlıkları ve özellikleri ayarlayan metod
+        /// </summary>
         private void TabloOlustur()
         {
             lstvTumPersonelBordrosu.View = View.Details;
             lstvTumPersonelBordrosu.GridLines = true;
-            lstvTumPersonelBordrosu.Columns.Add("Personel İsmi", 225);
-            lstvTumPersonelBordrosu.Columns.Add("Kadro", 225, HorizontalAlignment.Center);
-            lstvTumPersonelBordrosu.Columns.Add("Çalışma Saati", 225, HorizontalAlignment.Center);
-            lstvTumPersonelBordrosu.Columns.Add("Ana Ödeme", 225, HorizontalAlignment.Center);
-            lstvTumPersonelBordrosu.Columns.Add("Mesai", 225, HorizontalAlignment.Center);
-            lstvTumPersonelBordrosu.Columns.Add("Toplam Ödeme", 225, HorizontalAlignment.Center);
+            lstvTumPersonelBordrosu.Columns.Add("Personel İsmi", 220);
+            lstvTumPersonelBordrosu.Columns.Add("Kadro", 220, HorizontalAlignment.Center);
+            lstvTumPersonelBordrosu.Columns.Add("Çalışma Saati", 220, HorizontalAlignment.Center);
+            lstvTumPersonelBordrosu.Columns.Add("Ana Ödeme", 220, HorizontalAlignment.Center);
+            lstvTumPersonelBordrosu.Columns.Add("Mesai", 220, HorizontalAlignment.Center);
+            lstvTumPersonelBordrosu.Columns.Add("Toplam Ödeme", 220, HorizontalAlignment.Center);
         }
 
         private void Form5_Load(object sender, EventArgs e)
@@ -63,25 +67,19 @@ namespace MaasBordroProgrami.UI
             TumCalisanBordroHesapla();
 
             lstvTumPersonelBordrosu.Items.Clear();
-            foreach (var personel in tumPersonelBordro)
+            foreach (var personelBordrosu in tumPersonelBordro)
             {
+                //Her personel için satır eklenir.
                 ListViewItem listViewItem = new ListViewItem();
-                listViewItem.Text = personel.PersonelIsmi;
-                listViewItem.SubItems.Add(personel.Kadro);
-                listViewItem.SubItems.Add(personel.CalismaSaati.ToString());
-                listViewItem.SubItems.Add(personel.AnaOdeme.ToString());
-                listViewItem.SubItems.Add(personel.MesaiUcreti.ToString());
-                listViewItem.SubItems.Add(personel.ToplamOdeme.ToString());
+                listViewItem.Text = personelBordrosu.PersonelIsmi;
+                listViewItem.SubItems.Add(personelBordrosu.Kadro);
+                listViewItem.SubItems.Add(personelBordrosu.CalismaSaati.ToString());
+                listViewItem.SubItems.Add(personelBordrosu.AnaOdeme.ToString());
+                listViewItem.SubItems.Add(personelBordrosu.MesaiUcreti.ToString());
+                listViewItem.SubItems.Add(personelBordrosu.ToplamOdeme.ToString());
 
                 lstvTumPersonelBordrosu.Items.Add(listViewItem);
             }
-        }
-
-        private void btnAnaSayfayaGeriGec_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            Form1 form1 = new Form1();
-            form1.ShowDialog();
         }
 
         private void btnPdfOlustur_Click(object sender, EventArgs e)
@@ -101,51 +99,58 @@ namespace MaasBordroProgrami.UI
 
         public void PDFOlustur()
         {
-            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance); //Türkçe karakterlerin düzgün görünmesini sağlar.
 
-            SaveFileDialog saveFileDialog = new SaveFileDialog();
-            saveFileDialog.Filter = "PDF Dosyası|*.pdf";
-            saveFileDialog.Title = "PDF Dosyası Kaydet";
+            SaveFileDialog saveFileDialog = new SaveFileDialog(); //Kullanıcının dosya kaydetmesi için bir dosya kaydetme penceresi açar.
+            saveFileDialog.Filter = "PDF Dosyası|*.pdf"; //Yalnızca.pdf uzantılı dosyaların kaydedilmesine izin verir
+            saveFileDialog.Title = "PDF Dosyası Kaydet"; //Kaydetme penceresinde ki başlığı belirler.
 
-            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            if (saveFileDialog.ShowDialog() == DialogResult.OK) //Kullanıcı bir dosya seçip Kaydet tuşuna basarsa
             {
-                Document document = new Document();
-                PdfWriter.GetInstance(document, new FileStream(saveFileDialog.FileName, FileMode.Create));
-                document.Open();
+                Document document = new Document(); //PDF'in içeriğini tutan nesne oluşturulur.
+                PdfWriter.GetInstance(document, new FileStream(saveFileDialog.FileName, FileMode.Create)); //PDF'i belirtilen yola yazar.
+                document.Open(); //Yazma işlemi başlar
 
-                string arialTtf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "arial.ttf");
-                BaseFont bf = BaseFont.CreateFont(arialTtf, BaseFont.IDENTITY_H, BaseFont.EMBEDDED);
+                string arialTtf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "arial.ttf"); //Arial fontunun yolunu alır. PDF'e Türkçe karakter desteği vermek için bilgisayardaki Arial fontunu kullanır. 
+                BaseFont bf = BaseFont.CreateFont(arialTtf, BaseFont.IDENTITY_H, BaseFont.EMBEDDED); //Unicode karakter kümesini destekleyen bir fontu PDF'e ekler. BaseFont.EMBEDDED : Başka pclerde sorunsuz görünmesini sağlar. Fontu gömer.
 
+                //Font tanımları yapılır.
                 iTextSharp.text.Font baslikFont = new iTextSharp.text.Font(bf, 18, iTextSharp.text.Font.BOLD);
                 iTextSharp.text.Font kalinFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.BOLD);
                 iTextSharp.text.Font normalFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.NORMAL);
                 iTextSharp.text.Font dateFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.ITALIC);
 
+                //PDF başlığını oluşturur ve ortalar
                 Paragraph baslik = new Paragraph("Personel Bordrosu Raporu", baslikFont);
                 baslik.Alignment = Element.ALIGN_CENTER;
-                baslik.SpacingAfter = 10f;
+                baslik.SpacingAfter = 10f; //Başlıktan sonra boşluk bırak
                 document.Add(baslik);
 
+                //Tarih ve Saat Ekle                
                 string currentDateTime = DateTime.Now.ToString("dd MMMM yyyy HH:mm");
                 Paragraph date = new Paragraph("Oluşturulma Tarihi: " + currentDateTime, dateFont);
                 date.Alignment = Element.ALIGN_RIGHT;
-                date.SpacingAfter = 20f;
+                date.SpacingAfter = 20f; 
                 document.Add(date);
 
-                PdfPTable table = new PdfPTable(lstvTumPersonelBordrosu.Columns.Count);
+                //Tablo Oluşturma
+                PdfPTable table = new PdfPTable(lstvTumPersonelBordrosu.Columns.Count); //Sütun sayısı kadar kolon içeren bir tablo
                 table.WidthPercentage = 100;
 
-                foreach (ColumnHeader column in lstvTumPersonelBordrosu.Columns)
+                //Başlıkları Ekle 
+                foreach (ColumnHeader column in lstvTumPersonelBordrosu.Columns) 
                 {
+                    //Her bir sütun başlığını PDF tablosuna ekler.
                     PdfPCell cell = new PdfPCell(new Phrase(column.Text, kalinFont));
-                    cell.BackgroundColor = BaseColor.LIGHT_GRAY;
-                    cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                    cell.BackgroundColor = BaseColor.LIGHT_GRAY; //Gri arka plan
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER; //ORtala
                     table.AddCell(cell);
                 }
 
-                foreach (ListViewItem listviewItem in lstvTumPersonelBordrosu.Items)
+                //Satırları Ekle
+                foreach (ListViewItem listviewItem in lstvTumPersonelBordrosu.Items) //Satırları döner
                 {
-                    foreach (ListViewItem.ListViewSubItem subItem in listviewItem.SubItems)
+                    foreach (ListViewItem.ListViewSubItem subItem in listviewItem.SubItems) //Satır içindeki hücreleri tek tek döner
                     {
                         PdfPCell cell = new PdfPCell(new Phrase(subItem.Text, normalFont));
                         cell.HorizontalAlignment = Element.ALIGN_CENTER;
@@ -153,8 +158,8 @@ namespace MaasBordroProgrami.UI
                     }
                 }
 
-                document.Add(table);
-                document.Close();
+                document.Add(table); //Oluşturulan tabloyu PDF belgesine ekler.
+                document.Close(); //PDF belgesini kapatır ve kaydeder.
 
                 MessageBox.Show("PDF başarıyla kaydedildi!");
             }
@@ -322,6 +327,13 @@ namespace MaasBordroProgrami.UI
             {
                 MessageBox.Show($"Mail gönderimi sırasında bir hata oluştur.\n Hata mesajı : {ex.Message}");
             }
+        }
+
+        private void btnAnaSayfayaGeriGec_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form1 form1 = new Form1();
+            form1.ShowDialog();
         }
 
 

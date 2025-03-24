@@ -103,8 +103,6 @@ namespace MaasBordroProgrami.UI
             dgvPersonelYonetimi.DataSource = null;
             dgvPersonelYonetimi.DataSource = personeller;
         }
-
-
         private void btnGuncelle_Click_1(object sender, EventArgs e)
         {
             if (dgvPersonelYonetimi.SelectedRows.Count == 0) //Eğer satır seçilmemişse
@@ -139,6 +137,7 @@ namespace MaasBordroProgrami.UI
             JSONDosya.PersonelListesineKaydet(personeller.ToList()); //Güncellenmiş listeyi .json dosyasına yazar
 
             MessageBox.Show("Güncelleme işlemi başarılıdır.");
+            Temizle();
         }
 
         private void btnSil_Click(object sender, EventArgs e)
@@ -156,6 +155,17 @@ namespace MaasBordroProgrami.UI
             JSONDosya.PersonelListesineKaydet(personeller.ToList()); //Güncellenen liste .json dosyasına yazılır.
 
             MessageBox.Show("Silme işlemi başarıyla gerçekleşti");
+            Temizle();
+        }
+
+        /// <summary>
+        /// Form ekranındaki girişleri sıfırlar. 
+        /// </summary>
+        private void Temizle()
+        {
+            txtAdSoyad.Text = txtKadro.Text = mtxtCalismaSaati.Text = string.Empty;
+            cbDerece.SelectedItem = null;
+            dgvPersonelYonetimi.ClearSelection();
         }
 
         private void btnAnaSayfayaGeriGec_Click(object sender, EventArgs e)
@@ -164,7 +174,5 @@ namespace MaasBordroProgrami.UI
             Form1 form1 = new Form1();
             form1.ShowDialog();
         }
-
-
     }
 }

@@ -18,10 +18,16 @@ namespace MaasBordroProgrami.UI
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Kadro seçeneklerini comboboxta göstermeye yarayan metod
+        /// </summary>
         public void KadroGetir()
         {
-            cbPersonelKadro.Items.Add("Yönetici");
-            cbPersonelKadro.Items.Add("Memur");
+            List<string> kadrolar = new List<string> { "Yönetici", "Memur" }; //Yeni bir personel kadrosu gelirse eklenebilir.
+            foreach (var kadro in kadrolar)
+            {
+                cbPersonelKadro.Items.Add(kadro);
+            }
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -31,34 +37,37 @@ namespace MaasBordroProgrami.UI
 
         private void btnPersonelEkle_Click(object sender, EventArgs e)
         {
-            var personeller = JSONDosya.PersonelListesiOku();
+            var personeller = JSONDosya.PersonelListesiOku(); //Güncel personel listemi .jsondan aldım.
 
-            if (string.IsNullOrWhiteSpace(txtPersonelAdSoyad.Text))
+            if (string.IsNullOrWhiteSpace(txtPersonelAdSoyad.Text)) //Ad-Soyad kontrolü
             {
                 MessageBox.Show("Ad-Soyad boş olamaz!");
                 return;
             }
-            if (cbPersonelKadro.SelectedItem == null)
+            if (cbPersonelKadro.SelectedItem == null) //Kadro kontrolü
             {
                 MessageBox.Show("Lütfen kadro seçimi yapınız!");
                 return;
             }
 
-            if (cbPersonelKadro.SelectedItem == "Yönetici")
+            if (cbPersonelKadro.SelectedItem == "Yönetici") //Yönetici seçildiyse
             {
-                personeller.Add(new Yonetici { AdSoyad = txtPersonelAdSoyad.Text, Kadro = "Yönetici" });
+                personeller.Add(new Yonetici { AdSoyad = txtPersonelAdSoyad.Text, Kadro = "Yönetici" }); //Yeni Yonetici nesnesi listeye eklenir (object initializer kullanılarak nesne oluşturuldu ve özellikleri verildi.)
             }
-            else
+            else if (cbPersonelKadro.SelectedItem == "Memur") //Memur seçildiyse
             {
-                personeller.Add(new Memur { AdSoyad = txtPersonelAdSoyad.Text, Kadro = "Memur" });
+                personeller.Add(new Memur { AdSoyad = txtPersonelAdSoyad.Text, Kadro = "Memur" }); //Yeni Memur nesnesi listeye eklenir.
             }
 
-            JSONDosya.PersonelListesineKaydet(personeller.ToList());
+            JSONDosya.PersonelListesineKaydet(personeller.ToList()); //Yeni eklenen personel JSON dosyasına kalıcı olarak kaydedilir.
 
             MessageBox.Show("Personel başarıyla eklendi.");
             Temizle();
         }
 
+        /// <summary>
+        /// Formdaki giriş alanlarını sıfırlayan metod
+        /// </summary>
         private void Temizle()
         {
             txtPersonelAdSoyad.Text = string.Empty;

@@ -1,7 +1,7 @@
 [
   {
     "AdSoyad": "Doğa Yıldız",
-    "CalismaSaati": 140,
+    "CalismaSaati": 150,
     "Kadro": "Yönetici",
     "Derece": "-"
   },
@@ -16,5 +16,17 @@
     "CalismaSaati": 200,
     "Kadro": "Memur",
     "Derece": "Düz Memur"
+  },
+  {
+    "AdSoyad": "Ekrem Hosanlı",
+    "CalismaSaati": 210,
+    "Kadro": "Memur",
+    "Derece": "Kıdemli Memur"
+  },
+  {
+    "AdSoyad": "Sibel Arslan",
+    "CalismaSaati": 160,
+    "Kadro": "Memur",
+    "Derece": "Baş Memur"
   }
 ]
