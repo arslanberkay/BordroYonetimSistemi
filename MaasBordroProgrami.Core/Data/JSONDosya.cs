@@ -82,6 +82,7 @@ namespace MaasBordroProgrami.Core.Data
                 {
                     personel.AdSoyad,
                     personel.CalismaSaati,
+                    personel.SaatlikUcret,
                     personel.Kadro,
                     personel.Derece
                 });
@@ -102,14 +103,14 @@ namespace MaasBordroProgrami.Core.Data
             //Masaüstü Yolu ve Hedef Klasör Oluşturma
             string masaUstuYolu = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); //Kullanıcının masaüstü dizinini alır.
 
-            string klasorYolu = Path.Combine(masaUstuYolu, personelAdSoyad.ToUpper());
+            string klasorYolu = Path.Combine(masaUstuYolu, $"{personelAdSoyad.ToUpper()}");
             if (!Directory.Exists(klasorYolu)) //Klasör yoksa
             {
                 Directory.CreateDirectory(klasorYolu);
             }
 
             //JSON Dosya Adı ve Yolu Oluşturma
-            string dosyaYolu = Path.Combine(klasorYolu, $"{personelAdSoyad.ToLower()}bordro.json");
+            string dosyaYolu = Path.Combine(klasorYolu, $"{personelAdSoyad.Replace(" ", "-")}-{DateTime.Now:yyyy-MM}-Bordro.json");
 
             //Maaş Bordrsounu JSON Olarak Kaydetme
             var jsonAyarlar = new JsonSerializerOptions { WriteIndented = true };

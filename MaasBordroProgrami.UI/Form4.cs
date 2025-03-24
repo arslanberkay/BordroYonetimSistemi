@@ -54,7 +54,7 @@ namespace MaasBordroProgrami.UI
             lstvPersonelBordrosu.Clear();
             TabloOlustur();
         }
-        
+
         private void btnBordroHesapla_Click(object sender, EventArgs e)
         {
             Temizle();
@@ -81,9 +81,9 @@ namespace MaasBordroProgrami.UI
             listViewItem.Text = maasBordro.PersonelIsmi;
             listViewItem.SubItems.Add(seciliPersonel.Kadro.ToString());
             listViewItem.SubItems.Add(maasBordro.CalismaSaati.ToString());
-            listViewItem.SubItems.Add(maasBordro.AnaOdeme.ToString());
-            listViewItem.SubItems.Add(maasBordro.MesaiUcreti.ToString());
-            listViewItem.SubItems.Add(maasBordro.ToplamOdeme.ToString());
+            listViewItem.SubItems.Add(maasBordro.AnaOdeme.ToString("C"));
+            listViewItem.SubItems.Add(maasBordro.MesaiUcreti.ToString("C"));
+            listViewItem.SubItems.Add(maasBordro.ToplamOdeme.ToString("C"));
 
             lstvPersonelBordrosu.Items.Add(listViewItem);
         }
@@ -108,6 +108,8 @@ namespace MaasBordroProgrami.UI
             MaasBordro maasBordro = new MaasBordro();
             maasBordro.PersonelIsmi = seciliPersonel.AdSoyad;
             maasBordro.CalismaSaati = seciliPersonel.CalismaSaati;
+            maasBordro.Kadro = seciliPersonel.Kadro;
+            maasBordro.BordroTarihi = DateTime.Now.ToString("yyyy-MMMM");
             maasBordro.AnaOdeme = seciliPersonel.MaasHesapla();
             maasBordro.MesaiUcreti = seciliPersonel.MesaiHesapla();
             maasBordro.ToplamOdeme = seciliPersonel.MaasHesapla() + seciliPersonel.MesaiHesapla();
@@ -115,6 +117,8 @@ namespace MaasBordroProgrami.UI
             JSONDosya.PersonelAdinaKaydet(maasBordro, maasBordro.PersonelIsmi); //Seçilen personelin maasBordrosu JSON formatında kaydedilir.
 
             MessageBox.Show($"{maasBordro.PersonelIsmi} için bordro masaüstüne kaydedildi.");
+            Temizle();
+            cbPersonelAdSoyad.SelectedItem = null;
         }
 
         private void btnAnaSayfayaGeriGec_Click(object sender, EventArgs e)

@@ -8,6 +8,7 @@ namespace MaasBordroProgrami.Core.Data
 {
     public class MaasBordro
     {
+        public string BordroTarihi { get; set; }
         public string PersonelIsmi { get; set; }
         public string Kadro { get; set; }
         public int CalismaSaati { get; set; }

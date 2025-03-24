@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,19 +41,13 @@ namespace MaasBordroProgrami.UI
 
         private void Form2_Load(object sender, EventArgs e)
         {
-            //personeller = JSONDosya.PersonelListesiOku();
-            //dgvPersonelYonetimi.DataSource = personeller;
-
             dgvPersonelYonetimi.ReadOnly = true; //Hücrelere basılıp değiştirilmemesi için kontrol altına aldım.
             txtKadro.ReadOnly = true;
-
-            //cbDerece.Items.Add("Düz Memur");
-            //cbDerece.Items.Add("Kıdemli Memur");
-            //cbDerece.Items.Add("Uzman Memur");
-            //cbDerece.Items.Add("Baş Memur");
             DereceGetir();
-
             dgvPersonelYonetimi.ClearSelection(); //Form açıldığında herhangi bir satırın seçili olmamasını sağlar.
+
+            dgvPersonelYonetimi.Columns[2].DefaultCellStyle.Format = "C2";
+            dgvPersonelYonetimi.Columns[2].DefaultCellStyle.FormatProvider = new CultureInfo("tr-TR");
         }
 
         /// <summary>
@@ -70,15 +65,11 @@ namespace MaasBordroProgrami.UI
 
         private void dgvPersonelYonetimi_CellClick(object sender, DataGridViewCellEventArgs e) //Hücreye tıklayınca
         {
-            //if (dgvPersonelYonetimi.SelectedRows.Count > 0)
-            //{
-            //Kullanıcı bir satıra tıkladığında ilgili personel bilgilerini forma yükler.
             txtAdSoyad.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[0].Value.ToString();
             txtKadro.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[3].Value.ToString();
+            mtxtCalismaSaati.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[2].Value.ToString();
             cbDerece.SelectedItem = dgvPersonelYonetimi.SelectedRows[0].Cells[4].Value.ToString();
             mtxtCalismaSaati.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[1].Value.ToString();
-            //}
-
 
             int seciliIndex = dgvPersonelYonetimi.SelectedRows[0].Index;
             IPersonel seciliPersonel = personeller[seciliIndex];
@@ -93,6 +84,7 @@ namespace MaasBordroProgrami.UI
             {
                 cbDerece.Enabled = true;
             }
+         
         }
 
         /// <summary>
