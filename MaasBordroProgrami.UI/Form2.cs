@@ -20,27 +20,11 @@ namespace MaasBordroProgrami.UI
             VerileriYukle();
         }
 
-        public static BindingList<IPersonel> personeller;
+        public static BindingList<IPersonel> personeller; //Verileri otomatik olarak güncelleyen .json ile dynamic çalışan bir koleksiyon yapısı olan BindingListte personellerimi tuttum.
 
-        private void Form2_Load(object sender, EventArgs e)
-        {
-            personeller = JSONDosya.PersonelListesiOku();
-            dgvPersonelYonetimi.DataSource = personeller;
-
-            dgvPersonelYonetimi.ReadOnly = true;
-
-            txtKadro.ReadOnly = true;
-
-            cbDerece.Items.Add("Düz Memur");
-            cbDerece.Items.Add("Kıdemli Memur");
-            cbDerece.Items.Add("Uzman Memur");
-            cbDerece.Items.Add("Baş Memur");
-
-            dgvPersonelYonetimi.ClearSelection();
-
-        
-        }
-
+        /// <summary>
+        /// JSON dosyasından personel bilgilerini okuyup DataGridView'e yükler.
+        /// </summary>
         private void VerileriYukle()
         {
             try
@@ -54,21 +38,53 @@ namespace MaasBordroProgrami.UI
             }
         }
 
-        private void dgvPersonelYonetimi_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void Form2_Load(object sender, EventArgs e)
         {
-            if (dgvPersonelYonetimi.SelectedRows.Count > 0)
-            {
-                txtAdSoyad.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[0].Value.ToString();
-                txtKadro.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[3].Value.ToString();
-                cbDerece.SelectedItem = dgvPersonelYonetimi.SelectedRows[0].Cells[4].Value.ToString();
-                mtxtCalismaSaati.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[1].Value.ToString();
+            //personeller = JSONDosya.PersonelListesiOku();
+            //dgvPersonelYonetimi.DataSource = personeller;
 
+            dgvPersonelYonetimi.ReadOnly = true; //Hücrelere basılıp değiştirilmemesi için kontrol altına aldım.
+            txtKadro.ReadOnly = true;
+
+            //cbDerece.Items.Add("Düz Memur");
+            //cbDerece.Items.Add("Kıdemli Memur");
+            //cbDerece.Items.Add("Uzman Memur");
+            //cbDerece.Items.Add("Baş Memur");
+            DereceGetir();
+
+            dgvPersonelYonetimi.ClearSelection(); //Form açıldığında herhangi bir satırın seçili olmamasını sağlar.
+        }
+
+        /// <summary>
+        /// Dereceleri comboboxa ekler.
+        /// </summary>
+        private void DereceGetir()
+        {
+            //İsteğe göre derece arttırılıp azaltılabilir. Switch expression ile kontak bir şekilde !
+            List<string> dereceler = new List<string> { "Düz Memur", "Kıdemli Memur", "Uzman Memur", "Baş Memur" };
+            foreach (var derece in dereceler)
+            {
+                cbDerece.Items.Add(derece);
             }
+        }
+
+        private void dgvPersonelYonetimi_CellClick(object sender, DataGridViewCellEventArgs e) //Hücreye tıklayınca
+        {
+            //if (dgvPersonelYonetimi.SelectedRows.Count > 0)
+            //{
+            //Kullanıcı bir satıra tıkladığında ilgili personel bilgilerini forma yükler.
+            txtAdSoyad.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[0].Value.ToString();
+            txtKadro.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[3].Value.ToString();
+            cbDerece.SelectedItem = dgvPersonelYonetimi.SelectedRows[0].Cells[4].Value.ToString();
+            mtxtCalismaSaati.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[1].Value.ToString();
+            //}
+
 
             int seciliIndex = dgvPersonelYonetimi.SelectedRows[0].Index;
             IPersonel seciliPersonel = personeller[seciliIndex];
-            if (seciliPersonel.Kadro == "Yönetici")
+            if (seciliPersonel.Kadro == "Yönetici") //Eğer seçilen personelin kadrosu "Yönetici" ise 
             {
+                //Derece seçimi devre dışı bırakılır
                 cbDerece.Text = string.Empty;
                 cbDerece.SelectedItem = null;
                 cbDerece.Enabled = false;
@@ -79,41 +95,49 @@ namespace MaasBordroProgrami.UI
             }
         }
 
+        /// <summary>
+        /// DataGridView'e gönderilen personeller listesinin elemanlarına yapılan değişiklikler sonrasında tablonun yenilenmesi için yazılmış bir metodtur.
+        /// </summary>
+        private void DataGridViewYenile()
+        {
+            dgvPersonelYonetimi.DataSource = null;
+            dgvPersonelYonetimi.DataSource = personeller;
+        }
+
 
         private void btnGuncelle_Click_1(object sender, EventArgs e)
         {
-            if (dgvPersonelYonetimi.SelectedRows.Count == 0)
+            if (dgvPersonelYonetimi.SelectedRows.Count == 0) //Eğer satır seçilmemişse
             {
                 MessageBox.Show("Lütfen güncellemek istediğiniz kullanıcıyı seçiniz!");
                 return;
             }
-            if (string.IsNullOrWhiteSpace(mtxtCalismaSaati.Text))
+            if (string.IsNullOrWhiteSpace(mtxtCalismaSaati.Text)) //Çalışma saati kontrolü
             {
                 MessageBox.Show("Çalışma saati boş olmamalıdır!");
                 return;
             }
-            if (cbDerece.SelectedItem == null && txtKadro.Text == "Memur")
+            if (cbDerece.SelectedItem == null && txtKadro.Text == "Memur") //Memur için derece seçimi kontrolü
             {
                 MessageBox.Show("Lütfen derece seçiniz!");
                 return;
             }
 
-            int seciliIndex = dgvPersonelYonetimi.SelectedRows[0].Index;
-            IPersonel seciliPersonel = personeller[seciliIndex];
+            int seciliIndex = dgvPersonelYonetimi.SelectedRows[0].Index; //Seçili satırın indexi
+            IPersonel seciliPersonel = personeller[seciliIndex]; //Listeden o indexe ait olan personel nesnemi buldum.
 
             seciliPersonel.AdSoyad = txtAdSoyad.Text;
 
-            if (seciliPersonel.Kadro == "Memur")
+            if (seciliPersonel.Kadro == "Memur") //Şart eklenmese de olur (cell clickte kontrol ediliyor) sonrasında farklı personel kadroları geldiğinde karışıklık olmaması adına ekledim.
             {
                 seciliPersonel.Derece = cbDerece.SelectedItem.ToString();
             }
 
             seciliPersonel.CalismaSaati = Convert.ToInt32(mtxtCalismaSaati.Text);
 
-            dgvPersonelYonetimi.DataSource = null;
-            dgvPersonelYonetimi.DataSource = personeller;
+            DataGridViewYenile();
+            JSONDosya.PersonelListesineKaydet(personeller.ToList()); //Güncellenmiş listeyi .json dosyasına yazar
 
-            JSONDosya.PersonelListesineKaydet(personeller.ToList());
             MessageBox.Show("Güncelleme işlemi başarılıdır.");
         }
 
@@ -124,14 +148,12 @@ namespace MaasBordroProgrami.UI
                 MessageBox.Show("Lütfen silmek istediğiniz personeli seçiniz!");
                 return;
             }
+
             int seciliIndex = dgvPersonelYonetimi.SelectedRows[0].Index;
+            personeller.RemoveAt(seciliIndex); //Seçili personeli listeden siler.
 
-            personeller.RemoveAt(seciliIndex);
-
-            dgvPersonelYonetimi.DataSource = null;
-            dgvPersonelYonetimi.DataSource = personeller;
-
-            JSONDosya.PersonelListesineKaydet(personeller.ToList());
+            DataGridViewYenile();
+            JSONDosya.PersonelListesineKaydet(personeller.ToList()); //Güncellenen liste .json dosyasına yazılır.
 
             MessageBox.Show("Silme işlemi başarıyla gerçekleşti");
         }
@@ -143,6 +165,6 @@ namespace MaasBordroProgrami.UI
             form1.ShowDialog();
         }
 
-       
+
     }
 }
