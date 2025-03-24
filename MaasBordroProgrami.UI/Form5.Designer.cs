@@ -37,12 +37,13 @@
             ımageList2 = new ImageList(components);
             btnExcelOlustur = new Button();
             btnMailGonder = new Button();
+            button3 = new Button();
             SuspendLayout();
             // 
             // lstvTumPersonelBordrosu
             // 
             lstvTumPersonelBordrosu.BackColor = Color.WhiteSmoke;
-            lstvTumPersonelBordrosu.Location = new Point(80, 75);
+            lstvTumPersonelBordrosu.Location = new Point(78, 113);
             lstvTumPersonelBordrosu.Margin = new Padding(4);
             lstvTumPersonelBordrosu.Name = "lstvTumPersonelBordrosu";
             lstvTumPersonelBordrosu.Size = new Size(1291, 362);
@@ -75,7 +76,7 @@
             btnPdfOlustur.ImageAlign = ContentAlignment.MiddleLeft;
             btnPdfOlustur.ImageIndex = 1;
             btnPdfOlustur.ImageList = ımageList2;
-            btnPdfOlustur.Location = new Point(635, 460);
+            btnPdfOlustur.Location = new Point(633, 498);
             btnPdfOlustur.Name = "btnPdfOlustur";
             btnPdfOlustur.Size = new Size(214, 58);
             btnPdfOlustur.TabIndex = 1;
@@ -98,7 +99,7 @@
             btnExcelOlustur.ImageAlign = ContentAlignment.MiddleLeft;
             btnExcelOlustur.ImageIndex = 2;
             btnExcelOlustur.ImageList = ımageList2;
-            btnExcelOlustur.Location = new Point(873, 460);
+            btnExcelOlustur.Location = new Point(871, 498);
             btnExcelOlustur.Name = "btnExcelOlustur";
             btnExcelOlustur.Size = new Size(245, 58);
             btnExcelOlustur.TabIndex = 1;
@@ -112,7 +113,7 @@
             btnMailGonder.ImageAlign = ContentAlignment.MiddleLeft;
             btnMailGonder.ImageKey = "4202011_email_gmail_mail_logo_social_icon.png";
             btnMailGonder.ImageList = ımageList2;
-            btnMailGonder.Location = new Point(1144, 460);
+            btnMailGonder.Location = new Point(1142, 498);
             btnMailGonder.Name = "btnMailGonder";
             btnMailGonder.Size = new Size(227, 58);
             btnMailGonder.TabIndex = 1;
@@ -120,12 +121,22 @@
             btnMailGonder.UseVisualStyleBackColor = false;
             btnMailGonder.Click += btnMailGonder_Click;
             // 
+            // button3
+            // 
+            button3.Location = new Point(1142, 60);
+            button3.Name = "button3";
+            button3.Size = new Size(227, 37);
+            button3.TabIndex = 2;
+            button3.Text = "150 Saat Altı Personel";
+            button3.UseVisualStyleBackColor = true;
+            // 
             // Form5
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
-            ClientSize = new Size(1420, 554);
+            ClientSize = new Size(1417, 588);
+            Controls.Add(button3);
             Controls.Add(btnMailGonder);
             Controls.Add(btnExcelOlustur);
             Controls.Add(btnPdfOlustur);
@@ -149,5 +160,6 @@
         private Button btnMailGonder;
         private ImageList ımageList1;
         private ImageList ımageList2;
+        private Button button3;
     }
 }
