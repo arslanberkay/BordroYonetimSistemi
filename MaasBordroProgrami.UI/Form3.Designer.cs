@@ -63,7 +63,7 @@
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4);
-            groupBox1.Size = new Size(352, 145);
+            groupBox1.Size = new Size(352, 152);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Personel Bilgileri";
@@ -71,6 +71,7 @@
             // cbPersonelKadro
             // 
             cbPersonelKadro.BackColor = Color.WhiteSmoke;
+            cbPersonelKadro.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPersonelKadro.FormattingEnabled = true;
             cbPersonelKadro.Location = new Point(135, 94);
             cbPersonelKadro.Name = "cbPersonelKadro";
@@ -103,7 +104,7 @@
             btnPersonelEkle.ImageAlign = ContentAlignment.MiddleLeft;
             btnPersonelEkle.ImageIndex = 0;
             btnPersonelEkle.ImageList = ımageList1;
-            btnPersonelEkle.Location = new Point(212, 228);
+            btnPersonelEkle.Location = new Point(212, 234);
             btnPersonelEkle.Name = "btnPersonelEkle";
             btnPersonelEkle.Size = new Size(217, 52);
             btnPersonelEkle.TabIndex = 1;
@@ -137,7 +138,7 @@
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
-            ClientSize = new Size(490, 313);
+            ClientSize = new Size(490, 352);
             Controls.Add(btnPersonelYonetimSayfasinaGeriGec);
             Controls.Add(btnPersonelEkle);
             Controls.Add(groupBox1);

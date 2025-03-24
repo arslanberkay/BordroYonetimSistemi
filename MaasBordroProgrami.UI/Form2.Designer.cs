@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             groupBox1 = new GroupBox();
             mtxtCalismaSaati = new MaskedTextBox();
             cbDerece = new ComboBox();
@@ -84,6 +84,7 @@
             // 
             // cbDerece
             // 
+            cbDerece.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDerece.FormattingEnabled = true;
             cbDerece.Location = new Point(151, 121);
             cbDerece.Name = "cbDerece";
@@ -92,6 +93,7 @@
             // 
             // txtKadro
             // 
+            txtKadro.Enabled = false;
             txtKadro.Location = new Point(151, 81);
             txtKadro.Name = "txtKadro";
             txtKadro.Size = new Size(192, 34);
@@ -209,20 +211,20 @@
             // 
             dgvPersonelYonetimi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPersonelYonetimi.BackgroundColor = Color.WhiteSmoke;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvPersonelYonetimi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvPersonelYonetimi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPersonelYonetimi.ColumnHeadersHeight = 40;
             dgvPersonelYonetimi.GridColor = Color.LightGray;
-            dgvPersonelYonetimi.Location = new Point(84, 349);
+            dgvPersonelYonetimi.Location = new Point(84, 347);
             dgvPersonelYonetimi.MultiSelect = false;
             dgvPersonelYonetimi.Name = "dgvPersonelYonetimi";
             dgvPersonelYonetimi.RowHeadersWidth = 30;
             dgvPersonelYonetimi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPersonelYonetimi.Size = new Size(730, 183);
+            dgvPersonelYonetimi.Size = new Size(854, 202);
             dgvPersonelYonetimi.TabIndex = 2;
             dgvPersonelYonetimi.CellClick += dgvPersonelYonetimi_CellClick;
             // 
@@ -241,7 +243,7 @@
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
-            ClientSize = new Size(865, 570);
+            ClientSize = new Size(1001, 595);
             Controls.Add(pictureBox1);
             Controls.Add(dgvPersonelYonetimi);
             Controls.Add(btnGuncelle);

@@ -28,8 +28,8 @@ namespace MaasBordroProgrami.Core.Data
         {
             //Dosya Yolunu Belirleme
             string projeDizini = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location); //Programın çalıştığı dizini bulur
-            string hedefDizin = Path.Combine(projeDizini, @"..\..\..\", "Data"); //Data klasöründeki data.json dosyasının tam yolunu oluşturur.
-            string jsonDosyaYolu = Path.Combine(hedefDizin, "data.json");
+            string hedefDizin = Path.Combine(projeDizini, @"..\..\..\", "PersonelData"); //Data klasöründeki data.json dosyasının tam yolunu oluşturur.
+            string jsonDosyaYolu = Path.Combine(hedefDizin, "personel.json");
 
             if (!File.Exists(jsonDosyaYolu)) //Dosya mevcut değilse hata fırlatır.
             {
@@ -68,8 +68,8 @@ namespace MaasBordroProgrami.Core.Data
         {
             //Dosya Yolu Oluşturma
             string projeDizini = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            string hedefDizin = Path.Combine(projeDizini, @"..\..\..\", "Data");
-            string jsonDosyaYolu = Path.Combine(hedefDizin, "data.json");
+            string hedefDizin = Path.Combine(projeDizini, @"..\..\..\", "PersonelData");
+            string jsonDosyaYolu = Path.Combine(hedefDizin, "personel.json");
 
             //personelListesi'ni JSON Nesnesine Dönüştürme
             var jsonListesi = new List<object>();

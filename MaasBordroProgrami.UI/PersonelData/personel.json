@@ -22,14 +22,7 @@
   },
   {
     "AdSoyad": "Bünyamin Arslan",
-    "CalismaSaati": 120,
-    "SaatlikUcret": 600.0,
-    "Kadro": "Yönetici",
-    "Derece": "-"
-  },
-  {
-    "AdSoyad": "Mira Uysal",
-    "CalismaSaati": 200,
+    "CalismaSaati": 0,
     "SaatlikUcret": 600.0,
     "Kadro": "Yönetici",
     "Derece": "-"

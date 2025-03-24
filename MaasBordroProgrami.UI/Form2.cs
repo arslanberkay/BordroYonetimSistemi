@@ -46,8 +46,8 @@ namespace MaasBordroProgrami.UI
             DereceGetir();
             dgvPersonelYonetimi.ClearSelection(); //Form açıldığında herhangi bir satırın seçili olmamasını sağlar.
 
-            dgvPersonelYonetimi.Columns[2].DefaultCellStyle.Format = "C2";
-            dgvPersonelYonetimi.Columns[2].DefaultCellStyle.FormatProvider = new CultureInfo("tr-TR");
+            dgvPersonelYonetimi.Columns[4].DefaultCellStyle.Format = "C2";
+            dgvPersonelYonetimi.Columns[4].DefaultCellStyle.FormatProvider = new CultureInfo("tr-TR");
         }
 
         /// <summary>
@@ -66,10 +66,9 @@ namespace MaasBordroProgrami.UI
         private void dgvPersonelYonetimi_CellClick(object sender, DataGridViewCellEventArgs e) //Hücreye tıklayınca
         {
             txtAdSoyad.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[0].Value.ToString();
-            txtKadro.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[3].Value.ToString();
-            mtxtCalismaSaati.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[2].Value.ToString();
-            cbDerece.SelectedItem = dgvPersonelYonetimi.SelectedRows[0].Cells[4].Value.ToString();
-            mtxtCalismaSaati.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[1].Value.ToString();
+            txtKadro.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[1].Value.ToString();
+            mtxtCalismaSaati.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[3].Value.ToString();
+            cbDerece.SelectedItem = dgvPersonelYonetimi.SelectedRows[0].Cells[2].Value.ToString();
 
             int seciliIndex = dgvPersonelYonetimi.SelectedRows[0].Index;
             IPersonel seciliPersonel = personeller[seciliIndex];
@@ -84,7 +83,7 @@ namespace MaasBordroProgrami.UI
             {
                 cbDerece.Enabled = true;
             }
-         
+
         }
 
         /// <summary>

@@ -55,6 +55,7 @@
             // cbPersonelAdSoyad
             // 
             cbPersonelAdSoyad.BackColor = Color.WhiteSmoke;
+            cbPersonelAdSoyad.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPersonelAdSoyad.FormattingEnabled = true;
             cbPersonelAdSoyad.Location = new Point(639, 77);
             cbPersonelAdSoyad.Name = "cbPersonelAdSoyad";

@@ -12,10 +12,11 @@ namespace MaasBordroProgrami.Core.Interfaces
     public interface IPersonel
     {
         public string AdSoyad { get; set; }
-        public int CalismaSaati { get; set; }
-        public decimal SaatlikUcret { get; }
         public string Kadro { get; set; }
         public string Derece { get; set; }
+        public int CalismaSaati { get; set; }
+        public decimal SaatlikUcret { get; }
+        
 
         public decimal MaasHesapla();
         public decimal MesaiHesapla();
