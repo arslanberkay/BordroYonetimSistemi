@@ -62,25 +62,61 @@ namespace MaasBordroProgrami.UI
             lstvTumPersonelBordrosu.Columns.Add("Toplam Ödeme", 220, HorizontalAlignment.Center);
         }
 
+        /// <summary>
+        /// Bu metod içine gönderilen parametredeki listeyi ListView satılarına yazdırır.
+        /// </summary>
+        /// <param name="filtrelenmisPersoneller"></param>
+        private void TabloyaAktar(List<MaasBordro> filtrelenmisPersoneller)
+        {
+            foreach (var filtrelenmisPersonel in filtrelenmisPersoneller)
+            {
+                ListViewItem listViewItem = new ListViewItem();
+                listViewItem.Text = filtrelenmisPersonel.PersonelIsmi;
+                listViewItem.SubItems.Add(filtrelenmisPersonel.Kadro);
+                listViewItem.SubItems.Add(filtrelenmisPersonel.CalismaSaati.ToString());
+                listViewItem.SubItems.Add(filtrelenmisPersonel.AnaOdeme.ToString("C"));
+                listViewItem.SubItems.Add(filtrelenmisPersonel.MesaiUcreti.ToString("C"));
+                listViewItem.SubItems.Add(filtrelenmisPersonel.ToplamOdeme.ToString("C"));
+
+                lstvTumPersonelBordrosu.Items.Add(listViewItem);
+            }
+        }
+
         private void Form5_Load(object sender, EventArgs e)
         {
             TabloOlustur();
             TumCalisanBordroHesapla();
+            Temizle();
+            TabloyaAktar(tumPersonelBordro);
 
-            lstvTumPersonelBordrosu.Items.Clear();
-            foreach (var personelBordrosu in tumPersonelBordro)
-            {
-                //Her personel için satır eklenir.
-                ListViewItem listViewItem = new ListViewItem();
-                listViewItem.Text = personelBordrosu.PersonelIsmi;
-                listViewItem.SubItems.Add(personelBordrosu.Kadro);
-                listViewItem.SubItems.Add(personelBordrosu.CalismaSaati.ToString());
-                listViewItem.SubItems.Add(personelBordrosu.AnaOdeme.ToString("C"));
-                listViewItem.SubItems.Add(personelBordrosu.MesaiUcreti.ToString("C"));
-                listViewItem.SubItems.Add(personelBordrosu.ToplamOdeme.ToString("C"));
+        }
 
-                lstvTumPersonelBordrosu.Items.Add(listViewItem);
-            }
+        private void btnTumPersoneller_Click(object sender, EventArgs e)
+        {
+            Temizle();
+            TabloyaAktar(tumPersonelBordro);
+        }
+
+        private void btnAlfabetikSiralama_Click(object sender, EventArgs e)
+        {
+            Temizle();
+            var alfabetikSiraliPersoneller = tumPersonelBordro.OrderBy(p => p.PersonelIsmi).ToList(); //İsme göre alfabetik sıralama(A'dan Z'ye)
+            TabloyaAktar(alfabetikSiraliPersoneller);
+        }
+
+        private void btnCalismaSaatiSiralama_Click(object sender, EventArgs e)
+        {
+            Temizle();
+            var calismaSaatineGoreSiralananPersoneller = tumPersonelBordro.OrderBy(p => p.CalismaSaati).ToList(); //Çalışma saatine göre küçükten büyüğe sıralanan personelleri bir liteye aktardım. 
+            TabloyaAktar(calismaSaatineGoreSiralananPersoneller);
+        }
+
+        private void btnAzCalisanPersonel_Click(object sender, EventArgs e)
+        {
+            Temizle();
+            var azCalisanPersoneller = tumPersonelBordro.Where(t => t.CalismaSaati <= 150).ToList(); //Çalışma saati 150 ve altında olan personelleri bir listeye aktardım.
+            var azCalisanPersonellerSiralamasi = azCalisanPersoneller.OrderBy(a => a.CalismaSaati).ToList(); //Çalışma saati 150 saatten az olan personellerin olduğu listeyi çalışma saatine göre küçükten büyüğe doğru sıraladım ve bir listeye aktardım.
+            TabloyaAktar(azCalisanPersonellerSiralamasi);
         }
 
         private void btnPdfOlustur_Click(object sender, EventArgs e)
@@ -359,6 +395,10 @@ namespace MaasBordroProgrami.UI
             form1.ShowDialog();
         }
 
+        private void Temizle()
+        {
+            lstvTumPersonelBordrosu.Items.Clear();
+        }
 
 
     }
