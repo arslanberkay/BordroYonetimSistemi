@@ -92,13 +92,21 @@ namespace MaasBordroProgrami.UI
         {
             if (cbPersonelAdSoyad.SelectedItem == null)
             {
-                MessageBox.Show("Lütfen bir personel seçniniz!");
+                epPersonel.SetError(cbPersonelAdSoyad, "Personel seçimi yapılmalıdır.");
                 return;
+            }
+            else
+            {
+                epPersonel.SetError(cbPersonelAdSoyad,string.Empty);
             }
             if (lstvPersonelBordrosu.Items.Count == 0) //Bordro hesaplaması olmadan JSON dosya kaydetme işlemi yapılmaz.
             {
-                MessageBox.Show("Lütfen önce bordro hesaplaması yapınız!");
+                epBordroHesapla.SetError(btnBordroHesapla, "Bordro hesaplaması yapılmalıdır.");
                 return;
+            }
+            else
+            {
+                epBordroHesapla.SetError(btnBordroHesapla, string.Empty);
             }
 
             int seciliIndex = cbPersonelAdSoyad.SelectedIndex;

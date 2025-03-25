@@ -83,7 +83,6 @@ namespace MaasBordroProgrami.UI
             {
                 cbDerece.Enabled = true;
             }
-
         }
 
         /// <summary>
@@ -99,16 +98,6 @@ namespace MaasBordroProgrami.UI
             if (dgvPersonelYonetimi.SelectedRows.Count == 0) //Eğer satır seçilmemişse
             {
                 MessageBox.Show("Lütfen güncellemek istediğiniz kullanıcıyı seçiniz!");
-                return;
-            }
-            if (string.IsNullOrWhiteSpace(mtxtCalismaSaati.Text)) //Çalışma saati kontrolü
-            {
-                MessageBox.Show("Çalışma saati boş olmamalıdır!");
-                return;
-            }
-            if (cbDerece.SelectedItem == null && txtKadro.Text == "Memur") //Memur için derece seçimi kontrolü
-            {
-                MessageBox.Show("Lütfen derece seçiniz!");
                 return;
             }
 
@@ -139,6 +128,7 @@ namespace MaasBordroProgrami.UI
                 return;
             }
 
+
             int seciliIndex = dgvPersonelYonetimi.SelectedRows[0].Index;
             personeller.RemoveAt(seciliIndex); //Seçili personeli listeden siler.
 
@@ -165,5 +155,7 @@ namespace MaasBordroProgrami.UI
             Form1 form1 = new Form1();
             form1.ShowDialog();
         }
+
+
     }
 }

@@ -22,7 +22,14 @@
   },
   {
     "AdSoyad": "Bünyamin Arslan",
-    "CalismaSaati": 0,
+    "CalismaSaati": 120,
+    "SaatlikUcret": 600.0,
+    "Kadro": "Yönetici",
+    "Derece": "-"
+  },
+  {
+    "AdSoyad": "Ekrem Can",
+    "CalismaSaati": 210,
     "SaatlikUcret": 600.0,
     "Kadro": "Yönetici",
     "Derece": "-"

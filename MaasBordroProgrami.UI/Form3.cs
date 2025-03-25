@@ -39,15 +39,24 @@ namespace MaasBordroProgrami.UI
         {
             var personeller = JSONDosya.PersonelListesiOku(); //Güncel personel listemi .jsondan aldım.
 
-            if (string.IsNullOrWhiteSpace(txtPersonelAdSoyad.Text)) //Ad-Soyad kontrolü
+            if (string.IsNullOrWhiteSpace(txtPersonelAdSoyad.Text)) //Personel adı boşsa
             {
-                MessageBox.Show("Ad-Soyad boş olamaz!");
+                epPersonelAdSoyad.SetError(txtPersonelAdSoyad, "Personel adı boş bırakılamaz."); //Hata simgesi üzerine gelindiğinde bu mesajı gösterir.
                 return;
             }
-            if (cbPersonelKadro.SelectedItem == null) //Kadro kontrolü
+            else
             {
-                MessageBox.Show("Lütfen kadro seçimi yapınız!");
+                epPersonelAdSoyad.SetError(txtPersonelAdSoyad, string.Empty); // Hata temizleme
+            }
+
+            if (cbPersonelKadro.SelectedItem == null) //Kadro seçimi yapmadıysa
+            {
+                epKadro.SetError(cbPersonelKadro, "Kadro bilgisi seçilmelidir.");
                 return;
+            }
+            else
+            {
+                epKadro.SetError(cbPersonelKadro, string.Empty);
             }
 
             if (cbPersonelKadro.SelectedItem == "Yönetici") //Yönetici seçildiyse
@@ -61,8 +70,12 @@ namespace MaasBordroProgrami.UI
 
             JSONDosya.PersonelListesineKaydet(personeller.ToList()); //Yeni eklenen personel JSON dosyasına kalıcı olarak kaydedilir.
 
+
+
             MessageBox.Show("Personel başarıyla eklendi.");
             Temizle();
+
+
         }
 
         /// <summary>
@@ -81,6 +94,7 @@ namespace MaasBordroProgrami.UI
             form2.ShowDialog();
 
         }
+
 
     }
 }

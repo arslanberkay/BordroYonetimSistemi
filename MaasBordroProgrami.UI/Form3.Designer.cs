@@ -38,7 +38,11 @@
             btnPersonelEkle = new Button();
             ımageList1 = new ImageList(components);
             btnPersonelYonetimSayfasinaGeriGec = new Button();
+            epPersonelAdSoyad = new ErrorProvider(components);
+            epKadro = new ErrorProvider(components);
             groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)epPersonelAdSoyad).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)epKadro).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -133,6 +137,14 @@
             btnPersonelYonetimSayfasinaGeriGec.UseVisualStyleBackColor = false;
             btnPersonelYonetimSayfasinaGeriGec.Click += btnPersonelYonetimSayfasinaGeriGec_Click;
             // 
+            // epPersonelAdSoyad
+            // 
+            epPersonelAdSoyad.ContainerControl = this;
+            // 
+            // epKadro
+            // 
+            epKadro.ContainerControl = this;
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
@@ -150,6 +162,8 @@
             Load += Form3_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)epPersonelAdSoyad).EndInit();
+            ((System.ComponentModel.ISupportInitialize)epKadro).EndInit();
             ResumeLayout(false);
         }
 
@@ -163,5 +177,7 @@
         private TextBox txtPersonelAdSoyad;
         private Button btnPersonelYonetimSayfasinaGeriGec;
         private ImageList ımageList1;
+        private ErrorProvider epPersonelAdSoyad;
+        private ErrorProvider epKadro;
     }
 }

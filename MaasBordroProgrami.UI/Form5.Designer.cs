@@ -176,7 +176,7 @@
             // 
             btnCalismaSaatiSiralama.ImageIndex = 2;
             btnCalismaSaatiSiralama.ImageList = ımageList3;
-            btnCalismaSaatiSiralama.Location = new Point(703, 60);
+            btnCalismaSaatiSiralama.Location = new Point(635, 60);
             btnCalismaSaatiSiralama.Name = "btnCalismaSaatiSiralama";
             btnCalismaSaatiSiralama.Size = new Size(50, 39);
             btnCalismaSaatiSiralama.TabIndex = 5;

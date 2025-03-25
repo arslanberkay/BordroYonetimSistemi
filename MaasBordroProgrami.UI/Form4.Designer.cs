@@ -38,6 +38,10 @@
             btnAnaSayfayaGeriGec = new Button();
             ımageList1 = new ImageList(components);
             btnJsonDosyaKaydet = new Button();
+            epPersonel = new ErrorProvider(components);
+            epBordroHesapla = new ErrorProvider(components);
+            ((System.ComponentModel.ISupportInitialize)epPersonel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)epBordroHesapla).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -127,6 +131,14 @@
             btnJsonDosyaKaydet.UseVisualStyleBackColor = false;
             btnJsonDosyaKaydet.Click += btnJsonDosyaKaydet_Click;
             // 
+            // epPersonel
+            // 
+            epPersonel.ContainerControl = this;
+            // 
+            // epBordroHesapla
+            // 
+            epBordroHesapla.ContainerControl = this;
+            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(12F, 25F);
@@ -145,6 +157,8 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form4";
             Load += Form4_Load;
+            ((System.ComponentModel.ISupportInitialize)epPersonel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)epBordroHesapla).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -159,5 +173,7 @@
         private Button btnJsonDosyaKaydet;
         private ImageList ımageList1;
         private ImageList ımageList2;
+        private ErrorProvider epPersonel;
+        private ErrorProvider epBordroHesapla;
     }
 }
