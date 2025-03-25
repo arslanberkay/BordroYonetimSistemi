@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -99,6 +100,17 @@ namespace MaasBordroProgrami.UI
             {
                 MessageBox.Show("Lütfen güncellemek istediğiniz kullanıcıyı seçiniz!");
                 return;
+            }
+
+            //Ad soyad arasında en az bir boşluk olması kontrolü ve Regex ile yanlızca harf kontrolü (Türkçe karakter olabilir)
+            if (txtAdSoyad.Text.Split(' ').Length < 2 || !Regex.IsMatch(txtAdSoyad.Text, @"^[a-zA-ZçÇğĞıİöÖşŞüÜ\s]+$"))
+            {
+                epAdSoyad.SetError(txtAdSoyad, "Ad ve soyad arasında en az bir boşluk olmalı ve yalnızca harflerden oluşmalıdır.");
+                return;
+            }
+            else
+            {
+                epAdSoyad.SetError(txtAdSoyad, string.Empty);
             }
 
             int seciliIndex = dgvPersonelYonetimi.SelectedRows[0].Index; //Seçili satırın indexi

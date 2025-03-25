@@ -6,6 +6,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -39,17 +40,38 @@ namespace MaasBordroProgrami.UI
         {
             var personeller = JSONDosya.PersonelListesiOku(); //Güncel personel listemi .jsondan aldım.
 
-            if (string.IsNullOrWhiteSpace(txtPersonelAdSoyad.Text)) //Personel adı boşsa
+            //Ad soyad arasında en az bir boşluk olması kontrolü ve Regex ile yanlızca harf kontrolü (Türkçe karakter olabilir)
+            if (txtPersonelAdSoyad.Text.Split(' ').Length < 2 || !Regex.IsMatch(txtPersonelAdSoyad.Text, @"^[a-zA-ZçÇğĞıİöÖşŞüÜ\s]+$"))
+            {
+                epPersonelAdSoyad.SetError(txtPersonelAdSoyad, "Ad ve soyad arasında en az bir boşluk olmalı ve yalnızca harflerden oluşmalıdır.");
+                return;
+            }
+            else
+            {
+                epPersonelAdSoyad.SetError(txtPersonelAdSoyad, string.Empty);
+            }
+
+            if (string.IsNullOrWhiteSpace(txtPersonelAdSoyad.Text) && cbPersonelKadro.SelectedItem == null) //Personel adı boşsa ve kadro seçilmediyse
             {
                 epPersonelAdSoyad.SetError(txtPersonelAdSoyad, "Personel adı boş bırakılamaz."); //Hata simgesi üzerine gelindiğinde bu mesajı gösterir.
+                epKadro.SetError(cbPersonelKadro, "Kadro bilgisi seçilmelidir."); //Hata simgesi üzerine gelindiğinde bu mesajı gösterir.
                 return;
             }
             else
             {
                 epPersonelAdSoyad.SetError(txtPersonelAdSoyad, string.Empty); // Hata temizleme
+                epKadro.SetError(cbPersonelKadro, string.Empty); // Hata temizleme
             }
-
-            if (cbPersonelKadro.SelectedItem == null) //Kadro seçimi yapmadıysa
+            if (string.IsNullOrWhiteSpace(txtPersonelAdSoyad.Text))
+            {
+                epPersonelAdSoyad.SetError(txtPersonelAdSoyad, "Personel adı boş bırakılamaz.");
+                return;
+            }
+            else
+            {
+                epPersonelAdSoyad.SetError(txtPersonelAdSoyad, string.Empty);
+            }
+            if (cbPersonelKadro.SelectedItem == null)
             {
                 epKadro.SetError(cbPersonelKadro, "Kadro bilgisi seçilmelidir.");
                 return;
@@ -58,6 +80,7 @@ namespace MaasBordroProgrami.UI
             {
                 epKadro.SetError(cbPersonelKadro, string.Empty);
             }
+
 
             if (cbPersonelKadro.SelectedItem == "Yönetici") //Yönetici seçildiyse
             {
@@ -74,8 +97,6 @@ namespace MaasBordroProgrami.UI
 
             MessageBox.Show("Personel başarıyla eklendi.");
             Temizle();
-
-
         }
 
         /// <summary>

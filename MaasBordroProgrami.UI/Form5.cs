@@ -179,7 +179,7 @@ namespace MaasBordroProgrami.UI
                     //Her bir sütun başlığını PDF tablosuna ekler.
                     PdfPCell cell = new PdfPCell(new Phrase(column.Text, kalinFont));
                     cell.BackgroundColor = BaseColor.LIGHT_GRAY; //Gri arka plan
-                    cell.HorizontalAlignment = Element.ALIGN_CENTER; //ORtala
+                    cell.HorizontalAlignment = Element.ALIGN_CENTER; //Ortala
                     table.AddCell(cell);
                 }
 

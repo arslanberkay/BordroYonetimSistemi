@@ -47,9 +47,11 @@
             btnAnaSayfayaGeriGec = new Button();
             dgvPersonelYonetimi = new DataGridView();
             pictureBox1 = new PictureBox();
+            epAdSoyad = new ErrorProvider(components);
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPersonelYonetimi).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)epAdSoyad).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -238,6 +240,10 @@
             pictureBox1.TabIndex = 3;
             pictureBox1.TabStop = false;
             // 
+            // epAdSoyad
+            // 
+            epAdSoyad.ContainerControl = this;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
@@ -260,6 +266,7 @@
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPersonelYonetimi).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)epAdSoyad).EndInit();
             ResumeLayout(false);
         }
 
@@ -281,5 +288,6 @@
         private ImageList ımageList1;
         private ImageList ımageList2;
         private PictureBox pictureBox1;
+        private ErrorProvider epAdSoyad;
     }
 }
