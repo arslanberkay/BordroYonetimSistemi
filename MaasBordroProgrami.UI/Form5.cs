@@ -88,7 +88,6 @@ namespace MaasBordroProgrami.UI
             TumCalisanBordroHesapla();
             Temizle();
             TabloyaAktar(tumPersonelBordro);
-
         }
 
         private void btnTumPersoneller_Click(object sender, EventArgs e)
@@ -399,8 +398,6 @@ namespace MaasBordroProgrami.UI
         {
             lstvTumPersonelBordrosu.Items.Clear();
         }
-
-
     }
 
 
