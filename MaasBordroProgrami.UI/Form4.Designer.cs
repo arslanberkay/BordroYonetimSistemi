@@ -52,9 +52,9 @@
             label1.Location = new Point(73, 75);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(559, 31);
+            label1.Size = new Size(554, 31);
             label1.TabIndex = 0;
-            label1.Text = "Bordrosunu Hesaplamak İstediğiniz Personeli Seçiniz :";
+            label1.Text = "Bordrosunu Hesaplamak İstediğiniz Personeli Seçiniz \r\n";
             // 
             // cbPersonelAdSoyad
             // 

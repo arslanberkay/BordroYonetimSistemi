@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             groupBox1 = new GroupBox();
             mtxtCalismaSaati = new MaskedTextBox();
             cbDerece = new ComboBox();
@@ -71,7 +71,7 @@
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4);
             groupBox1.Size = new Size(384, 209);
-            groupBox1.TabIndex = 0;
+            groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Personel Yönetimi";
             // 
@@ -103,10 +103,11 @@
             // 
             // txtAdSoyad
             // 
+            txtAdSoyad.ForeColor = Color.Black;
             txtAdSoyad.Location = new Point(151, 36);
             txtAdSoyad.Name = "txtAdSoyad";
             txtAdSoyad.Size = new Size(192, 34);
-            txtAdSoyad.TabIndex = 1;
+            txtAdSoyad.TabIndex = 0;
             // 
             // label4
             // 
@@ -114,9 +115,9 @@
             label4.ForeColor = Color.White;
             label4.Location = new Point(14, 163);
             label4.Name = "label4";
-            label4.Size = new Size(136, 28);
+            label4.Size = new Size(132, 28);
             label4.TabIndex = 0;
-            label4.Text = "Çalışma Saati :";
+            label4.Text = "Çalışma Saati ";
             // 
             // label3
             // 
@@ -124,9 +125,9 @@
             label3.ForeColor = Color.White;
             label3.Location = new Point(14, 122);
             label3.Name = "label3";
-            label3.Size = new Size(81, 28);
+            label3.Size = new Size(77, 28);
             label3.TabIndex = 0;
-            label3.Text = "Derece :";
+            label3.Text = "Derece ";
             // 
             // label2
             // 
@@ -134,9 +135,9 @@
             label2.ForeColor = Color.White;
             label2.Location = new Point(14, 81);
             label2.Name = "label2";
-            label2.Size = new Size(74, 28);
+            label2.Size = new Size(70, 28);
             label2.TabIndex = 0;
-            label2.Text = "Kadro :";
+            label2.Text = "Kadro ";
             // 
             // label1
             // 
@@ -144,9 +145,9 @@
             label1.ForeColor = Color.White;
             label1.Location = new Point(14, 40);
             label1.Name = "label1";
-            label1.Size = new Size(106, 28);
+            label1.Size = new Size(102, 28);
             label1.TabIndex = 0;
-            label1.Text = "Ad Soyad :";
+            label1.Text = "Ad Soyad ";
             // 
             // btnSil
             // 
@@ -158,7 +159,7 @@
             btnSil.Location = new Point(98, 290);
             btnSil.Name = "btnSil";
             btnSil.Size = new Size(140, 40);
-            btnSil.TabIndex = 1;
+            btnSil.TabIndex = 2;
             btnSil.Text = "Sil";
             btnSil.UseVisualStyleBackColor = false;
             btnSil.Click += btnSil_Click;
@@ -181,7 +182,7 @@
             btnGuncelle.Location = new Point(253, 290);
             btnGuncelle.Name = "btnGuncelle";
             btnGuncelle.Size = new Size(140, 40);
-            btnGuncelle.TabIndex = 1;
+            btnGuncelle.TabIndex = 0;
             btnGuncelle.Text = "Güncelle";
             btnGuncelle.TextAlign = ContentAlignment.MiddleRight;
             btnGuncelle.UseVisualStyleBackColor = false;
@@ -205,7 +206,7 @@
             btnAnaSayfayaGeriGec.Location = new Point(30, 25);
             btnAnaSayfayaGeriGec.Name = "btnAnaSayfayaGeriGec";
             btnAnaSayfayaGeriGec.Size = new Size(37, 35);
-            btnAnaSayfayaGeriGec.TabIndex = 1;
+            btnAnaSayfayaGeriGec.TabIndex = 4;
             btnAnaSayfayaGeriGec.UseVisualStyleBackColor = false;
             btnAnaSayfayaGeriGec.Click += btnAnaSayfayaGeriGec_Click;
             // 
@@ -213,12 +214,12 @@
             // 
             dgvPersonelYonetimi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPersonelYonetimi.BackgroundColor = Color.WhiteSmoke;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvPersonelYonetimi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvPersonelYonetimi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvPersonelYonetimi.ColumnHeadersHeight = 40;
             dgvPersonelYonetimi.GridColor = Color.LightGray;
             dgvPersonelYonetimi.Location = new Point(84, 347);

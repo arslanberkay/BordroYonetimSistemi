@@ -34,12 +34,38 @@ namespace MaasBordroProgrami.UI
         private void Form3_Load(object sender, EventArgs e)
         {
             KadroGetir();
+            KontrolDuzenle(txtPersonelAdSoyad, "Ad soyad giriniz", 10, Color.DarkGray);
+            KontrolDuzenle(cbPersonelKadro, "Kadro seçiniz", 10, Color.DarkGray);
         }
+
+        /// <summary>
+        /// Parametre olarak gönderilen kontrolün font ve renk düzenlemelerini veren içine ön bilgi koyabildiğimiz bir metod
+        /// </summary>
+        /// <param name="mesaj"></param>
+        /// <param name="font"></param>
+        /// <param name="renk"></param>
+        private void KontrolDuzenle(Control control, string mesaj, float font, Color renk)
+        {
+            if (control is TextBox txt)
+            {
+                txt.Text = mesaj;
+                txt.ForeColor = renk;
+                txt.Font = new Font(txtPersonelAdSoyad.Font.FontFamily, font, txtPersonelAdSoyad.Font.Style);
+            }
+            else if (control is ComboBox cb)
+            {
+                cb.Text = mesaj;
+                cb.ForeColor = renk;
+                cb.Font = new Font(cbPersonelKadro.Font.FontFamily, font, cbPersonelKadro.Font.Style);
+            }
+        }
+
 
         private void btnPersonelEkle_Click(object sender, EventArgs e)
         {
             var personeller = JSONDosya.PersonelListesiOku(); //Güncel personel listemi .jsondan aldım.
 
+            KontrolDuzenle(txtPersonelAdSoyad, string.Empty, 12, Color.Black);
             //Ad soyad arasında en az bir boşluk olması kontrolü ve Regex ile yanlızca harf kontrolü (Türkçe karakter olabilir)
             if (txtPersonelAdSoyad.Text.Split(' ').Length < 2 || !Regex.IsMatch(txtPersonelAdSoyad.Text, @"^[a-zA-ZçÇğĞıİöÖşŞüÜ\s]+$"))
             {
@@ -81,7 +107,6 @@ namespace MaasBordroProgrami.UI
                 epKadro.SetError(cbPersonelKadro, string.Empty);
             }
 
-
             if (cbPersonelKadro.SelectedItem == "Yönetici") //Yönetici seçildiyse
             {
                 personeller.Add(new Yonetici { AdSoyad = txtPersonelAdSoyad.Text, Kadro = "Yönetici" }); //Yeni Yonetici nesnesi listeye eklenir (object initializer kullanılarak nesne oluşturuldu ve özellikleri verildi.)
@@ -113,9 +138,16 @@ namespace MaasBordroProgrami.UI
             this.Hide();
             Form2 form2 = new Form2();
             form2.ShowDialog();
-
         }
 
+        private void txtPersonelAdSoyad_Click(object sender, EventArgs e)
+        {
+            KontrolDuzenle(txtPersonelAdSoyad, string.Empty, 12, Color.Black);
+        }
 
+        private void cbPersonelKadro_Click(object sender, EventArgs e)
+        {
+            KontrolDuzenle(cbPersonelKadro,string.Empty, 12, Color.Black);
+        }
     }
 }

@@ -52,9 +52,9 @@
             label1.Location = new Point(20, 45);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
-            label1.Size = new Size(106, 28);
+            label1.Size = new Size(102, 28);
             label1.TabIndex = 0;
-            label1.Text = "Ad Soyad :";
+            label1.Text = "Ad Soyad ";
             // 
             // groupBox1
             // 
@@ -75,12 +75,12 @@
             // cbPersonelKadro
             // 
             cbPersonelKadro.BackColor = Color.WhiteSmoke;
-            cbPersonelKadro.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPersonelKadro.FormattingEnabled = true;
             cbPersonelKadro.Location = new Point(135, 94);
             cbPersonelKadro.Name = "cbPersonelKadro";
             cbPersonelKadro.Size = new Size(191, 36);
             cbPersonelKadro.TabIndex = 2;
+            cbPersonelKadro.Click += cbPersonelKadro_Click;
             // 
             // txtPersonelAdSoyad
             // 
@@ -89,6 +89,7 @@
             txtPersonelAdSoyad.Name = "txtPersonelAdSoyad";
             txtPersonelAdSoyad.Size = new Size(191, 34);
             txtPersonelAdSoyad.TabIndex = 1;
+            txtPersonelAdSoyad.Click += txtPersonelAdSoyad_Click;
             // 
             // label2
             // 
@@ -97,9 +98,9 @@
             label2.Location = new Point(20, 94);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(74, 28);
+            label2.Size = new Size(70, 28);
             label2.TabIndex = 0;
-            label2.Text = "Kadro :";
+            label2.Text = "Kadro ";
             // 
             // btnPersonelEkle
             // 
