@@ -27,12 +27,12 @@ namespace MaasBordroProgrami.UI
         {
             lstvPersonelBordrosu.View = View.Details;
             lstvPersonelBordrosu.GridLines = true;
-            lstvPersonelBordrosu.Columns.Add("Ad - Soyad", 210);
-            lstvPersonelBordrosu.Columns.Add("Kadro", 210, HorizontalAlignment.Center);
-            lstvPersonelBordrosu.Columns.Add("Çalışma Saati", 210, HorizontalAlignment.Center);
-            lstvPersonelBordrosu.Columns.Add("Ana Ödeme", 210, HorizontalAlignment.Center);
-            lstvPersonelBordrosu.Columns.Add("Mesai Ücreti", 210, HorizontalAlignment.Center);
-            lstvPersonelBordrosu.Columns.Add("Toplam Ödeme", 210, HorizontalAlignment.Center);
+            lstvPersonelBordrosu.Columns.Add("Ad - Soyad", 215,HorizontalAlignment.Center);
+            lstvPersonelBordrosu.Columns.Add("Kadro", 215, HorizontalAlignment.Center);
+            lstvPersonelBordrosu.Columns.Add("Çalışma Saati", 215, HorizontalAlignment.Center);
+            lstvPersonelBordrosu.Columns.Add("Ana Ödeme", 215, HorizontalAlignment.Center);
+            lstvPersonelBordrosu.Columns.Add("Mesai Ücreti", 215, HorizontalAlignment.Center);
+            lstvPersonelBordrosu.Columns.Add("Toplam Ödeme", 215, HorizontalAlignment.Center);
         }
 
         private List<IPersonel> personelListesi;
@@ -55,9 +55,10 @@ namespace MaasBordroProgrami.UI
             TabloOlustur();
         }
 
-        private void btnBordroHesapla_Click(object sender, EventArgs e)
+        private void cbPersonelAdSoyad_SelectedIndexChanged(object sender, EventArgs e)
         {
             Temizle();
+            epPersonel.SetError(cbPersonelAdSoyad,string.Empty); //Personel seçildiğinde uyarı ikonunu temizle
 
             if (cbPersonelAdSoyad.SelectedItem == null)
             {
@@ -87,6 +88,7 @@ namespace MaasBordroProgrami.UI
 
             lstvPersonelBordrosu.Items.Add(listViewItem);
         }
+       
 
         private void btnJsonDosyaKaydet_Click(object sender, EventArgs e)
         {
@@ -97,16 +99,7 @@ namespace MaasBordroProgrami.UI
             }
             else
             {
-                epPersonel.SetError(cbPersonelAdSoyad,string.Empty);
-            }
-            if (lstvPersonelBordrosu.Items.Count == 0) //Bordro hesaplaması olmadan JSON dosya kaydetme işlemi yapılmaz.
-            {
-                epBordroHesapla.SetError(btnBordroHesapla, "Bordro hesaplaması yapılmalıdır.");
-                return;
-            }
-            else
-            {
-                epBordroHesapla.SetError(btnBordroHesapla, string.Empty);
+                epPersonel.SetError(cbPersonelAdSoyad, string.Empty);
             }
 
             int seciliIndex = cbPersonelAdSoyad.SelectedIndex;
@@ -135,5 +128,7 @@ namespace MaasBordroProgrami.UI
             Form1 form1 = new Form1();
             form1.ShowDialog();
         }
+
+        
     }
 }

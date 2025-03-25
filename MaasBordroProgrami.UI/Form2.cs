@@ -84,6 +84,8 @@ namespace MaasBordroProgrami.UI
             {
                 cbDerece.Enabled = true;
             }
+            epCalismaSaati.SetError(mtxtCalismaSaati, string.Empty);
+            epAdSoyad.SetError(txtAdSoyad, string.Empty);   
         }
 
         /// <summary>
@@ -111,6 +113,16 @@ namespace MaasBordroProgrami.UI
             else
             {
                 epAdSoyad.SetError(txtAdSoyad, string.Empty);
+            }
+
+            if (string.IsNullOrWhiteSpace(mtxtCalismaSaati.Text))
+            {
+                epCalismaSaati.SetError(mtxtCalismaSaati, "Çalışma saati girilmelidir");
+                return;
+            }
+            else
+            {
+                epCalismaSaati.SetError(mtxtCalismaSaati, string.Empty);
             }
 
             int seciliIndex = dgvPersonelYonetimi.SelectedRows[0].Index; //Seçili satırın indexi

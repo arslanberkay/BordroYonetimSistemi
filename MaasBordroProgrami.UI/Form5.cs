@@ -94,6 +94,7 @@ namespace MaasBordroProgrami.UI
         {
             Temizle();
             TabloyaAktar(tumPersonelBordro);
+            SiralamaGorunurlukAc();
         }
 
         private void btnAlfabetikSiralama_Click(object sender, EventArgs e)
@@ -116,6 +117,7 @@ namespace MaasBordroProgrami.UI
             var azCalisanPersoneller = tumPersonelBordro.Where(t => t.CalismaSaati <= 150).ToList(); //Çalışma saati 150 ve altında olan personelleri bir listeye aktardım.
             var azCalisanPersonellerSiralamasi = azCalisanPersoneller.OrderBy(a => a.CalismaSaati).ToList(); //Çalışma saati 150 saatten az olan personellerin olduğu listeyi çalışma saatine göre küçükten büyüğe doğru sıraladım ve bir listeye aktardım.
             TabloyaAktar(azCalisanPersonellerSiralamasi);
+            SiralamaGorunurlukKapat();
         }
 
         private void btnPdfOlustur_Click(object sender, EventArgs e)
@@ -397,6 +399,18 @@ namespace MaasBordroProgrami.UI
         private void Temizle()
         {
             lstvTumPersonelBordrosu.Items.Clear();
+        }
+
+        private void SiralamaGorunurlukAc()
+        {
+            btnCalismaSaatiSiralama.Visible = true;
+            btnAlfabetikSiralama.Visible = true;
+        }
+
+        private void SiralamaGorunurlukKapat()
+        {
+            btnCalismaSaatiSiralama.Visible = false;
+            btnAlfabetikSiralama.Visible = false;
         }
     }
 

@@ -32,16 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
             label1 = new Label();
             cbPersonelAdSoyad = new ComboBox();
-            btnBordroHesapla = new Button();
             ımageList2 = new ImageList(components);
             lstvPersonelBordrosu = new ListView();
             btnAnaSayfayaGeriGec = new Button();
             ımageList1 = new ImageList(components);
             btnJsonDosyaKaydet = new Button();
             epPersonel = new ErrorProvider(components);
-            epBordroHesapla = new ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)epPersonel).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)epBordroHesapla).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -65,20 +62,7 @@
             cbPersonelAdSoyad.Name = "cbPersonelAdSoyad";
             cbPersonelAdSoyad.Size = new Size(239, 33);
             cbPersonelAdSoyad.TabIndex = 1;
-            // 
-            // btnBordroHesapla
-            // 
-            btnBordroHesapla.BackColor = Color.Gainsboro;
-            btnBordroHesapla.ImageAlign = ContentAlignment.MiddleLeft;
-            btnBordroHesapla.ImageIndex = 1;
-            btnBordroHesapla.ImageList = ımageList2;
-            btnBordroHesapla.Location = new Point(639, 127);
-            btnBordroHesapla.Name = "btnBordroHesapla";
-            btnBordroHesapla.Size = new Size(239, 55);
-            btnBordroHesapla.TabIndex = 2;
-            btnBordroHesapla.Text = "Bordro Hesapla";
-            btnBordroHesapla.UseVisualStyleBackColor = false;
-            btnBordroHesapla.Click += btnBordroHesapla_Click;
+            cbPersonelAdSoyad.SelectedIndexChanged += cbPersonelAdSoyad_SelectedIndexChanged;
             // 
             // ımageList2
             // 
@@ -91,9 +75,9 @@
             // lstvPersonelBordrosu
             // 
             lstvPersonelBordrosu.BackColor = Color.WhiteSmoke;
-            lstvPersonelBordrosu.Location = new Point(73, 199);
+            lstvPersonelBordrosu.Location = new Point(73, 135);
             lstvPersonelBordrosu.Name = "lstvPersonelBordrosu";
-            lstvPersonelBordrosu.Size = new Size(1292, 90);
+            lstvPersonelBordrosu.Size = new Size(1299, 90);
             lstvPersonelBordrosu.TabIndex = 3;
             lstvPersonelBordrosu.UseCompatibleStateImageBehavior = false;
             // 
@@ -123,7 +107,7 @@
             btnJsonDosyaKaydet.ImageAlign = ContentAlignment.MiddleLeft;
             btnJsonDosyaKaydet.ImageKey = "9104302_save_storage_file_document_page_icon.png";
             btnJsonDosyaKaydet.ImageList = ımageList2;
-            btnJsonDosyaKaydet.Location = new Point(1064, 306);
+            btnJsonDosyaKaydet.Location = new Point(1072, 242);
             btnJsonDosyaKaydet.Name = "btnJsonDosyaKaydet";
             btnJsonDosyaKaydet.Size = new Size(300, 55);
             btnJsonDosyaKaydet.TabIndex = 2;
@@ -135,20 +119,15 @@
             // 
             epPersonel.ContainerControl = this;
             // 
-            // epBordroHesapla
-            // 
-            epBordroHesapla.ContainerControl = this;
-            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(12F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
-            ClientSize = new Size(1423, 410);
+            ClientSize = new Size(1423, 330);
             Controls.Add(btnAnaSayfayaGeriGec);
             Controls.Add(lstvPersonelBordrosu);
             Controls.Add(btnJsonDosyaKaydet);
-            Controls.Add(btnBordroHesapla);
             Controls.Add(cbPersonelAdSoyad);
             Controls.Add(label1);
             Font = new Font("Microsoft Sans Serif", 12F);
@@ -158,7 +137,6 @@
             Text = "Form4";
             Load += Form4_Load;
             ((System.ComponentModel.ISupportInitialize)epPersonel).EndInit();
-            ((System.ComponentModel.ISupportInitialize)epBordroHesapla).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -167,13 +145,11 @@
 
         private Label label1;
         private ComboBox cbPersonelAdSoyad;
-        private Button btnBordroHesapla;
         private ListView lstvPersonelBordrosu;
         private Button btnAnaSayfayaGeriGec;
         private Button btnJsonDosyaKaydet;
         private ImageList ımageList1;
         private ImageList ımageList2;
         private ErrorProvider epPersonel;
-        private ErrorProvider epBordroHesapla;
     }
 }

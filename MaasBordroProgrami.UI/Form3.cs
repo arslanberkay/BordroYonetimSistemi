@@ -57,6 +57,8 @@ namespace MaasBordroProgrami.UI
                 cb.Text = mesaj;
                 cb.ForeColor = renk;
                 cb.Font = new Font(cbPersonelKadro.Font.FontFamily, font, cbPersonelKadro.Font.Style);
+
+
             }
         }
 
@@ -65,19 +67,7 @@ namespace MaasBordroProgrami.UI
         {
             var personeller = JSONDosya.PersonelListesiOku(); //Güncel personel listemi .jsondan aldım.
 
-            KontrolDuzenle(txtPersonelAdSoyad, string.Empty, 12, Color.Black);
-            //Ad soyad arasında en az bir boşluk olması kontrolü ve Regex ile yanlızca harf kontrolü (Türkçe karakter olabilir)
-            if (txtPersonelAdSoyad.Text.Split(' ').Length < 2 || !Regex.IsMatch(txtPersonelAdSoyad.Text, @"^[a-zA-ZçÇğĞıİöÖşŞüÜ\s]+$"))
-            {
-                epPersonelAdSoyad.SetError(txtPersonelAdSoyad, "Ad ve soyad arasında en az bir boşluk olmalı ve yalnızca harflerden oluşmalıdır.");
-                return;
-            }
-            else
-            {
-                epPersonelAdSoyad.SetError(txtPersonelAdSoyad, string.Empty);
-            }
-
-            if (string.IsNullOrWhiteSpace(txtPersonelAdSoyad.Text) && cbPersonelKadro.SelectedItem == null) //Personel adı boşsa ve kadro seçilmediyse
+            if ((string.IsNullOrWhiteSpace(txtPersonelAdSoyad.Text) || txtPersonelAdSoyad.Text == "Ad soyad giriniz") && cbPersonelKadro.SelectedItem == null) //Personel adı boşsa ve kadro seçilmediyse
             {
                 epPersonelAdSoyad.SetError(txtPersonelAdSoyad, "Personel adı boş bırakılamaz."); //Hata simgesi üzerine gelindiğinde bu mesajı gösterir.
                 epKadro.SetError(cbPersonelKadro, "Kadro bilgisi seçilmelidir."); //Hata simgesi üzerine gelindiğinde bu mesajı gösterir.
@@ -88,7 +78,20 @@ namespace MaasBordroProgrami.UI
                 epPersonelAdSoyad.SetError(txtPersonelAdSoyad, string.Empty); // Hata temizleme
                 epKadro.SetError(cbPersonelKadro, string.Empty); // Hata temizleme
             }
-            if (string.IsNullOrWhiteSpace(txtPersonelAdSoyad.Text))
+
+            //Ad soyad arasında en az bir boşluk olması kontrolü ve Regex ile yanlızca harf kontrolü (Türkçe karakter olabilir)
+            if (txtPersonelAdSoyad.Text.Trim().Split(' ').Length < 2 || !Regex.IsMatch(txtPersonelAdSoyad.Text, @"^[a-zA-ZçÇğĞıİöÖşŞüÜ\s]+$"))
+            {
+                epPersonelAdSoyad.SetError(txtPersonelAdSoyad, "Ad ve soyad arasında en az bir boşluk olmalı ve yalnızca harflerden oluşmalıdır.");
+                return;
+            }
+            else
+            {
+                epPersonelAdSoyad.SetError(txtPersonelAdSoyad, string.Empty);
+            }
+
+
+            if (string.IsNullOrWhiteSpace(txtPersonelAdSoyad.Text) || txtPersonelAdSoyad.Text == "Ad soyad giriniz")
             {
                 epPersonelAdSoyad.SetError(txtPersonelAdSoyad, "Personel adı boş bırakılamaz.");
                 return;
@@ -136,18 +139,27 @@ namespace MaasBordroProgrami.UI
         private void btnPersonelYonetimSayfasinaGeriGec_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form2 form2 = new Form2();
-            form2.ShowDialog();
+            Form1 form1 = new Form1();
+            form1.ShowDialog();
         }
 
+        bool tiklandi = true;
         private void txtPersonelAdSoyad_Click(object sender, EventArgs e)
         {
-            KontrolDuzenle(txtPersonelAdSoyad, string.Empty, 12, Color.Black);
+            //Textboxta yapılan renk değişiminin ve ön bilgi temizlenmesinin ilk tıklamada yapılmasını daha sonraki tıklamalarda bu temizlenme işleminin yapılmaması gerektiği için bu şekilde bir kontrol ekledim
+            if (tiklandi)
+            {
+                KontrolDuzenle(txtPersonelAdSoyad, string.Empty, 12, Color.Black);
+                tiklandi = false;
+            }
+
         }
 
         private void cbPersonelKadro_Click(object sender, EventArgs e)
         {
-            KontrolDuzenle(cbPersonelKadro,string.Empty, 12, Color.Black);
+            KontrolDuzenle(cbPersonelKadro, string.Empty, 12, Color.Black);
+            cbPersonelKadro.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbPersonelKadro.SelectedItem = null;
         }
     }
 }

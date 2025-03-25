@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             groupBox1 = new GroupBox();
             mtxtCalismaSaati = new MaskedTextBox();
             cbDerece = new ComboBox();
@@ -48,10 +48,12 @@
             dgvPersonelYonetimi = new DataGridView();
             pictureBox1 = new PictureBox();
             epAdSoyad = new ErrorProvider(components);
+            epCalismaSaati = new ErrorProvider(components);
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPersonelYonetimi).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)epAdSoyad).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)epCalismaSaati).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -70,14 +72,14 @@
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4);
-            groupBox1.Size = new Size(384, 209);
+            groupBox1.Size = new Size(409, 211);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Personel Yönetimi";
             // 
             // mtxtCalismaSaati
             // 
-            mtxtCalismaSaati.Location = new Point(151, 163);
+            mtxtCalismaSaati.Location = new Point(161, 170);
             mtxtCalismaSaati.Mask = "000";
             mtxtCalismaSaati.Name = "mtxtCalismaSaati";
             mtxtCalismaSaati.Size = new Size(192, 34);
@@ -88,7 +90,7 @@
             // 
             cbDerece.DropDownStyle = ComboBoxStyle.DropDownList;
             cbDerece.FormattingEnabled = true;
-            cbDerece.Location = new Point(151, 121);
+            cbDerece.Location = new Point(161, 124);
             cbDerece.Name = "cbDerece";
             cbDerece.Size = new Size(192, 36);
             cbDerece.TabIndex = 2;
@@ -96,7 +98,7 @@
             // txtKadro
             // 
             txtKadro.Enabled = false;
-            txtKadro.Location = new Point(151, 81);
+            txtKadro.Location = new Point(161, 80);
             txtKadro.Name = "txtKadro";
             txtKadro.Size = new Size(192, 34);
             txtKadro.TabIndex = 1;
@@ -104,7 +106,7 @@
             // txtAdSoyad
             // 
             txtAdSoyad.ForeColor = Color.Black;
-            txtAdSoyad.Location = new Point(151, 36);
+            txtAdSoyad.Location = new Point(161, 36);
             txtAdSoyad.Name = "txtAdSoyad";
             txtAdSoyad.Size = new Size(192, 34);
             txtAdSoyad.TabIndex = 0;
@@ -113,7 +115,7 @@
             // 
             label4.AutoSize = true;
             label4.ForeColor = Color.White;
-            label4.Location = new Point(14, 163);
+            label4.Location = new Point(29, 169);
             label4.Name = "label4";
             label4.Size = new Size(132, 28);
             label4.TabIndex = 0;
@@ -123,7 +125,7 @@
             // 
             label3.AutoSize = true;
             label3.ForeColor = Color.White;
-            label3.Location = new Point(14, 122);
+            label3.Location = new Point(29, 126);
             label3.Name = "label3";
             label3.Size = new Size(77, 28);
             label3.TabIndex = 0;
@@ -133,7 +135,7 @@
             // 
             label2.AutoSize = true;
             label2.ForeColor = Color.White;
-            label2.Location = new Point(14, 81);
+            label2.Location = new Point(29, 83);
             label2.Name = "label2";
             label2.Size = new Size(70, 28);
             label2.TabIndex = 0;
@@ -143,7 +145,7 @@
             // 
             label1.AutoSize = true;
             label1.ForeColor = Color.White;
-            label1.Location = new Point(14, 40);
+            label1.Location = new Point(29, 40);
             label1.Name = "label1";
             label1.Size = new Size(102, 28);
             label1.TabIndex = 0;
@@ -214,12 +216,12 @@
             // 
             dgvPersonelYonetimi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPersonelYonetimi.BackgroundColor = Color.WhiteSmoke;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvPersonelYonetimi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
+            dgvPersonelYonetimi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPersonelYonetimi.ColumnHeadersHeight = 40;
             dgvPersonelYonetimi.GridColor = Color.LightGray;
             dgvPersonelYonetimi.Location = new Point(84, 347);
@@ -227,14 +229,14 @@
             dgvPersonelYonetimi.Name = "dgvPersonelYonetimi";
             dgvPersonelYonetimi.RowHeadersWidth = 30;
             dgvPersonelYonetimi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPersonelYonetimi.Size = new Size(854, 202);
+            dgvPersonelYonetimi.Size = new Size(876, 202);
             dgvPersonelYonetimi.TabIndex = 2;
             dgvPersonelYonetimi.CellClick += dgvPersonelYonetimi_CellClick;
             // 
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources._2530819_general_group_office_personal_relation_icon;
-            pictureBox1.Location = new Point(487, 72);
+            pictureBox1.Location = new Point(526, 74);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(264, 197);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -245,12 +247,16 @@
             // 
             epAdSoyad.ContainerControl = this;
             // 
+            // epCalismaSaati
+            // 
+            epCalismaSaati.ContainerControl = this;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
-            ClientSize = new Size(1001, 595);
+            ClientSize = new Size(1009, 595);
             Controls.Add(pictureBox1);
             Controls.Add(dgvPersonelYonetimi);
             Controls.Add(btnGuncelle);
@@ -268,6 +274,7 @@
             ((System.ComponentModel.ISupportInitialize)dgvPersonelYonetimi).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)epAdSoyad).EndInit();
+            ((System.ComponentModel.ISupportInitialize)epCalismaSaati).EndInit();
             ResumeLayout(false);
         }
 
@@ -290,5 +297,6 @@
         private ImageList ımageList2;
         private PictureBox pictureBox1;
         private ErrorProvider epAdSoyad;
+        private ErrorProvider epCalismaSaati;
     }
 }
