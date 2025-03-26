@@ -36,12 +36,24 @@
             btnPdfOlustur = new Button();
             ımageList2 = new ImageList(components);
             btnExcelOlustur = new Button();
-            btnMailGonder = new Button();
+            btnMailGonderimGecis = new Button();
             btnAzCalisanPersonel = new Button();
             btnTumPersoneller = new Button();
             btnAlfabetikSiralama = new Button();
             ımageList3 = new ImageList(components);
             btnCalismaSaatiSiralama = new Button();
+            lblBildirim = new Label();
+            groupBox1 = new GroupBox();
+            chkExcel = new CheckBox();
+            chkPdf = new CheckBox();
+            textBox1 = new TextBox();
+            label1 = new Label();
+            pnlMailGonderimAlani = new Panel();
+            button1 = new Button();
+            ımageList4 = new ImageList(components);
+            btnMailGonderme = new Button();
+            groupBox1.SuspendLayout();
+            pnlMailGonderimAlani.SuspendLayout();
             SuspendLayout();
             // 
             // lstvTumPersonelBordrosu
@@ -115,19 +127,19 @@
             btnExcelOlustur.UseVisualStyleBackColor = false;
             btnExcelOlustur.Click += btnExcelOlustur_Click;
             // 
-            // btnMailGonder
+            // btnMailGonderimGecis
             // 
-            btnMailGonder.BackColor = Color.Gainsboro;
-            btnMailGonder.ImageAlign = ContentAlignment.MiddleLeft;
-            btnMailGonder.ImageKey = "4202011_email_gmail_mail_logo_social_icon.png";
-            btnMailGonder.ImageList = ımageList2;
-            btnMailGonder.Location = new Point(1174, 497);
-            btnMailGonder.Name = "btnMailGonder";
-            btnMailGonder.Size = new Size(227, 58);
-            btnMailGonder.TabIndex = 1;
-            btnMailGonder.Text = "Mail Gönder";
-            btnMailGonder.UseVisualStyleBackColor = false;
-            btnMailGonder.Click += btnMailGonder_Click;
+            btnMailGonderimGecis.BackColor = Color.Gainsboro;
+            btnMailGonderimGecis.ImageAlign = ContentAlignment.MiddleLeft;
+            btnMailGonderimGecis.ImageKey = "4202011_email_gmail_mail_logo_social_icon.png";
+            btnMailGonderimGecis.ImageList = ımageList2;
+            btnMailGonderimGecis.Location = new Point(1174, 497);
+            btnMailGonderimGecis.Name = "btnMailGonderimGecis";
+            btnMailGonderimGecis.Size = new Size(227, 58);
+            btnMailGonderimGecis.TabIndex = 1;
+            btnMailGonderimGecis.Text = "Mail Gönder";
+            btnMailGonderimGecis.UseVisualStyleBackColor = false;
+            btnMailGonderimGecis.Click += btnMailGonderimGecis_Click;
             // 
             // btnAzCalisanPersonel
             // 
@@ -174,6 +186,7 @@
             // 
             // btnCalismaSaatiSiralama
             // 
+            btnCalismaSaatiSiralama.ForeColor = SystemColors.ControlLight;
             btnCalismaSaatiSiralama.ImageIndex = 2;
             btnCalismaSaatiSiralama.ImageList = ımageList3;
             btnCalismaSaatiSiralama.Location = new Point(635, 60);
@@ -183,17 +196,120 @@
             btnCalismaSaatiSiralama.UseVisualStyleBackColor = true;
             btnCalismaSaatiSiralama.Click += btnCalismaSaatiSiralama_Click;
             // 
+            // lblBildirim
+            // 
+            lblBildirim.Location = new Point(169, 15);
+            lblBildirim.Name = "lblBildirim";
+            lblBildirim.Size = new Size(816, 29);
+            lblBildirim.TabIndex = 6;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(chkExcel);
+            groupBox1.Controls.Add(chkPdf);
+            groupBox1.Controls.Add(textBox1);
+            groupBox1.Controls.Add(label1);
+            groupBox1.ForeColor = Color.White;
+            groupBox1.Location = new Point(38, 28);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(291, 140);
+            groupBox1.TabIndex = 7;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Mail Gönderme İşlemleri";
+            // 
+            // chkExcel
+            // 
+            chkExcel.AutoSize = true;
+            chkExcel.Location = new Point(184, 87);
+            chkExcel.Name = "chkExcel";
+            chkExcel.Size = new Size(87, 32);
+            chkExcel.TabIndex = 2;
+            chkExcel.Text = "EXCEL";
+            chkExcel.UseVisualStyleBackColor = true;
+            // 
+            // chkPdf
+            // 
+            chkPdf.AutoSize = true;
+            chkPdf.Location = new Point(98, 87);
+            chkPdf.Name = "chkPdf";
+            chkPdf.Size = new Size(69, 32);
+            chkPdf.TabIndex = 2;
+            chkPdf.Text = "PDF";
+            chkPdf.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(132, 47);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(139, 34);
+            textBox1.TabIndex = 1;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(16, 47);
+            label1.Name = "label1";
+            label1.Size = new Size(110, 28);
+            label1.TabIndex = 0;
+            label1.Text = "Mail Adresi";
+            // 
+            // pnlMailGonderimAlani
+            // 
+            pnlMailGonderimAlani.Controls.Add(button1);
+            pnlMailGonderimAlani.Controls.Add(groupBox1);
+            pnlMailGonderimAlani.Location = new Point(1083, 323);
+            pnlMailGonderimAlani.Name = "pnlMailGonderimAlani";
+            pnlMailGonderimAlani.Size = new Size(342, 168);
+            pnlMailGonderimAlani.TabIndex = 8;
+            // 
+            // button1
+            // 
+            button1.BackColor = Color.Gainsboro;
+            button1.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            button1.ImageIndex = 0;
+            button1.ImageList = ımageList4;
+            button1.Location = new Point(7, 7);
+            button1.Name = "button1";
+            button1.Size = new Size(25, 25);
+            button1.TabIndex = 9;
+            button1.UseVisualStyleBackColor = false;
+           
+            // 
+            // ımageList4
+            // 
+            ımageList4.ColorDepth = ColorDepth.Depth32Bit;
+            ımageList4.ImageStream = (ImageListStreamer)resources.GetObject("ımageList4.ImageStream");
+            ımageList4.TransparentColor = Color.Transparent;
+            ımageList4.Images.SetKeyName(0, "9054423_bx_arrow_back_icon.png");
+            // 
+            // btnMailGonderme
+            // 
+            btnMailGonderme.BackColor = Color.Gainsboro;
+            btnMailGonderme.ImageAlign = ContentAlignment.MiddleLeft;
+            btnMailGonderme.ImageKey = "4202011_email_gmail_mail_logo_social_icon.png";
+            btnMailGonderme.ImageList = ımageList2;
+            btnMailGonderme.Location = new Point(1175, 561);
+            btnMailGonderme.Name = "btnMailGonderme";
+            btnMailGonderme.Size = new Size(227, 58);
+            btnMailGonderme.TabIndex = 9;
+            btnMailGonderme.Text = "Mail Gönder";
+            btnMailGonderme.UseVisualStyleBackColor = false;
+            btnMailGonderme.Click += btnMailGonderme_Click;
+            // 
             // Form5
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
-            ClientSize = new Size(1450, 597);
+            ClientSize = new Size(1456, 668);
+            Controls.Add(btnMailGonderme);
+            Controls.Add(pnlMailGonderimAlani);
+            Controls.Add(lblBildirim);
             Controls.Add(btnCalismaSaatiSiralama);
             Controls.Add(btnAlfabetikSiralama);
             Controls.Add(btnTumPersoneller);
             Controls.Add(btnAzCalisanPersonel);
-            Controls.Add(btnMailGonder);
+            Controls.Add(btnMailGonderimGecis);
             Controls.Add(btnExcelOlustur);
             Controls.Add(btnPdfOlustur);
             Controls.Add(btnAnaSayfayaGeriGec);
@@ -204,6 +320,9 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form5";
             Load += Form5_Load;
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            pnlMailGonderimAlani.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -213,7 +332,7 @@
         private Button btnAnaSayfayaGeriGec;
         private Button btnPdfOlustur;
         private Button btnExcelOlustur;
-        private Button btnMailGonder;
+        private Button btnMailGonderimGecis;
         private ImageList ımageList1;
         private ImageList ımageList2;
         private Button btnAzCalisanPersonel;
@@ -221,5 +340,15 @@
         private Button btnAlfabetikSiralama;
         private ImageList ımageList3;
         private Button btnCalismaSaatiSiralama;
+        private Label lblBildirim;
+        private GroupBox groupBox1;
+        private CheckBox chkPdf;
+        private TextBox textBox1;
+        private Label label1;
+        private Panel pnlMailGonderimAlani;
+        private Button button1;
+        private ImageList ımageList4;
+        private CheckBox chkExcel;
+        private Button btnMailGonderme;
     }
 }

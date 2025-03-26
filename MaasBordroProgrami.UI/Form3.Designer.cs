@@ -40,6 +40,7 @@
             btnPersonelYonetimSayfasinaGeriGec = new Button();
             epPersonelAdSoyad = new ErrorProvider(components);
             epKadro = new ErrorProvider(components);
+            lblBildirim = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)epPersonelAdSoyad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)epKadro).BeginInit();
@@ -146,12 +147,20 @@
             // 
             epKadro.ContainerControl = this;
             // 
+            // lblBildirim
+            // 
+            lblBildirim.Location = new Point(139, 22);
+            lblBildirim.Name = "lblBildirim";
+            lblBildirim.Size = new Size(260, 33);
+            lblBildirim.TabIndex = 3;
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
             ClientSize = new Size(490, 352);
+            Controls.Add(lblBildirim);
             Controls.Add(btnPersonelYonetimSayfasinaGeriGec);
             Controls.Add(btnPersonelEkle);
             Controls.Add(groupBox1);
@@ -180,5 +189,6 @@
         private ImageList ımageList1;
         private ErrorProvider epPersonelAdSoyad;
         private ErrorProvider epKadro;
+        private Label lblBildirim;
     }
 }

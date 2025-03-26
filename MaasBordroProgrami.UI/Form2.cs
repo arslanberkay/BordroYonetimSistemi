@@ -1,4 +1,5 @@
-﻿using MaasBordroProgrami.Core.Data;
+﻿using iTextSharp.text.pdf;
+using MaasBordroProgrami.Core.Data;
 using MaasBordroProgrami.Core.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -36,7 +37,7 @@ namespace MaasBordroProgrami.UI
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Veri yüklenirken hata oluştu: " + ex.Message);
+                BildirimMesaji($"Veri yüklenirken hata oluştu : {ex.Message}", Color.Red);
             }
         }
 
@@ -84,8 +85,11 @@ namespace MaasBordroProgrami.UI
             {
                 cbDerece.Enabled = true;
             }
+
+            //Tablodan seçim yapıldığında hata mesajları ve bildirimler temizlendi.
             epCalismaSaati.SetError(mtxtCalismaSaati, string.Empty);
-            epAdSoyad.SetError(txtAdSoyad, string.Empty);   
+            epAdSoyad.SetError(txtAdSoyad, string.Empty);
+            BildirimMesaji(string.Empty, Color.Transparent);
         }
 
         /// <summary>
@@ -96,11 +100,18 @@ namespace MaasBordroProgrami.UI
             dgvPersonelYonetimi.DataSource = null;
             dgvPersonelYonetimi.DataSource = personeller;
         }
+
+        private void BildirimMesaji(string mesaj, Color renk)
+        {
+            lblBildirim.ForeColor = renk;
+            lblBildirim.Text = mesaj;
+        }
+
         private void btnGuncelle_Click_1(object sender, EventArgs e)
         {
             if (dgvPersonelYonetimi.SelectedRows.Count == 0) //Eğer satır seçilmemişse
             {
-                MessageBox.Show("Lütfen güncellemek istediğiniz kullanıcıyı seçiniz!");
+                BildirimMesaji($"Lütfen güncelleme işlemi için bir personel seçin!", Color.Red);
                 return;
             }
 
@@ -140,7 +151,7 @@ namespace MaasBordroProgrami.UI
             DataGridViewYenile();
             JSONDosya.PersonelListesineKaydet(personeller.ToList()); //Güncellenmiş listeyi .json dosyasına yazar
 
-            MessageBox.Show("Güncelleme işlemi başarılıdır.");
+            BildirimMesaji("Personel bilgileri başarıyla güncellendi.", Color.Green);
             Temizle();
         }
 
@@ -148,10 +159,17 @@ namespace MaasBordroProgrami.UI
         {
             if (dgvPersonelYonetimi.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Lütfen silmek istediğiniz personeli seçiniz!");
+                BildirimMesaji("Silme işlemi için lütfen bir personel seçin!", Color.Red);
                 return;
             }
 
+            //Personel silme işlemi yanlışlıkla tıklamaya karşı doğrulama bildirimi
+            DialogResult dr = MessageBox.Show("Bu personeli silmek istediğinize emin misiniz?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); 
+            if (dr == DialogResult.No) //Cevap hayırsa
+            {
+                BildirimMesaji("Silme işlemi iptal edildi.",Color.Blue);
+                return;
+            }
 
             int seciliIndex = dgvPersonelYonetimi.SelectedRows[0].Index;
             personeller.RemoveAt(seciliIndex); //Seçili personeli listeden siler.
@@ -159,7 +177,7 @@ namespace MaasBordroProgrami.UI
             DataGridViewYenile();
             JSONDosya.PersonelListesineKaydet(personeller.ToList()); //Güncellenen liste .json dosyasına yazılır.
 
-            MessageBox.Show("Silme işlemi başarıyla gerçekleşti");
+            BildirimMesaji("Personel kaydı başarıyla silindi.", Color.Green);
             Temizle();
         }
 

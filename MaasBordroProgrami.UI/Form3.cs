@@ -122,9 +122,14 @@ namespace MaasBordroProgrami.UI
             JSONDosya.PersonelListesineKaydet(personeller.ToList()); //Yeni eklenen personel JSON dosyasına kalıcı olarak kaydedilir.
 
 
-
-            MessageBox.Show("Personel başarıyla eklendi.");
+            BildirimMesaji("Yeni personel başarıyla eklendi.", Color.Green);
             Temizle();
+        }
+
+        private void BildirimMesaji(string mesaj, Color renk)
+        {
+            lblBildirim.ForeColor = renk;
+            lblBildirim.Text = mesaj;
         }
 
         /// <summary>

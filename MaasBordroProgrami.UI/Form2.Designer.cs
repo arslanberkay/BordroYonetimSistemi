@@ -49,6 +49,7 @@
             pictureBox1 = new PictureBox();
             epAdSoyad = new ErrorProvider(components);
             epCalismaSaati = new ErrorProvider(components);
+            lblBildirim = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPersonelYonetimi).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -251,12 +252,20 @@
             // 
             epCalismaSaati.ContainerControl = this;
             // 
+            // lblBildirim
+            // 
+            lblBildirim.Location = new Point(201, 9);
+            lblBildirim.Name = "lblBildirim";
+            lblBildirim.Size = new Size(561, 31);
+            lblBildirim.TabIndex = 5;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
             ClientSize = new Size(1009, 595);
+            Controls.Add(lblBildirim);
             Controls.Add(pictureBox1);
             Controls.Add(dgvPersonelYonetimi);
             Controls.Add(btnGuncelle);
@@ -298,5 +307,6 @@
         private PictureBox pictureBox1;
         private ErrorProvider epAdSoyad;
         private ErrorProvider epCalismaSaati;
+        private Label lblBildirim;
     }
 }

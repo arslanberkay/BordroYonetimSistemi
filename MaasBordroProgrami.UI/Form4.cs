@@ -27,7 +27,7 @@ namespace MaasBordroProgrami.UI
         {
             lstvPersonelBordrosu.View = View.Details;
             lstvPersonelBordrosu.GridLines = true;
-            lstvPersonelBordrosu.Columns.Add("Ad - Soyad", 215,HorizontalAlignment.Center);
+            lstvPersonelBordrosu.Columns.Add("Ad - Soyad", 215, HorizontalAlignment.Center);
             lstvPersonelBordrosu.Columns.Add("Kadro", 215, HorizontalAlignment.Center);
             lstvPersonelBordrosu.Columns.Add("Çalışma Saati", 215, HorizontalAlignment.Center);
             lstvPersonelBordrosu.Columns.Add("Ana Ödeme", 215, HorizontalAlignment.Center);
@@ -58,7 +58,7 @@ namespace MaasBordroProgrami.UI
         private void cbPersonelAdSoyad_SelectedIndexChanged(object sender, EventArgs e)
         {
             Temizle();
-            epPersonel.SetError(cbPersonelAdSoyad,string.Empty); //Personel seçildiğinde uyarı ikonunu temizle
+            epPersonel.SetError(cbPersonelAdSoyad, string.Empty); //Personel seçildiğinde uyarı ikonunu temizle
 
             if (cbPersonelAdSoyad.SelectedItem == null)
             {
@@ -88,7 +88,7 @@ namespace MaasBordroProgrami.UI
 
             lstvPersonelBordrosu.Items.Add(listViewItem);
         }
-       
+
 
         private void btnJsonDosyaKaydet_Click(object sender, EventArgs e)
         {
@@ -115,11 +115,29 @@ namespace MaasBordroProgrami.UI
             maasBordro.MesaiUcreti = seciliPersonel.MesaiHesapla();
             maasBordro.ToplamOdeme = seciliPersonel.MaasHesapla() + seciliPersonel.MesaiHesapla();
 
-            JSONDosya.PersonelAdinaKaydet(maasBordro, maasBordro.PersonelIsmi); //Seçilen personelin maasBordrosu JSON formatında kaydedilir.
+            try
+            {
+                JSONDosya.PersonelAdinaKaydet(maasBordro, maasBordro.PersonelIsmi); //Seçilen personelin maasBordrosu JSON formatında kaydedilir.
 
-            MessageBox.Show($"{maasBordro.PersonelIsmi} için bordro masaüstüne kaydedildi.");
-            Temizle();
-            cbPersonelAdSoyad.SelectedItem = null;
+                BildirimMesaji($"Bordro dosyası başarıyla kaydedildi.", Color.Green);
+
+            }
+            catch (Exception)
+            {
+                BildirimMesaji("Bordro dosyası kaydedilirken hata oluştu!", Color.Red);
+            }
+            finally //Her türlü temizlenme işlemi gerçekleşsin
+            {
+                Temizle();
+                cbPersonelAdSoyad.SelectedItem = null;
+            }
+        }
+
+
+        private void BildirimMesaji(string mesaj, Color renk)
+        {
+            lblBildirim.ForeColor = renk;
+            lblBildirim.Text = mesaj;
         }
 
         private void btnAnaSayfayaGeriGec_Click(object sender, EventArgs e)
@@ -129,6 +147,6 @@ namespace MaasBordroProgrami.UI
             form1.ShowDialog();
         }
 
-        
+
     }
 }

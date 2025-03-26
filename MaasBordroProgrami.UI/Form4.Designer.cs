@@ -38,6 +38,7 @@
             ımageList1 = new ImageList(components);
             btnJsonDosyaKaydet = new Button();
             epPersonel = new ErrorProvider(components);
+            lblBildirim = new Label();
             ((System.ComponentModel.ISupportInitialize)epPersonel).BeginInit();
             SuspendLayout();
             // 
@@ -119,12 +120,20 @@
             // 
             epPersonel.ContainerControl = this;
             // 
+            // lblBildirim
+            // 
+            lblBildirim.Location = new Point(243, 19);
+            lblBildirim.Name = "lblBildirim";
+            lblBildirim.Size = new Size(735, 37);
+            lblBildirim.TabIndex = 5;
+            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(12F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
             ClientSize = new Size(1423, 330);
+            Controls.Add(lblBildirim);
             Controls.Add(btnAnaSayfayaGeriGec);
             Controls.Add(lstvPersonelBordrosu);
             Controls.Add(btnJsonDosyaKaydet);
@@ -151,5 +160,6 @@
         private ImageList ımageList1;
         private ImageList ımageList2;
         private ErrorProvider epPersonel;
+        private Label lblBildirim;
     }
 }

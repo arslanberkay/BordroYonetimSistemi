@@ -130,135 +130,157 @@ namespace MaasBordroProgrami.UI
             ExcelOlustur();
         }
 
-        private void btnMailGonder_Click(object sender, EventArgs e)
+        private void btnMailGonderme_Click(object sender, EventArgs e)
         {
             MailGonderExcelPDF();
         }
 
         public void PDFOlustur()
         {
-            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance); //Türkçe karakterlerin düzgün görünmesini sağlar.
-
-            SaveFileDialog saveFileDialog = new SaveFileDialog(); //Kullanıcının dosya kaydetmesi için bir dosya kaydetme penceresi açar.
-            saveFileDialog.Filter = "PDF Dosyası|*.pdf"; //Yalnızca.pdf uzantılı dosyaların kaydedilmesine izin verir
-            saveFileDialog.Title = "PDF Dosyası Kaydet"; //Kaydetme penceresinde ki başlığı belirler.
-
-            if (saveFileDialog.ShowDialog() == DialogResult.OK) //Kullanıcı bir dosya seçip Kaydet tuşuna basarsa
+            try
             {
-                Document document = new Document(); //PDF'in içeriğini tutan nesne oluşturulur.
-                PdfWriter.GetInstance(document, new FileStream(saveFileDialog.FileName, FileMode.Create)); //PDF'i belirtilen yola yazar.
-                document.Open(); //Yazma işlemi başlar
+                Encoding.RegisterProvider(CodePagesEncodingProvider.Instance); //Türkçe karakterlerin düzgün görünmesini sağlar.
 
-                string arialTtf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "arial.ttf"); //Arial fontunun yolunu alır. PDF'e Türkçe karakter desteği vermek için bilgisayardaki Arial fontunu kullanır. 
-                BaseFont bf = BaseFont.CreateFont(arialTtf, BaseFont.IDENTITY_H, BaseFont.EMBEDDED); //Unicode karakter kümesini destekleyen bir fontu PDF'e ekler. BaseFont.EMBEDDED : Başka pclerde sorunsuz görünmesini sağlar. Fontu gömer.
+                SaveFileDialog saveFileDialog = new SaveFileDialog(); //Kullanıcının dosya kaydetmesi için bir dosya kaydetme penceresi açar.
+                saveFileDialog.Filter = "PDF Dosyası|*.pdf"; //Yalnızca.pdf uzantılı dosyaların kaydedilmesine izin verir
+                saveFileDialog.Title = "PDF Dosyası Kaydet"; //Kaydetme penceresinde ki başlığı belirler.
 
-                //Font tanımları yapılır.
-                iTextSharp.text.Font baslikFont = new iTextSharp.text.Font(bf, 18, iTextSharp.text.Font.BOLD);
-                iTextSharp.text.Font kalinFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.BOLD);
-                iTextSharp.text.Font normalFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.NORMAL);
-                iTextSharp.text.Font dateFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.ITALIC);
-
-                //PDF başlığını oluşturur ve ortalar
-                Paragraph baslik = new Paragraph("Personel Bordrosu Raporu", baslikFont);
-                baslik.Alignment = Element.ALIGN_CENTER;
-                baslik.SpacingAfter = 10f; //Başlıktan sonra boşluk bırak
-                document.Add(baslik);
-
-                //Tarih ve Saat Ekle                
-                string currentDateTime = DateTime.Now.ToString("dd MMMM yyyy HH:mm");
-                Paragraph date = new Paragraph("Oluşturulma Tarihi: " + currentDateTime, dateFont);
-                date.Alignment = Element.ALIGN_RIGHT;
-                date.SpacingAfter = 20f;
-                document.Add(date);
-
-                //Tablo Oluşturma
-                PdfPTable table = new PdfPTable(lstvTumPersonelBordrosu.Columns.Count); //Sütun sayısı kadar kolon içeren bir tablo
-                table.WidthPercentage = 100;
-
-                //Başlıkları Ekle 
-                foreach (ColumnHeader column in lstvTumPersonelBordrosu.Columns)
+                if (saveFileDialog.ShowDialog() == DialogResult.OK) //Kullanıcı bir dosya seçip Kaydet tuşuna basarsa
                 {
-                    //Her bir sütun başlığını PDF tablosuna ekler.
-                    PdfPCell cell = new PdfPCell(new Phrase(column.Text, kalinFont));
-                    cell.BackgroundColor = BaseColor.LIGHT_GRAY; //Gri arka plan
-                    cell.HorizontalAlignment = Element.ALIGN_CENTER; //Ortala
-                    table.AddCell(cell);
-                }
+                    Document document = new Document(); //PDF'in içeriğini tutan nesne oluşturulur.
+                    PdfWriter.GetInstance(document, new FileStream(saveFileDialog.FileName, FileMode.Create)); //PDF'i belirtilen yola yazar.
+                    document.Open(); //Yazma işlemi başlar
 
-                //Satırları Ekle
-                foreach (ListViewItem listviewItem in lstvTumPersonelBordrosu.Items) //Satırları döner
-                {
-                    foreach (ListViewItem.ListViewSubItem subItem in listviewItem.SubItems) //Satır içindeki hücreleri tek tek döner
+                    string arialTtf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "arial.ttf"); //Arial fontunun yolunu alır. PDF'e Türkçe karakter desteği vermek için bilgisayardaki Arial fontunu kullanır. 
+                    BaseFont bf = BaseFont.CreateFont(arialTtf, BaseFont.IDENTITY_H, BaseFont.EMBEDDED); //Unicode karakter kümesini destekleyen bir fontu PDF'e ekler. BaseFont.EMBEDDED : Başka pclerde sorunsuz görünmesini sağlar. Fontu gömer.
+
+                    //Font tanımları yapılır.
+                    iTextSharp.text.Font baslikFont = new iTextSharp.text.Font(bf, 18, iTextSharp.text.Font.BOLD);
+                    iTextSharp.text.Font kalinFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.BOLD);
+                    iTextSharp.text.Font normalFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.NORMAL);
+                    iTextSharp.text.Font dateFont = new iTextSharp.text.Font(bf, 12, iTextSharp.text.Font.ITALIC);
+
+                    //PDF başlığını oluşturur ve ortalar
+                    Paragraph baslik = new Paragraph("Personel Bordrosu Raporu", baslikFont);
+                    baslik.Alignment = Element.ALIGN_CENTER;
+                    baslik.SpacingAfter = 10f; //Başlıktan sonra boşluk bırak
+                    document.Add(baslik);
+
+                    //Tarih ve Saat Ekle                
+                    string currentDateTime = DateTime.Now.ToString("dd MMMM yyyy HH:mm");
+                    Paragraph date = new Paragraph("Oluşturulma Tarihi: " + currentDateTime, dateFont);
+                    date.Alignment = Element.ALIGN_RIGHT;
+                    date.SpacingAfter = 20f;
+                    document.Add(date);
+
+                    //Tablo Oluşturma
+                    PdfPTable table = new PdfPTable(lstvTumPersonelBordrosu.Columns.Count); //Sütun sayısı kadar kolon içeren bir tablo
+                    table.WidthPercentage = 100;
+
+                    //Başlıkları Ekle 
+                    foreach (ColumnHeader column in lstvTumPersonelBordrosu.Columns)
                     {
-                        PdfPCell cell = new PdfPCell(new Phrase(subItem.Text, normalFont));
-                        cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                        //Her bir sütun başlığını PDF tablosuna ekler.
+                        PdfPCell cell = new PdfPCell(new Phrase(column.Text, kalinFont));
+                        cell.BackgroundColor = BaseColor.LIGHT_GRAY; //Gri arka plan
+                        cell.HorizontalAlignment = Element.ALIGN_CENTER; //Ortala
                         table.AddCell(cell);
                     }
+
+                    //Satırları Ekle
+                    foreach (ListViewItem listviewItem in lstvTumPersonelBordrosu.Items) //Satırları döner
+                    {
+                        foreach (ListViewItem.ListViewSubItem subItem in listviewItem.SubItems) //Satır içindeki hücreleri tek tek döner
+                        {
+                            PdfPCell cell = new PdfPCell(new Phrase(subItem.Text, normalFont));
+                            cell.HorizontalAlignment = Element.ALIGN_CENTER;
+                            table.AddCell(cell);
+                        }
+                    }
+
+                    document.Add(table); //Oluşturulan tabloyu PDF belgesine ekler.
+                    document.Close(); //PDF belgesini kapatır ve kaydeder.
+
+                    BildirimMesaji("PDF dosyası başarıyla oluşturuldu.", Color.Green);
                 }
-
-                document.Add(table); //Oluşturulan tabloyu PDF belgesine ekler.
-                document.Close(); //PDF belgesini kapatır ve kaydeder.
-
-                MessageBox.Show("PDF başarıyla kaydedildi!");
             }
+
+            catch (Exception)
+            {
+                BildirimMesaji("PDF dosyası oluşturulurken hata oluştu!", Color.Red);
+            }
+        }
+
+
+        private void BildirimMesaji(string mesaj, Color renk)
+        {
+            lblBildirim.ForeColor = renk;
+            lblBildirim.Text = mesaj;
         }
 
         public void ExcelOlustur()
         {
-            using (var workbook = new XLWorkbook()) //Yeni bir Excel çalışma kitabı oluşturur.
+            try
             {
-                var workSheet = workbook.AddWorksheet($"Bordro_Raporu_{DateTime.Now:yyyyMMdd}"); //Yeni bir çalışma sayfası ekler ve tarih bazlı adlandırılır.( Dinamik )
-
-                //Başlıklar
-                string[] headers = { "Personel İsmi", "Kadro", "Çalışma Saati", "Ana Ödeme", "Mesai", "Toplam Ödeme" };
-                for (int i = 0; i < headers.Length; i++)
+                using (var workbook = new XLWorkbook()) //Yeni bir Excel çalışma kitabı oluşturur.
                 {
-                    var headerCell = workSheet.Cell(1, i + 1);
-                    headerCell.Value = headers[i];
+                    var workSheet = workbook.AddWorksheet($"Bordro_Raporu_{DateTime.Now:yyyyMMdd}"); //Yeni bir çalışma sayfası ekler ve tarih bazlı adlandırılır.( Dinamik )
 
-                    headerCell.Style.Font.Bold = true; //Kalın
-                    headerCell.Style.Fill.BackgroundColor = XLColor.LightGray;
-                    headerCell.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center; //Orta hiza
-                }
-
-                //Verileri Ekle
-                int satir = 2;
-                foreach (ListViewItem listViewItem in lstvTumPersonelBordrosu.Items)
-                {
-                    //Her bir satırı Excel'e yazdırır.
-                    workSheet.Cell(satir, 1).Value = listViewItem.SubItems[0].Text;
-                    workSheet.Cell(satir, 2).Value = listViewItem.SubItems[1].Text;
-                    workSheet.Cell(satir, 3).Value = listViewItem.SubItems[2].Text;
-                    workSheet.Cell(satir, 4).Value = listViewItem.SubItems[3].Text;
-                    workSheet.Cell(satir, 5).Value = listViewItem.SubItems[4].Text;
-                    workSheet.Cell(satir, 6).Value = listViewItem.SubItems[5].Text;
-                    satir++;
-                }
-
-                workSheet.Columns().AdjustToContents(); //Otomatik sütun genişliği ayarla
-
-                //Tabloya Kenarlık Ekle
-                var range = workSheet.Range(1, 1, satir - 1, headers.Length);
-                range.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
-                range.Style.Border.InsideBorder = XLBorderStyleValues.Thin;
-
-                //Oluşturulma Tarihi Ekle
-                workSheet.Cell(satir + 1, 1).Value = $"Rapor Oluşturulma Tarihi: {DateTime.Now:dd MMMM yyyy HH:mm}";
-                workSheet.Cell(satir + 1, 1).Style.Font.Italic = true;
-                workSheet.Range(satir + 1, 1, satir + 1, headers.Length).Merge();
-
-                using (SaveFileDialog saveFileDialog = new SaveFileDialog()) //Kullanıcıya kayıt yeri seçtirir.
-                {
-                    saveFileDialog.Filter = "Excel Files|.xlsx";
-                    saveFileDialog.Title = "Excel Dosyasını Kaydet";
-
-                    if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                    //Başlıklar
+                    string[] headers = { "Personel İsmi", "Kadro", "Çalışma Saati", "Ana Ödeme", "Mesai", "Toplam Ödeme" };
+                    for (int i = 0; i < headers.Length; i++)
                     {
-                        string filePath = saveFileDialog.FileName;
-                        workbook.SaveAs(filePath);
-                        MessageBox.Show("Excel dosyası başarıyla oluşturuldu.");
+                        var headerCell = workSheet.Cell(1, i + 1);
+                        headerCell.Value = headers[i];
+
+                        headerCell.Style.Font.Bold = true; //Kalın
+                        headerCell.Style.Fill.BackgroundColor = XLColor.LightGray;
+                        headerCell.Style.Alignment.Horizontal = XLAlignmentHorizontalValues.Center; //Orta hiza
+                    }
+
+                    //Verileri Ekle
+                    int satir = 2;
+                    foreach (ListViewItem listViewItem in lstvTumPersonelBordrosu.Items)
+                    {
+                        //Her bir satırı Excel'e yazdırır.
+                        workSheet.Cell(satir, 1).Value = listViewItem.SubItems[0].Text;
+                        workSheet.Cell(satir, 2).Value = listViewItem.SubItems[1].Text;
+                        workSheet.Cell(satir, 3).Value = listViewItem.SubItems[2].Text;
+                        workSheet.Cell(satir, 4).Value = listViewItem.SubItems[3].Text;
+                        workSheet.Cell(satir, 5).Value = listViewItem.SubItems[4].Text;
+                        workSheet.Cell(satir, 6).Value = listViewItem.SubItems[5].Text;
+                        satir++;
+                    }
+
+                    workSheet.Columns().AdjustToContents(); //Otomatik sütun genişliği ayarla
+
+                    //Tabloya Kenarlık Ekle
+                    var range = workSheet.Range(1, 1, satir - 1, headers.Length);
+                    range.Style.Border.OutsideBorder = XLBorderStyleValues.Thin;
+                    range.Style.Border.InsideBorder = XLBorderStyleValues.Thin;
+
+                    //Oluşturulma Tarihi Ekle
+                    workSheet.Cell(satir + 1, 1).Value = $"Rapor Oluşturulma Tarihi: {DateTime.Now:dd MMMM yyyy HH:mm}";
+                    workSheet.Cell(satir + 1, 1).Style.Font.Italic = true;
+                    workSheet.Range(satir + 1, 1, satir + 1, headers.Length).Merge();
+
+                    using (SaveFileDialog saveFileDialog = new SaveFileDialog()) //Kullanıcıya kayıt yeri seçtirir.
+                    {
+                        saveFileDialog.Filter = "Excel Files|.xlsx";
+                        saveFileDialog.Title = "Excel Dosyasını Kaydet";
+
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            string filePath = saveFileDialog.FileName;
+                            workbook.SaveAs(filePath);
+                            BildirimMesaji("Excel dosyası başarıyla oluşturuldu.", Color.Green);
+                        }
                     }
                 }
+            }
+            catch (Exception)
+            {
+                BildirimMesaji($"Excel dosyası oluşturulurken hata oluştu!", Color.Red);
             }
         }
 
@@ -389,6 +411,8 @@ namespace MaasBordroProgrami.UI
             }
         }
 
+
+
         private void btnAnaSayfayaGeriGec_Click(object sender, EventArgs e)
         {
             this.Hide();
@@ -412,6 +436,28 @@ namespace MaasBordroProgrami.UI
             btnCalismaSaatiSiralama.Visible = false;
             btnAlfabetikSiralama.Visible = false;
         }
+
+        private void btnMailGonderimGecis_Click(object sender, EventArgs e)
+        {
+            MailIslemleriGorunurluk(false);
+
+        }
+
+        private void MailIslemleriGorunurluk(bool durum)
+        {
+            btnAnaSayfayaGeriGec.Visible = durum;
+            btnAlfabetikSiralama.Visible = durum;
+            btnCalismaSaatiSiralama.Visible = durum;
+            btnTumPersoneller.Visible = durum;
+            btnAzCalisanPersonel.Visible = durum;
+            lstvTumPersonelBordrosu.Visible = durum;
+            btnPdfOlustur.Visible = durum;
+            btnExcelOlustur.Visible = durum;
+            btnMailGonderimGecis.Visible = durum;
+            pnlMailGonderimAlani.Visible = !durum;
+        }
+
+        
     }
 
 

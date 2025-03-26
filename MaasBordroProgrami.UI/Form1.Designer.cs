@@ -31,14 +31,16 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             btnPersonelYonetimi = new Button();
+            ımageList1 = new ImageList(components);
             btnBordroHesaplama = new Button();
+            ımageList2 = new ImageList(components);
             btnTopluBordroGoruntule = new Button();
             btnUygulamadanCik = new Button();
             btnYeniPersonelKayit = new Button();
             pictureBox1 = new PictureBox();
-            ımageList1 = new ImageList(components);
-            ımageList2 = new ImageList(components);
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // btnPersonelYonetimi
@@ -56,6 +58,15 @@
             btnPersonelYonetimi.UseVisualStyleBackColor = false;
             btnPersonelYonetimi.Click += btnPersonelYonetimi_Click;
             // 
+            // ımageList1
+            // 
+            ımageList1.ColorDepth = ColorDepth.Depth32Bit;
+            ımageList1.ImageStream = (ImageListStreamer)resources.GetObject("ımageList1.ImageStream");
+            ımageList1.TransparentColor = Color.Transparent;
+            ımageList1.Images.SetKeyName(0, "1564506_close_exit_logout_power_icon.png");
+            ımageList1.Images.SetKeyName(1, "1471083_general_group_office_personal_relation_icon.png");
+            ımageList1.Images.SetKeyName(2, "309050_add_group_users_business_human_icon.png");
+            // 
             // btnBordroHesaplama
             // 
             btnBordroHesaplama.BackColor = Color.Gainsboro;
@@ -70,6 +81,14 @@
             btnBordroHesaplama.Text = "Bordro Hesaplama";
             btnBordroHesaplama.UseVisualStyleBackColor = false;
             btnBordroHesaplama.Click += btnBordroHesaplama_Click;
+            // 
+            // ımageList2
+            // 
+            ımageList2.ColorDepth = ColorDepth.Depth32Bit;
+            ımageList2.ImageStream = (ImageListStreamer)resources.GetObject("ımageList2.ImageStream");
+            ımageList2.TransparentColor = Color.Transparent;
+            ımageList2.Images.SetKeyName(0, "1564506_close_exit_logout_power_icon.png");
+            ımageList2.Images.SetKeyName(1, "309097_calculator_calculation_finance_financial_icon.png");
             // 
             // btnTopluBordroGoruntule
             // 
@@ -123,22 +142,15 @@
             pictureBox1.TabIndex = 5;
             pictureBox1.TabStop = false;
             // 
-            // ımageList1
+            // pictureBox2
             // 
-            ımageList1.ColorDepth = ColorDepth.Depth32Bit;
-            ımageList1.ImageStream = (ImageListStreamer)resources.GetObject("ımageList1.ImageStream");
-            ımageList1.TransparentColor = Color.Transparent;
-            ımageList1.Images.SetKeyName(0, "1564506_close_exit_logout_power_icon.png");
-            ımageList1.Images.SetKeyName(1, "1471083_general_group_office_personal_relation_icon.png");
-            ımageList1.Images.SetKeyName(2, "309050_add_group_users_business_human_icon.png");
-            // 
-            // ımageList2
-            // 
-            ımageList2.ColorDepth = ColorDepth.Depth32Bit;
-            ımageList2.ImageStream = (ImageListStreamer)resources.GetObject("ımageList2.ImageStream");
-            ımageList2.TransparentColor = Color.Transparent;
-            ımageList2.Images.SetKeyName(0, "1564506_close_exit_logout_power_icon.png");
-            ımageList2.Images.SetKeyName(1, "309097_calculator_calculation_finance_financial_icon.png");
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(601, 18);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(42, 34);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 6;
+            pictureBox2.TabStop = false;
             // 
             // Form1
             // 
@@ -146,6 +158,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
             ClientSize = new Size(655, 604);
+            Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(btnYeniPersonelKayit);
             Controls.Add(btnUygulamadanCik);
@@ -159,6 +172,7 @@
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -171,5 +185,6 @@
         private PictureBox pictureBox1;
         private ImageList ımageList1;
         private ImageList ımageList2;
+        private PictureBox pictureBox2;
     }
 }
