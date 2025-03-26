@@ -145,9 +145,9 @@
             // pictureBox2
             // 
             pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(601, 18);
+            pictureBox2.Location = new Point(598, 18);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(42, 34);
+            pictureBox2.Size = new Size(45, 55);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox2.TabIndex = 6;
             pictureBox2.TabStop = false;

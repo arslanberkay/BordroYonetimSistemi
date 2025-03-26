@@ -39,7 +39,9 @@
             btnJsonDosyaKaydet = new Button();
             epPersonel = new ErrorProvider(components);
             lblBildirim = new Label();
+            pictureBox2 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)epPersonel).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -127,12 +129,23 @@
             lblBildirim.Size = new Size(735, 37);
             lblBildirim.TabIndex = 5;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(1366, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(45, 55);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 7;
+            pictureBox2.TabStop = false;
+            // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(12F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
             ClientSize = new Size(1423, 330);
+            Controls.Add(pictureBox2);
             Controls.Add(lblBildirim);
             Controls.Add(btnAnaSayfayaGeriGec);
             Controls.Add(lstvPersonelBordrosu);
@@ -146,6 +159,7 @@
             Text = "Form4";
             Load += Form4_Load;
             ((System.ComponentModel.ISupportInitialize)epPersonel).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -161,5 +175,6 @@
         private ImageList ımageList2;
         private ErrorProvider epPersonel;
         private Label lblBildirim;
+        private PictureBox pictureBox2;
     }
 }

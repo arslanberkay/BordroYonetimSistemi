@@ -41,9 +41,11 @@
             epPersonelAdSoyad = new ErrorProvider(components);
             epKadro = new ErrorProvider(components);
             lblBildirim = new Label();
+            pictureBox2 = new PictureBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)epPersonelAdSoyad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)epKadro).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -154,12 +156,23 @@
             lblBildirim.Size = new Size(260, 33);
             lblBildirim.TabIndex = 3;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(421, 12);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(45, 55);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 7;
+            pictureBox2.TabStop = false;
+            // 
             // Form3
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
-            ClientSize = new Size(490, 352);
+            ClientSize = new Size(478, 328);
+            Controls.Add(pictureBox2);
             Controls.Add(lblBildirim);
             Controls.Add(btnPersonelYonetimSayfasinaGeriGec);
             Controls.Add(btnPersonelEkle);
@@ -174,6 +187,7 @@
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)epPersonelAdSoyad).EndInit();
             ((System.ComponentModel.ISupportInitialize)epKadro).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -190,5 +204,6 @@
         private ErrorProvider epPersonelAdSoyad;
         private ErrorProvider epKadro;
         private Label lblBildirim;
+        private PictureBox pictureBox2;
     }
 }

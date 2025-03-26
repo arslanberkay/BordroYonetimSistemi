@@ -50,11 +50,13 @@
             epAdSoyad = new ErrorProvider(components);
             epCalismaSaati = new ErrorProvider(components);
             lblBildirim = new Label();
+            pictureBox2 = new PictureBox();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPersonelYonetimi).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)epAdSoyad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)epCalismaSaati).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
             // 
             // groupBox1
@@ -259,12 +261,23 @@
             lblBildirim.Size = new Size(561, 31);
             lblBildirim.TabIndex = 5;
             // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(942, 25);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(45, 55);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 7;
+            pictureBox2.TabStop = false;
+            // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
             ClientSize = new Size(1009, 595);
+            Controls.Add(pictureBox2);
             Controls.Add(lblBildirim);
             Controls.Add(pictureBox1);
             Controls.Add(dgvPersonelYonetimi);
@@ -284,6 +297,7 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)epAdSoyad).EndInit();
             ((System.ComponentModel.ISupportInitialize)epCalismaSaati).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
         }
 
@@ -308,5 +322,6 @@
         private ErrorProvider epAdSoyad;
         private ErrorProvider epCalismaSaati;
         private Label lblBildirim;
+        private PictureBox pictureBox2;
     }
 }
