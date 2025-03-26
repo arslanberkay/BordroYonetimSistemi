@@ -88,6 +88,8 @@ namespace MaasBordroProgrami.UI
             TumCalisanBordroHesapla();
             Temizle();
             TabloyaAktar(tumPersonelBordro);
+            pnlMailGonderimAlani.Visible = false;
+           
         }
 
         private void btnTumPersoneller_Click(object sender, EventArgs e)
@@ -440,24 +442,20 @@ namespace MaasBordroProgrami.UI
         private void btnMailGonderimGecis_Click(object sender, EventArgs e)
         {
             MailIslemleriGorunurluk(false);
-
         }
 
         private void MailIslemleriGorunurluk(bool durum)
         {
-            btnAnaSayfayaGeriGec.Visible = durum;
-            btnAlfabetikSiralama.Visible = durum;
-            btnCalismaSaatiSiralama.Visible = durum;
-            btnTumPersoneller.Visible = durum;
-            btnAzCalisanPersonel.Visible = durum;
-            lstvTumPersonelBordrosu.Visible = durum;
             btnPdfOlustur.Visible = durum;
             btnExcelOlustur.Visible = durum;
             btnMailGonderimGecis.Visible = durum;
             pnlMailGonderimAlani.Visible = !durum;
         }
 
-        
+        private void btnTumPersonelBordrosuSayfasinaGec_Click(object sender, EventArgs e)
+        {
+            MailIslemleriGorunurluk(true);
+        }
     }
 
 
