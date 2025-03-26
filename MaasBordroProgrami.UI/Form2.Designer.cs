@@ -30,7 +30,7 @@
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             groupBox1 = new GroupBox();
             mtxtCalismaSaati = new MaskedTextBox();
             cbDerece = new ComboBox();
@@ -51,6 +51,7 @@
             epCalismaSaati = new ErrorProvider(components);
             lblBildirim = new Label();
             pictureBox2 = new PictureBox();
+            ımageList3 = new ImageList(components);
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPersonelYonetimi).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -71,11 +72,11 @@
             groupBox1.Controls.Add(label1);
             groupBox1.Font = new Font("Segoe UI", 12F);
             groupBox1.ForeColor = Color.White;
-            groupBox1.Location = new Point(84, 60);
+            groupBox1.Location = new Point(253, 82);
             groupBox1.Margin = new Padding(4);
             groupBox1.Name = "groupBox1";
             groupBox1.Padding = new Padding(4);
-            groupBox1.Size = new Size(409, 211);
+            groupBox1.Size = new Size(409, 225);
             groupBox1.TabIndex = 1;
             groupBox1.TabStop = false;
             groupBox1.Text = "Personel Yönetimi";
@@ -161,7 +162,7 @@
             btnSil.ImageAlign = ContentAlignment.MiddleLeft;
             btnSil.ImageIndex = 0;
             btnSil.ImageList = ımageList2;
-            btnSil.Location = new Point(98, 290);
+            btnSil.Location = new Point(282, 314);
             btnSil.Name = "btnSil";
             btnSil.Size = new Size(140, 40);
             btnSil.TabIndex = 2;
@@ -184,7 +185,7 @@
             btnGuncelle.ImageAlign = ContentAlignment.MiddleLeft;
             btnGuncelle.ImageIndex = 1;
             btnGuncelle.ImageList = ımageList1;
-            btnGuncelle.Location = new Point(253, 290);
+            btnGuncelle.Location = new Point(437, 314);
             btnGuncelle.Name = "btnGuncelle";
             btnGuncelle.Size = new Size(140, 40);
             btnGuncelle.TabIndex = 0;
@@ -219,27 +220,27 @@
             // 
             dgvPersonelYonetimi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPersonelYonetimi.BackgroundColor = Color.WhiteSmoke;
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvPersonelYonetimi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            dgvPersonelYonetimi.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvPersonelYonetimi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvPersonelYonetimi.ColumnHeadersHeight = 45;
             dgvPersonelYonetimi.GridColor = Color.LightGray;
-            dgvPersonelYonetimi.Location = new Point(84, 347);
+            dgvPersonelYonetimi.Location = new Point(253, 374);
             dgvPersonelYonetimi.MultiSelect = false;
             dgvPersonelYonetimi.Name = "dgvPersonelYonetimi";
             dgvPersonelYonetimi.RowHeadersWidth = 30;
             dgvPersonelYonetimi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPersonelYonetimi.Size = new Size(876, 202);
+            dgvPersonelYonetimi.Size = new Size(1004, 281);
             dgvPersonelYonetimi.TabIndex = 2;
             dgvPersonelYonetimi.CellClick += dgvPersonelYonetimi_CellClick;
             // 
             // pictureBox1
             // 
-            pictureBox1.Image = Properties.Resources._2530819_general_group_office_personal_relation_icon;
-            pictureBox1.Location = new Point(526, 74);
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(692, 89);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(264, 197);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -256,27 +257,34 @@
             // 
             // lblBildirim
             // 
-            lblBildirim.Location = new Point(201, 9);
+            lblBildirim.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            lblBildirim.Location = new Point(540, 25);
             lblBildirim.Name = "lblBildirim";
-            lblBildirim.Size = new Size(561, 31);
+            lblBildirim.Size = new Size(647, 61);
             lblBildirim.TabIndex = 5;
             // 
             // pictureBox2
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(942, 25);
+            pictureBox2.Image = Properties.Resources.depositphotos_537805212_stock_illustration_lion_head_logo_design_vector_Photoroom;
+            pictureBox2.Location = new Point(1380, 10);
             pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(45, 55);
+            pictureBox2.Size = new Size(90, 90);
             pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 7;
+            pictureBox2.TabIndex = 6;
             pictureBox2.TabStop = false;
+            // 
+            // ımageList3
+            // 
+            ımageList3.ColorDepth = ColorDepth.Depth32Bit;
+            ımageList3.ImageSize = new Size(16, 16);
+            ımageList3.TransparentColor = Color.Transparent;
             // 
             // Form2
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
-            ClientSize = new Size(1009, 595);
+            ClientSize = new Size(1482, 753);
             Controls.Add(pictureBox2);
             Controls.Add(lblBildirim);
             Controls.Add(pictureBox1);
@@ -323,5 +331,6 @@
         private ErrorProvider epCalismaSaati;
         private Label lblBildirim;
         private PictureBox pictureBox2;
+        private ImageList ımageList3;
     }
 }

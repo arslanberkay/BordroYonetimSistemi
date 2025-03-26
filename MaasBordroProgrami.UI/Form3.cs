@@ -65,65 +65,76 @@ namespace MaasBordroProgrami.UI
 
         private void btnPersonelEkle_Click(object sender, EventArgs e)
         {
-            var personeller = JSONDosya.PersonelListesiOku(); //Güncel personel listemi .jsondan aldım.
+            try
+            {
+                var personeller = JSONDosya.PersonelListesiOku(); //Güncel personel listemi .jsondan aldım.
 
-            if ((string.IsNullOrWhiteSpace(txtPersonelAdSoyad.Text) || txtPersonelAdSoyad.Text == "Ad soyad giriniz") && cbPersonelKadro.SelectedItem == null) //Personel adı boşsa ve kadro seçilmediyse
-            {
-                epPersonelAdSoyad.SetError(txtPersonelAdSoyad, "Personel adı boş bırakılamaz."); //Hata simgesi üzerine gelindiğinde bu mesajı gösterir.
-                epKadro.SetError(cbPersonelKadro, "Kadro bilgisi seçilmelidir."); //Hata simgesi üzerine gelindiğinde bu mesajı gösterir.
-                return;
-            }
-            else
-            {
-                epPersonelAdSoyad.SetError(txtPersonelAdSoyad, string.Empty); // Hata temizleme
-                epKadro.SetError(cbPersonelKadro, string.Empty); // Hata temizleme
-            }
+                if ((string.IsNullOrWhiteSpace(txtPersonelAdSoyad.Text) || txtPersonelAdSoyad.Text == "Ad soyad giriniz") && cbPersonelKadro.SelectedItem == null) //Personel adı boşsa ve kadro seçilmediyse
+                {
+                    epPersonelAdSoyad.SetError(txtPersonelAdSoyad, "Personel adı boş bırakılamaz."); //Hata simgesi üzerine gelindiğinde bu mesajı gösterir.
+                    epKadro.SetError(cbPersonelKadro, "Kadro bilgisi seçilmelidir."); //Hata simgesi üzerine gelindiğinde bu mesajı gösterir.
+                    return;
+                }
+                else
+                {
+                    epPersonelAdSoyad.SetError(txtPersonelAdSoyad, string.Empty); // Hata temizleme
+                    epKadro.SetError(cbPersonelKadro, string.Empty); // Hata temizleme
+                }
 
-            //Ad soyad arasında en az bir boşluk olması kontrolü ve Regex ile yanlızca harf kontrolü (Türkçe karakter olabilir)
-            if (txtPersonelAdSoyad.Text.Trim().Split(' ').Length < 2 || !Regex.IsMatch(txtPersonelAdSoyad.Text, @"^[a-zA-ZçÇğĞıİöÖşŞüÜ\s]+$"))
-            {
-                epPersonelAdSoyad.SetError(txtPersonelAdSoyad, "Ad ve soyad arasında en az bir boşluk olmalı ve yalnızca harflerden oluşmalıdır.");
-                return;
-            }
-            else
-            {
-                epPersonelAdSoyad.SetError(txtPersonelAdSoyad, string.Empty);
-            }
-
-
-            if (string.IsNullOrWhiteSpace(txtPersonelAdSoyad.Text) || txtPersonelAdSoyad.Text == "Ad soyad giriniz")
-            {
-                epPersonelAdSoyad.SetError(txtPersonelAdSoyad, "Personel adı boş bırakılamaz.");
-                return;
-            }
-            else
-            {
-                epPersonelAdSoyad.SetError(txtPersonelAdSoyad, string.Empty);
-            }
-            if (cbPersonelKadro.SelectedItem == null)
-            {
-                epKadro.SetError(cbPersonelKadro, "Kadro bilgisi seçilmelidir.");
-                return;
-            }
-            else
-            {
-                epKadro.SetError(cbPersonelKadro, string.Empty);
-            }
-
-            if (cbPersonelKadro.SelectedItem == "Yönetici") //Yönetici seçildiyse
-            {
-                personeller.Add(new Yonetici { AdSoyad = txtPersonelAdSoyad.Text, Kadro = "Yönetici" }); //Yeni Yonetici nesnesi listeye eklenir (object initializer kullanılarak nesne oluşturuldu ve özellikleri verildi.)
-            }
-            else if (cbPersonelKadro.SelectedItem == "Memur") //Memur seçildiyse
-            {
-                personeller.Add(new Memur { AdSoyad = txtPersonelAdSoyad.Text, Kadro = "Memur" }); //Yeni Memur nesnesi listeye eklenir.
-            }
-
-            JSONDosya.PersonelListesineKaydet(personeller.ToList()); //Yeni eklenen personel JSON dosyasına kalıcı olarak kaydedilir.
+                //Ad soyad arasında en az bir boşluk olması kontrolü ve Regex ile yanlızca harf kontrolü (Türkçe karakter olabilir)
+                if (txtPersonelAdSoyad.Text.Trim().Split(' ').Length < 2 || !Regex.IsMatch(txtPersonelAdSoyad.Text, @"^[a-zA-ZçÇğĞıİöÖşŞüÜ\s]+$"))
+                {
+                    epPersonelAdSoyad.SetError(txtPersonelAdSoyad, "Ad ve soyad arasında en az bir boşluk olmalı ve yalnızca harflerden oluşmalıdır.");
+                    return;
+                }
+                else
+                {
+                    epPersonelAdSoyad.SetError(txtPersonelAdSoyad, string.Empty);
+                }
 
 
-            BildirimMesaji("Yeni personel başarıyla eklendi.", Color.Green);
-            Temizle();
+                if (string.IsNullOrWhiteSpace(txtPersonelAdSoyad.Text) || txtPersonelAdSoyad.Text == "Ad soyad giriniz")
+                {
+                    epPersonelAdSoyad.SetError(txtPersonelAdSoyad, "Personel adı boş bırakılamaz.");
+                    return;
+                }
+                else
+                {
+                    epPersonelAdSoyad.SetError(txtPersonelAdSoyad, string.Empty);
+                }
+                if (cbPersonelKadro.SelectedItem == null)
+                {
+                    epKadro.SetError(cbPersonelKadro, "Kadro bilgisi seçilmelidir.");
+                    return;
+                }
+                else
+                {
+                    epKadro.SetError(cbPersonelKadro, string.Empty);
+                }
+
+                if (cbPersonelKadro.SelectedItem == "Yönetici") //Yönetici seçildiyse
+                {
+                    personeller.Add(new Yonetici { AdSoyad = txtPersonelAdSoyad.Text, Kadro = "Yönetici" }); //Yeni Yonetici nesnesi listeye eklenir (object initializer kullanılarak nesne oluşturuldu ve özellikleri verildi.)
+                }
+                else if (cbPersonelKadro.SelectedItem == "Memur") //Memur seçildiyse
+                {
+                    personeller.Add(new Memur { AdSoyad = txtPersonelAdSoyad.Text, Kadro = "Memur" }); //Yeni Memur nesnesi listeye eklenir.
+                }
+
+                JSONDosya.PersonelListesineKaydet(personeller.ToList()); //Yeni eklenen personel JSON dosyasına kalıcı olarak kaydedilir.
+
+
+                BildirimMesaji("Yeni personel başarıyla eklendi.", Color.FromArgb(0, 255, 0));
+
+            }
+            catch (Exception)
+            {
+                BildirimMesaji("Personel kaydetme sırasında hata oluştu.", Color.FromArgb(255, 0, 0));
+            }
+            finally
+            {
+                Temizle();
+            }
         }
 
         private void BildirimMesaji(string mesaj, Color renk)

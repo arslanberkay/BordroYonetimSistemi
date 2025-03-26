@@ -83,16 +83,6 @@ namespace MaasBordroProgrami.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap _211873_person_stalker_icon {
-            get {
-                object obj = ResourceManager.GetObject("211873_person_stalker_icon", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap _2530819_general_group_office_personal_relation_icon {
             get {
                 object obj = ResourceManager.GetObject("2530819_general_group_office_personal_relation_icon", resourceCulture);
@@ -133,9 +123,9 @@ namespace MaasBordroProgrami.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap images {
+        internal static System.Drawing.Bitmap _5402388_information_about_support_accessibility_info_icon {
             get {
-                object obj = ResourceManager.GetObject("images", resourceCulture);
+                object obj = ResourceManager.GetObject("5402388_information_about_support_accessibility_info_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -143,9 +133,9 @@ namespace MaasBordroProgrami.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap png_transparent_computer_icons_person_personal_use_miscellaneous_black_area {
+        internal static System.Drawing.Bitmap ArslanLogo_Photoroom {
             get {
-                object obj = ResourceManager.GetObject("png-transparent-computer-icons-person-personal-use-miscellaneous-black-area", resourceCulture);
+                object obj = ResourceManager.GetObject("ArslanLogo-Photoroom", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -153,9 +143,10 @@ namespace MaasBordroProgrami.UI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap png_transparent_computer_icons_user_blog_staff_miscellaneous_monochrome_black {
+        internal static System.Drawing.Bitmap depositphotos_537805212_stock_illustration_lion_head_logo_design_vector_Photoroom {
             get {
-                object obj = ResourceManager.GetObject("png-transparent-computer-icons-user-blog-staff-miscellaneous-monochrome-black", resourceCulture);
+                object obj = ResourceManager.GetObject("depositphotos_537805212-stock-illustration-lion-head-logo-design-vector-Photoroom" +
+                        "", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

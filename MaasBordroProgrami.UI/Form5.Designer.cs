@@ -55,21 +55,21 @@
             ımageList4 = new ImageList(components);
             epMailAdresi = new ErrorProvider(components);
             epDosyaTuru = new ErrorProvider(components);
-            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
             pnlMailGonderimAlani.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)epMailAdresi).BeginInit();
             ((System.ComponentModel.ISupportInitialize)epDosyaTuru).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // lstvTumPersonelBordrosu
             // 
             lstvTumPersonelBordrosu.BackColor = Color.WhiteSmoke;
-            lstvTumPersonelBordrosu.Location = new Point(78, 122);
+            lstvTumPersonelBordrosu.Location = new Point(74, 122);
             lstvTumPersonelBordrosu.Margin = new Padding(4);
             lstvTumPersonelBordrosu.Name = "lstvTumPersonelBordrosu";
-            lstvTumPersonelBordrosu.Size = new Size(1324, 362);
+            lstvTumPersonelBordrosu.Size = new Size(1300, 378);
             lstvTumPersonelBordrosu.TabIndex = 0;
             lstvTumPersonelBordrosu.UseCompatibleStateImageBehavior = false;
             // 
@@ -101,7 +101,7 @@
             btnPdfOlustur.ImageAlign = ContentAlignment.MiddleLeft;
             btnPdfOlustur.ImageIndex = 1;
             btnPdfOlustur.ImageList = ımageList2;
-            btnPdfOlustur.Location = new Point(683, 506);
+            btnPdfOlustur.Location = new Point(656, 528);
             btnPdfOlustur.Name = "btnPdfOlustur";
             btnPdfOlustur.Size = new Size(214, 58);
             btnPdfOlustur.TabIndex = 1;
@@ -126,7 +126,7 @@
             btnExcelOlustur.ImageAlign = ContentAlignment.MiddleLeft;
             btnExcelOlustur.ImageIndex = 2;
             btnExcelOlustur.ImageList = ımageList2;
-            btnExcelOlustur.Location = new Point(913, 506);
+            btnExcelOlustur.Location = new Point(886, 528);
             btnExcelOlustur.Name = "btnExcelOlustur";
             btnExcelOlustur.Size = new Size(245, 58);
             btnExcelOlustur.TabIndex = 1;
@@ -140,7 +140,7 @@
             btnMailGonderimGecis.ImageAlign = ContentAlignment.MiddleLeft;
             btnMailGonderimGecis.ImageKey = "4202011_email_gmail_mail_logo_social_icon.png";
             btnMailGonderimGecis.ImageList = ımageList2;
-            btnMailGonderimGecis.Location = new Point(1174, 506);
+            btnMailGonderimGecis.Location = new Point(1147, 528);
             btnMailGonderimGecis.Name = "btnMailGonderimGecis";
             btnMailGonderimGecis.Size = new Size(227, 58);
             btnMailGonderimGecis.TabIndex = 1;
@@ -151,7 +151,7 @@
             // btnAzCalisanPersonel
             // 
             btnAzCalisanPersonel.BackColor = Color.Gainsboro;
-            btnAzCalisanPersonel.Location = new Point(1175, 69);
+            btnAzCalisanPersonel.Location = new Point(1147, 69);
             btnAzCalisanPersonel.Name = "btnAzCalisanPersonel";
             btnAzCalisanPersonel.Size = new Size(227, 37);
             btnAzCalisanPersonel.TabIndex = 2;
@@ -162,7 +162,7 @@
             // btnTumPersoneller
             // 
             btnTumPersoneller.BackColor = Color.Gainsboro;
-            btnTumPersoneller.Location = new Point(912, 69);
+            btnTumPersoneller.Location = new Point(886, 69);
             btnTumPersoneller.Name = "btnTumPersoneller";
             btnTumPersoneller.Size = new Size(245, 37);
             btnTumPersoneller.TabIndex = 3;
@@ -196,18 +196,19 @@
             btnCalismaSaatiSiralama.ForeColor = SystemColors.ControlLight;
             btnCalismaSaatiSiralama.ImageIndex = 2;
             btnCalismaSaatiSiralama.ImageList = ımageList3;
-            btnCalismaSaatiSiralama.Location = new Point(635, 69);
+            btnCalismaSaatiSiralama.Location = new Point(613, 69);
             btnCalismaSaatiSiralama.Name = "btnCalismaSaatiSiralama";
-            btnCalismaSaatiSiralama.Size = new Size(50, 39);
+            btnCalismaSaatiSiralama.Size = new Size(36, 39);
             btnCalismaSaatiSiralama.TabIndex = 5;
             btnCalismaSaatiSiralama.UseVisualStyleBackColor = true;
             btnCalismaSaatiSiralama.Click += btnCalismaSaatiSiralama_Click;
             // 
             // lblBildirim
             // 
-            lblBildirim.Location = new Point(169, 15);
+            lblBildirim.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            lblBildirim.Location = new Point(540, 25);
             lblBildirim.Name = "lblBildirim";
-            lblBildirim.Size = new Size(816, 29);
+            lblBildirim.Size = new Size(732, 44);
             lblBildirim.TabIndex = 6;
             // 
             // btnMailGonderme
@@ -269,7 +270,7 @@
             // 
             pnlMailGonderimAlani.Controls.Add(groupBox1);
             pnlMailGonderimAlani.Controls.Add(btnTumPersonelBordrosuSayfasinaGec);
-            pnlMailGonderimAlani.Location = new Point(955, 422);
+            pnlMailGonderimAlani.Location = new Point(927, 489);
             pnlMailGonderimAlani.Name = "pnlMailGonderimAlani";
             pnlMailGonderimAlani.Size = new Size(447, 252);
             pnlMailGonderimAlani.TabIndex = 8;
@@ -328,23 +329,24 @@
             // 
             epDosyaTuru.ContainerControl = this;
             // 
-            // pictureBox2
+            // pictureBox1
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(1396, 12);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(45, 55);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 9;
-            pictureBox2.TabStop = false;
+            pictureBox1.BackColor = Color.FromArgb(44, 62, 80);
+            pictureBox1.Image = Properties.Resources.depositphotos_537805212_stock_illustration_lion_head_logo_design_vector_Photoroom;
+            pictureBox1.Location = new Point(1380, 10);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(90, 90);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
             // 
             // Form5
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
-            ClientSize = new Size(1455, 668);
-            Controls.Add(pictureBox2);
+            ClientSize = new Size(1482, 753);
+            Controls.Add(pictureBox1);
             Controls.Add(pnlMailGonderimAlani);
             Controls.Add(lblBildirim);
             Controls.Add(btnCalismaSaatiSiralama);
@@ -367,7 +369,7 @@
             groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)epMailAdresi).EndInit();
             ((System.ComponentModel.ISupportInitialize)epDosyaTuru).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -398,6 +400,6 @@
         private Label lblDosyaTuru;
         private ErrorProvider epMailAdresi;
         private ErrorProvider epDosyaTuru;
-        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
     }
 }

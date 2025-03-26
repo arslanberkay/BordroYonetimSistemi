@@ -34,10 +34,16 @@ namespace MaasBordroProgrami.UI
             {
                 personeller = new BindingList<IPersonel>(JSONDosya.PersonelListesiOku());
                 dgvPersonelYonetimi.DataSource = personeller;
+                dgvPersonelYonetimi.Columns[0].HeaderText = "Ad Soyad";
+                dgvPersonelYonetimi.Columns[1].HeaderText = "Kadro";
+                dgvPersonelYonetimi.Columns[2].HeaderText = "Derece";
+                dgvPersonelYonetimi.Columns[3].HeaderText = "Çalışma Saati";
+                dgvPersonelYonetimi.Columns[4].HeaderText = "Saatlik Ücret";
+
             }
             catch (Exception ex)
             {
-                BildirimMesaji($"Veri yüklenirken hata oluştu : {ex.Message}", Color.Red);
+                BildirimMesaji($"Veri yüklenirken hata oluştu : {ex.Message}", Color.FromArgb(255, 0, 0));
             }
         }
 
@@ -151,7 +157,7 @@ namespace MaasBordroProgrami.UI
             DataGridViewYenile();
             JSONDosya.PersonelListesineKaydet(personeller.ToList()); //Güncellenmiş listeyi .json dosyasına yazar
 
-            BildirimMesaji("Personel bilgileri başarıyla güncellendi.", Color.Green);
+            BildirimMesaji("Personel bilgileri başarıyla güncellendi.", Color.FromArgb(0, 255, 0));
             Temizle();
         }
 
@@ -159,15 +165,15 @@ namespace MaasBordroProgrami.UI
         {
             if (dgvPersonelYonetimi.SelectedRows.Count == 0)
             {
-                BildirimMesaji("Silme işlemi için lütfen bir personel seçin!", Color.Red);
+                BildirimMesaji("Silme işlemi için lütfen bir personel seçin!", Color.FromArgb(255, 0, 0));
                 return;
             }
 
             //Personel silme işlemi yanlışlıkla tıklamaya karşı doğrulama bildirimi
-            DialogResult dr = MessageBox.Show("Bu personeli silmek istediğinize emin misiniz?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning); 
+            DialogResult dr = MessageBox.Show("Bu personeli silmek istediğinize emin misiniz?", "Uyarı", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dr == DialogResult.No) //Cevap hayırsa
             {
-                BildirimMesaji("Silme işlemi iptal edildi.",Color.Blue);
+                BildirimMesaji("Silme işlemi iptal edildi.", Color.FromArgb(0, 255, 0));
                 return;
             }
 
@@ -177,7 +183,7 @@ namespace MaasBordroProgrami.UI
             DataGridViewYenile();
             JSONDosya.PersonelListesineKaydet(personeller.ToList()); //Güncellenen liste .json dosyasına yazılır.
 
-            BildirimMesaji("Personel kaydı başarıyla silindi.", Color.Green);
+            BildirimMesaji("Personel kaydı başarıyla silindi.", Color.FromArgb(0, 255, 0));
             Temizle();
         }
 

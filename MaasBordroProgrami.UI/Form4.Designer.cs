@@ -39,9 +39,15 @@
             btnJsonDosyaKaydet = new Button();
             epPersonel = new ErrorProvider(components);
             lblBildirim = new Label();
-            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            btnBordroHesapla = new Button();
+            epBordroHesapla = new ErrorProvider(components);
+            ımageList3 = new ImageList(components);
+            lblBilgi = new Label();
+            toolTip1 = new ToolTip(components);
             ((System.ComponentModel.ISupportInitialize)epPersonel).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)epBordroHesapla).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -49,7 +55,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
             label1.ForeColor = Color.White;
-            label1.Location = new Point(73, 75);
+            label1.Location = new Point(105, 174);
             label1.Margin = new Padding(4, 0, 4, 0);
             label1.Name = "label1";
             label1.Size = new Size(554, 31);
@@ -61,11 +67,10 @@
             cbPersonelAdSoyad.BackColor = Color.WhiteSmoke;
             cbPersonelAdSoyad.DropDownStyle = ComboBoxStyle.DropDownList;
             cbPersonelAdSoyad.FormattingEnabled = true;
-            cbPersonelAdSoyad.Location = new Point(639, 77);
+            cbPersonelAdSoyad.Location = new Point(671, 176);
             cbPersonelAdSoyad.Name = "cbPersonelAdSoyad";
-            cbPersonelAdSoyad.Size = new Size(239, 33);
+            cbPersonelAdSoyad.Size = new Size(307, 33);
             cbPersonelAdSoyad.TabIndex = 1;
-            cbPersonelAdSoyad.SelectedIndexChanged += cbPersonelAdSoyad_SelectedIndexChanged;
             // 
             // ımageList2
             // 
@@ -78,7 +83,7 @@
             // lstvPersonelBordrosu
             // 
             lstvPersonelBordrosu.BackColor = Color.WhiteSmoke;
-            lstvPersonelBordrosu.Location = new Point(73, 135);
+            lstvPersonelBordrosu.Location = new Point(105, 318);
             lstvPersonelBordrosu.Name = "lstvPersonelBordrosu";
             lstvPersonelBordrosu.Size = new Size(1299, 90);
             lstvPersonelBordrosu.TabIndex = 3;
@@ -110,9 +115,9 @@
             btnJsonDosyaKaydet.ImageAlign = ContentAlignment.MiddleLeft;
             btnJsonDosyaKaydet.ImageKey = "9104302_save_storage_file_document_page_icon.png";
             btnJsonDosyaKaydet.ImageList = ımageList2;
-            btnJsonDosyaKaydet.Location = new Point(1072, 242);
+            btnJsonDosyaKaydet.Location = new Point(1097, 428);
             btnJsonDosyaKaydet.Name = "btnJsonDosyaKaydet";
-            btnJsonDosyaKaydet.Size = new Size(300, 55);
+            btnJsonDosyaKaydet.Size = new Size(307, 65);
             btnJsonDosyaKaydet.TabIndex = 2;
             btnJsonDosyaKaydet.Text = "Dosya Olarak Kaydet";
             btnJsonDosyaKaydet.UseVisualStyleBackColor = false;
@@ -124,28 +129,66 @@
             // 
             // lblBildirim
             // 
-            lblBildirim.Location = new Point(243, 19);
+            lblBildirim.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 162);
+            lblBildirim.Location = new Point(540, 25);
             lblBildirim.Name = "lblBildirim";
-            lblBildirim.Size = new Size(735, 37);
+            lblBildirim.Size = new Size(616, 86);
             lblBildirim.TabIndex = 5;
             // 
-            // pictureBox2
+            // pictureBox1
             // 
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
-            pictureBox2.Location = new Point(1366, 12);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(45, 55);
-            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox2.TabIndex = 7;
-            pictureBox2.TabStop = false;
+            pictureBox1.Image = Properties.Resources.depositphotos_537805212_stock_illustration_lion_head_logo_design_vector_Photoroom;
+            pictureBox1.Location = new Point(1380, 10);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(90, 90);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 6;
+            pictureBox1.TabStop = false;
+            // 
+            // btnBordroHesapla
+            // 
+            btnBordroHesapla.BackColor = Color.Gainsboro;
+            btnBordroHesapla.ImageAlign = ContentAlignment.MiddleLeft;
+            btnBordroHesapla.ImageIndex = 1;
+            btnBordroHesapla.ImageList = ımageList2;
+            btnBordroHesapla.Location = new Point(671, 227);
+            btnBordroHesapla.Name = "btnBordroHesapla";
+            btnBordroHesapla.Size = new Size(307, 65);
+            btnBordroHesapla.TabIndex = 7;
+            btnBordroHesapla.Text = "Bordro Hesapla";
+            btnBordroHesapla.UseVisualStyleBackColor = false;
+            btnBordroHesapla.Click += btnBordroHesapla_Click;
+            // 
+            // epBordroHesapla
+            // 
+            epBordroHesapla.ContainerControl = this;
+            // 
+            // ımageList3
+            // 
+            ımageList3.ColorDepth = ColorDepth.Depth32Bit;
+            ımageList3.ImageStream = (ImageListStreamer)resources.GetObject("ımageList3.ImageStream");
+            ımageList3.TransparentColor = Color.Transparent;
+            ımageList3.Images.SetKeyName(0, "5402388_information_about_support_accessibility_info_icon.png");
+            ımageList3.Images.SetKeyName(1, "3937344_help_helpdesk_info_information_question_icon.png");
+            // 
+            // lblBilgi
+            // 
+            lblBilgi.ImageKey = "3937344_help_helpdesk_info_information_question_icon.png";
+            lblBilgi.ImageList = ımageList3;
+            lblBilgi.Location = new Point(1040, 428);
+            lblBilgi.Name = "lblBilgi";
+            lblBilgi.Size = new Size(51, 65);
+            lblBilgi.TabIndex = 9;
             // 
             // Form4
             // 
             AutoScaleDimensions = new SizeF(12F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
-            ClientSize = new Size(1423, 330);
-            Controls.Add(pictureBox2);
+            ClientSize = new Size(1482, 753);
+            Controls.Add(lblBilgi);
+            Controls.Add(btnBordroHesapla);
+            Controls.Add(pictureBox1);
             Controls.Add(lblBildirim);
             Controls.Add(btnAnaSayfayaGeriGec);
             Controls.Add(lstvPersonelBordrosu);
@@ -159,7 +202,8 @@
             Text = "Form4";
             Load += Form4_Load;
             ((System.ComponentModel.ISupportInitialize)epPersonel).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)epBordroHesapla).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -175,6 +219,11 @@
         private ImageList ımageList2;
         private ErrorProvider epPersonel;
         private Label lblBildirim;
-        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
+        private Button btnBordroHesapla;
+        private ErrorProvider epBordroHesapla;
+        private Label lblBilgi;
+        private ImageList ımageList3;
+        private ToolTip toolTip1;
     }
 }

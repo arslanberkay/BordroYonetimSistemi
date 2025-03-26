@@ -56,7 +56,7 @@ namespace MaasBordroProgrami.UI
             lstvTumPersonelBordrosu.View = View.Details;
             lstvTumPersonelBordrosu.GridLines = true;
             lstvTumPersonelBordrosu.Columns.Add("Personel İsmi", 220);
-            lstvTumPersonelBordrosu.Columns.Add("Kadro", 220, HorizontalAlignment.Center);
+            lstvTumPersonelBordrosu.Columns.Add("Kadro", 205, HorizontalAlignment.Center);
             lstvTumPersonelBordrosu.Columns.Add("Çalışma Saati", 220, HorizontalAlignment.Center);
             lstvTumPersonelBordrosu.Columns.Add("Ana Ödeme", 220, HorizontalAlignment.Center);
             lstvTumPersonelBordrosu.Columns.Add("Mesai", 220, HorizontalAlignment.Center);
@@ -239,13 +239,13 @@ namespace MaasBordroProgrami.UI
                     document.Add(table); //Oluşturulan tabloyu PDF belgesine ekler.
                     document.Close(); //PDF belgesini kapatır ve kaydeder.
 
-                    BildirimMesaji("PDF dosyası başarıyla oluşturuldu.", Color.Green);
+                    BildirimMesaji("PDF dosyası başarıyla oluşturuldu.", Color.FromArgb(0, 255, 0));
                 }
             }
 
             catch (Exception)
             {
-                BildirimMesaji("PDF dosyası oluşturulurken hata oluştu!", Color.Red);
+                BildirimMesaji("PDF dosyası oluşturulurken hata oluştu!", Color.FromArgb(255, 0, 0));
             }
         }
 
@@ -311,14 +311,14 @@ namespace MaasBordroProgrami.UI
                         {
                             string filePath = saveFileDialog.FileName;
                             workbook.SaveAs(filePath);
-                            BildirimMesaji("Excel dosyası başarıyla oluşturuldu.", Color.Green);
+                            BildirimMesaji("Excel dosyası başarıyla oluşturuldu.", Color.FromArgb(0, 255, 0));
                         }
                     }
                 }
             }
             catch (Exception)
             {
-                BildirimMesaji($"Excel dosyası oluşturulurken hata oluştu!", Color.Red);
+                BildirimMesaji($"Excel dosyası oluşturulurken hata oluştu!", Color.FromArgb(255, 0, 0));
             }
         }
 
@@ -454,11 +454,11 @@ namespace MaasBordroProgrami.UI
                 smtpClient.EnableSsl = true;
                 smtpClient.Send(mail); //Mail gönderilir.
 
-                BildirimMesaji("Mail başarıyla gönderildi.", Color.Green);
+                BildirimMesaji("Mail başarıyla gönderildi.", Color.FromArgb(0, 255, 0));
             }
             catch (Exception ex)
             {
-                BildirimMesaji("Mail gönderilirken hata oluştu!", Color.Red);
+                BildirimMesaji("Mail gönderilirken hata oluştu!", Color.FromArgb(255, 0, 0));
             }
         }
 

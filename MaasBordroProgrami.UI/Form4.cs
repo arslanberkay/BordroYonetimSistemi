@@ -18,6 +18,8 @@ namespace MaasBordroProgrami.UI
         public Form4()
         {
             InitializeComponent();
+
+            toolTip1.SetToolTip(lblBilgi, "Personel bordrosunu .json formatında masaüstüne kaydeder.");
         }
 
         /// <summary>
@@ -55,15 +57,20 @@ namespace MaasBordroProgrami.UI
             TabloOlustur();
         }
 
-        private void cbPersonelAdSoyad_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnBordroHesapla_Click(object sender, EventArgs e)
         {
             Temizle();
             epPersonel.SetError(cbPersonelAdSoyad, string.Empty); //Personel seçildiğinde uyarı ikonunu temizle
 
             if (cbPersonelAdSoyad.SelectedItem == null)
             {
-                MessageBox.Show("Personel seçimi boş geçilemez!");
+                epPersonel.SetError(cbPersonelAdSoyad, "Personel seçimi yapılmalıdır.");
                 return;
+            }
+            else
+            {
+                epPersonel.SetError(cbPersonelAdSoyad, string.Empty);
+                epBordroHesapla.SetError(cbPersonelAdSoyad, string.Empty);
             }
 
             int seciliIndex = cbPersonelAdSoyad.SelectedIndex;
@@ -89,7 +96,6 @@ namespace MaasBordroProgrami.UI
             lstvPersonelBordrosu.Items.Add(listViewItem);
         }
 
-
         private void btnJsonDosyaKaydet_Click(object sender, EventArgs e)
         {
             if (cbPersonelAdSoyad.SelectedItem == null)
@@ -100,6 +106,15 @@ namespace MaasBordroProgrami.UI
             else
             {
                 epPersonel.SetError(cbPersonelAdSoyad, string.Empty);
+            }
+
+            if (lstvPersonelBordrosu.Items.Count == 0)
+            {
+                epBordroHesapla.SetError(btnBordroHesapla, "Önce bordro hesaplaması yapılmalıdır.");
+                return;            }
+            else
+            {
+                epBordroHesapla.SetError(btnBordroHesapla, string.Empty);
             }
 
             int seciliIndex = cbPersonelAdSoyad.SelectedIndex;
@@ -119,12 +134,12 @@ namespace MaasBordroProgrami.UI
             {
                 JSONDosya.PersonelAdinaKaydet(maasBordro, maasBordro.PersonelIsmi); //Seçilen personelin maasBordrosu JSON formatında kaydedilir.
 
-                BildirimMesaji($"Bordro dosyası başarıyla kaydedildi.", Color.Green);
+                BildirimMesaji($"Bordro dosyası başarıyla kaydedildi.", Color.FromArgb(0, 255, 0));
 
             }
             catch (Exception)
             {
-                BildirimMesaji("Bordro dosyası kaydedilirken hata oluştu!", Color.Red);
+                BildirimMesaji("Bordro dosyası kaydedilirken hata oluştu!", Color.FromArgb(255, 0, 0));
             }
             finally //Her türlü temizlenme işlemi gerçekleşsin
             {
