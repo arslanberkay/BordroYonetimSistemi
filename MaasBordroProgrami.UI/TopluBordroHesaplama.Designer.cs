@@ -1,6 +1,6 @@
 ﻿namespace MaasBordroProgrami.UI
 {
-    partial class Form5
+    partial class TopluBordroHesaplama
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form5));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TopluBordroHesaplama));
             lstvTumPersonelBordrosu = new ListView();
             btnAnaSayfayaGeriGec = new Button();
             ımageList1 = new ImageList(components);
@@ -56,6 +56,7 @@
             epMailAdresi = new ErrorProvider(components);
             epDosyaTuru = new ErrorProvider(components);
             pictureBox1 = new PictureBox();
+            label2 = new Label();
             pnlMailGonderimAlani.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)epMailAdresi).BeginInit();
@@ -340,12 +341,24 @@
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
             // 
-            // Form5
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Lucida Handwriting", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(1372, 86);
+            label2.Name = "label2";
+            label2.Size = new Size(107, 23);
+            label2.TabIndex = 10;
+            label2.Text = "ArslanSoft";
+            // 
+            // TopluBordroHesaplama
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
             ClientSize = new Size(1482, 753);
+            Controls.Add(label2);
             Controls.Add(pictureBox1);
             Controls.Add(pnlMailGonderimAlani);
             Controls.Add(lblBildirim);
@@ -360,9 +373,9 @@
             Controls.Add(lstvTumPersonelBordrosu);
             Font = new Font("Segoe UI", 12F);
             Margin = new Padding(4);
-            Name = "Form5";
+            Name = "TopluBordroHesaplama";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form5";
+            Text = "Toplu Bordro Hesaplama";
             Load += Form5_Load;
             pnlMailGonderimAlani.ResumeLayout(false);
             groupBox1.ResumeLayout(false);
@@ -371,6 +384,7 @@
             ((System.ComponentModel.ISupportInitialize)epDosyaTuru).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -401,5 +415,6 @@
         private ErrorProvider epMailAdresi;
         private ErrorProvider epDosyaTuru;
         private PictureBox pictureBox1;
+        private Label label2;
     }
 }

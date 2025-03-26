@@ -1,6 +1,6 @@
 ﻿namespace MaasBordroProgrami.UI
 {
-    partial class Form1
+    partial class AnaSayfa
     {
         /// <summary>
         ///  Required designer variable.
@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AnaSayfa));
             btnPersonelYonetimi = new Button();
+            ımageList3 = new ImageList(components);
             ımageList1 = new ImageList(components);
             btnBordroHesaplama = new Button();
             ımageList2 = new ImageList(components);
@@ -39,7 +40,7 @@
             btnYeniPersonelKayit = new Button();
             pictureBox1 = new PictureBox();
             pictureBox2 = new PictureBox();
-            ımageList3 = new ImageList(components);
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             SuspendLayout();
@@ -51,13 +52,20 @@
             btnPersonelYonetimi.ImageAlign = ContentAlignment.MiddleLeft;
             btnPersonelYonetimi.ImageKey = "1471083_general_group_office_personal_relation_icon.png";
             btnPersonelYonetimi.ImageList = ımageList3;
-            btnPersonelYonetimi.Location = new Point(567, 280);
+            btnPersonelYonetimi.Location = new Point(567, 272);
             btnPersonelYonetimi.Name = "btnPersonelYonetimi";
             btnPersonelYonetimi.Size = new Size(291, 57);
             btnPersonelYonetimi.TabIndex = 1;
             btnPersonelYonetimi.Text = "Personel Yönetimi";
             btnPersonelYonetimi.UseVisualStyleBackColor = false;
             btnPersonelYonetimi.Click += btnPersonelYonetimi_Click;
+            // 
+            // ımageList3
+            // 
+            ımageList3.ColorDepth = ColorDepth.Depth32Bit;
+            ımageList3.ImageStream = (ImageListStreamer)resources.GetObject("ımageList3.ImageStream");
+            ımageList3.TransparentColor = Color.Transparent;
+            ımageList3.Images.SetKeyName(0, "1471083_general_group_office_personal_relation_icon.png");
             // 
             // ımageList1
             // 
@@ -73,7 +81,7 @@
             btnBordroHesaplama.ImageAlign = ContentAlignment.MiddleLeft;
             btnBordroHesaplama.ImageKey = "309097_calculator_calculation_finance_financial_icon.png";
             btnBordroHesaplama.ImageList = ımageList2;
-            btnBordroHesaplama.Location = new Point(567, 425);
+            btnBordroHesaplama.Location = new Point(567, 417);
             btnBordroHesaplama.Name = "btnBordroHesaplama";
             btnBordroHesaplama.Size = new Size(291, 57);
             btnBordroHesaplama.TabIndex = 1;
@@ -100,7 +108,7 @@
             // 
             btnTopluBordroGoruntule.BackColor = Color.Gainsboro;
             btnTopluBordroGoruntule.FlatStyle = FlatStyle.Flat;
-            btnTopluBordroGoruntule.Location = new Point(567, 498);
+            btnTopluBordroGoruntule.Location = new Point(567, 490);
             btnTopluBordroGoruntule.Name = "btnTopluBordroGoruntule";
             btnTopluBordroGoruntule.Size = new Size(291, 57);
             btnTopluBordroGoruntule.TabIndex = 1;
@@ -115,7 +123,7 @@
             btnUygulamadanCik.ImageAlign = ContentAlignment.MiddleLeft;
             btnUygulamadanCik.ImageKey = "1564506_close_exit_logout_power_icon.png";
             btnUygulamadanCik.ImageList = ımageList1;
-            btnUygulamadanCik.Location = new Point(567, 571);
+            btnUygulamadanCik.Location = new Point(567, 563);
             btnUygulamadanCik.Name = "btnUygulamadanCik";
             btnUygulamadanCik.Size = new Size(291, 57);
             btnUygulamadanCik.TabIndex = 1;
@@ -130,7 +138,7 @@
             btnYeniPersonelKayit.ImageAlign = ContentAlignment.MiddleLeft;
             btnYeniPersonelKayit.ImageKey = "309050_add_group_users_business_human_icon.png";
             btnYeniPersonelKayit.ImageList = ımageList2;
-            btnYeniPersonelKayit.Location = new Point(567, 353);
+            btnYeniPersonelKayit.Location = new Point(567, 345);
             btnYeniPersonelKayit.Name = "btnYeniPersonelKayit";
             btnYeniPersonelKayit.Size = new Size(291, 57);
             btnYeniPersonelKayit.TabIndex = 4;
@@ -141,7 +149,7 @@
             // pictureBox1
             // 
             pictureBox1.Image = Properties.Resources._3592856_general_group_office_personal_relation_icon1;
-            pictureBox1.Location = new Point(592, 98);
+            pictureBox1.Location = new Point(586, 92);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(245, 164);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
@@ -158,19 +166,24 @@
             pictureBox2.TabIndex = 6;
             pictureBox2.TabStop = false;
             // 
-            // ımageList3
+            // label1
             // 
-            ımageList3.ColorDepth = ColorDepth.Depth32Bit;
-            ımageList3.ImageStream = (ImageListStreamer)resources.GetObject("ımageList3.ImageStream");
-            ımageList3.TransparentColor = Color.Transparent;
-            ımageList3.Images.SetKeyName(0, "1471083_general_group_office_personal_relation_icon.png");
+            label1.AutoSize = true;
+            label1.Font = new Font("Lucida Handwriting", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(1372, 86);
+            label1.Name = "label1";
+            label1.Size = new Size(107, 23);
+            label1.TabIndex = 7;
+            label1.Text = "ArslanSoft";
             // 
-            // Form1
+            // AnaSayfa
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
             ClientSize = new Size(1482, 753);
+            Controls.Add(label1);
             Controls.Add(pictureBox2);
             Controls.Add(pictureBox1);
             Controls.Add(btnYeniPersonelKayit);
@@ -181,12 +194,13 @@
             Font = new Font("Segoe UI", 12F);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4, 3, 4, 3);
-            Name = "Form1";
+            Name = "AnaSayfa";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form1";
+            Text = "Ana Sayfa";
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -200,5 +214,6 @@
         private ImageList ımageList2;
         private PictureBox pictureBox2;
         private ImageList ımageList3;
+        private Label label1;
     }
 }

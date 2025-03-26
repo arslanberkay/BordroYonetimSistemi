@@ -1,8 +1,8 @@
 namespace MaasBordroProgrami.UI
 {
-    public partial class Form1 : Form
+    public partial class AnaSayfa : Form
     {
-        public Form1()
+        public AnaSayfa()
         {
             InitializeComponent();
         }
@@ -10,7 +10,7 @@ namespace MaasBordroProgrami.UI
         private void btnPersonelYonetimi_Click(object sender, EventArgs e)
         {
             this.Hide(); //Mevcut formu gizler.
-            Form2 form2 = new Form2();
+            PersonelYonetimi form2 = new PersonelYonetimi();
             form2.ShowDialog();
 
         }
@@ -18,21 +18,21 @@ namespace MaasBordroProgrami.UI
         private void btnBordroHesaplama_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form4 form4 = new Form4();
+            BordroHesaplama form4 = new BordroHesaplama();
             form4.ShowDialog();
         }
 
         private void btnTopluBordroGoruntule_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form5 form5 = new Form5();
+            TopluBordroHesaplama form5 = new TopluBordroHesaplama();
             form5.ShowDialog();
         }
 
         private void btnYeniPersonelKayit_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form3 form3 = new Form3();
+            PersonelKayit form3 = new PersonelKayit();
             form3.ShowDialog();
 
         }

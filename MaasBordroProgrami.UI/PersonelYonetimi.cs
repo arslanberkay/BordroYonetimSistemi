@@ -15,9 +15,9 @@ using System.Windows.Forms;
 
 namespace MaasBordroProgrami.UI
 {
-    public partial class Form2 : Form
+    public partial class PersonelYonetimi : Form
     {
-        public Form2()
+        public PersonelYonetimi()
         {
             InitializeComponent();
             VerileriYukle();
@@ -200,7 +200,7 @@ namespace MaasBordroProgrami.UI
         private void btnAnaSayfayaGeriGec_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 form1 = new Form1();
+            AnaSayfa form1 = new AnaSayfa();
             form1.ShowDialog();
         }
 

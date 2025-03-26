@@ -1,6 +1,6 @@
 ﻿namespace MaasBordroProgrami.UI
 {
-    partial class Form2
+    partial class PersonelYonetimi
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form2));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonelYonetimi));
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             groupBox1 = new GroupBox();
             mtxtCalismaSaati = new MaskedTextBox();
@@ -52,6 +52,7 @@
             lblBildirim = new Label();
             pictureBox2 = new PictureBox();
             ımageList3 = new ImageList(components);
+            label5 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvPersonelYonetimi).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -279,12 +280,24 @@
             ımageList3.ImageSize = new Size(16, 16);
             ımageList3.TransparentColor = Color.Transparent;
             // 
-            // Form2
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Lucida Handwriting", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.Black;
+            label5.Location = new Point(1372, 86);
+            label5.Name = "label5";
+            label5.Size = new Size(107, 23);
+            label5.TabIndex = 8;
+            label5.Text = "ArslanSoft";
+            // 
+            // PersonelYonetimi
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
             ClientSize = new Size(1482, 753);
+            Controls.Add(label5);
             Controls.Add(pictureBox2);
             Controls.Add(lblBildirim);
             Controls.Add(pictureBox1);
@@ -295,9 +308,9 @@
             Controls.Add(groupBox1);
             Font = new Font("Segoe UI", 12F);
             Margin = new Padding(4);
-            Name = "Form2";
+            Name = "PersonelYonetimi";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form2";
+            Text = "Personel Yönetimi";
             Load += Form2_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -307,6 +320,7 @@
             ((System.ComponentModel.ISupportInitialize)epCalismaSaati).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -332,5 +346,6 @@
         private Label lblBildirim;
         private PictureBox pictureBox2;
         private ImageList ımageList3;
+        private Label label5;
     }
 }

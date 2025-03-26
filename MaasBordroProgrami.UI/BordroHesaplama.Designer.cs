@@ -1,6 +1,6 @@
 ﻿namespace MaasBordroProgrami.UI
 {
-    partial class Form4
+    partial class BordroHesaplama
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form4));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(BordroHesaplama));
             label1 = new Label();
             cbPersonelAdSoyad = new ComboBox();
             ımageList2 = new ImageList(components);
@@ -45,6 +45,7 @@
             ımageList3 = new ImageList(components);
             lblBilgi = new Label();
             toolTip1 = new ToolTip(components);
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)epPersonel).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)epBordroHesapla).BeginInit();
@@ -180,12 +181,24 @@
             lblBilgi.Size = new Size(51, 65);
             lblBilgi.TabIndex = 9;
             // 
-            // Form4
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Lucida Handwriting", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Black;
+            label2.Location = new Point(1372, 86);
+            label2.Name = "label2";
+            label2.Size = new Size(107, 23);
+            label2.TabIndex = 10;
+            label2.Text = "ArslanSoft";
+            // 
+            // BordroHesaplama
             // 
             AutoScaleDimensions = new SizeF(12F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
             ClientSize = new Size(1482, 753);
+            Controls.Add(label2);
             Controls.Add(lblBilgi);
             Controls.Add(btnBordroHesapla);
             Controls.Add(pictureBox1);
@@ -197,9 +210,9 @@
             Controls.Add(label1);
             Font = new Font("Microsoft Sans Serif", 12F);
             Margin = new Padding(4);
-            Name = "Form4";
+            Name = "BordroHesaplama";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form4";
+            Text = "Bordro Hesaplama";
             Load += Form4_Load;
             ((System.ComponentModel.ISupportInitialize)epPersonel).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -225,5 +238,6 @@
         private Label lblBilgi;
         private ImageList ımageList3;
         private ToolTip toolTip1;
+        private Label label2;
     }
 }

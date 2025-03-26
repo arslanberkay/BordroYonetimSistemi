@@ -19,9 +19,9 @@ using DocumentFormat.OpenXml.Drawing.Charts;
 
 namespace MaasBordroProgrami.UI
 {
-    public partial class Form5 : Form
+    public partial class TopluBordroHesaplama : Form
     {
-        public Form5()
+        public TopluBordroHesaplama()
         {
             InitializeComponent();
         }
@@ -465,7 +465,7 @@ namespace MaasBordroProgrami.UI
         private void btnAnaSayfayaGeriGec_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form1 form1 = new Form1();
+            AnaSayfa form1 = new AnaSayfa();
             form1.ShowDialog();
         }
 

@@ -1,6 +1,6 @@
 ﻿namespace MaasBordroProgrami.UI
 {
-    partial class Form3
+    partial class PersonelKayit
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonelKayit));
             label1 = new Label();
             groupBox1 = new GroupBox();
             cbPersonelKadro = new ComboBox();
@@ -42,6 +42,7 @@
             epKadro = new ErrorProvider(components);
             lblBildirim = new Label();
             pictureBox1 = new PictureBox();
+            label3 = new Label();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)epPersonelAdSoyad).BeginInit();
             ((System.ComponentModel.ISupportInitialize)epKadro).BeginInit();
@@ -167,12 +168,24 @@
             pictureBox1.TabIndex = 4;
             pictureBox1.TabStop = false;
             // 
-            // Form3
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Lucida Handwriting", 10.2F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Black;
+            label3.Location = new Point(1372, 86);
+            label3.Name = "label3";
+            label3.Size = new Size(107, 23);
+            label3.TabIndex = 8;
+            label3.Text = "ArslanSoft";
+            // 
+            // PersonelKayit
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
             ClientSize = new Size(1482, 753);
+            Controls.Add(label3);
             Controls.Add(pictureBox1);
             Controls.Add(lblBildirim);
             Controls.Add(btnPersonelYonetimSayfasinaGeriGec);
@@ -180,9 +193,9 @@
             Controls.Add(groupBox1);
             Font = new Font("Segoe UI", 12F);
             Margin = new Padding(4);
-            Name = "Form3";
+            Name = "PersonelKayit";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Form3";
+            Text = "Personel Kayıt";
             Load += Form3_Load;
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
@@ -190,6 +203,7 @@
             ((System.ComponentModel.ISupportInitialize)epKadro).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -206,5 +220,6 @@
         private ErrorProvider epKadro;
         private Label lblBildirim;
         private PictureBox pictureBox1;
+        private Label label3;
     }
 }
