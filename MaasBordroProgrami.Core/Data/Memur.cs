@@ -31,6 +31,10 @@ namespace MaasBordroProgrami.Core.Data
                 {
                     throw new Exception("Çalışma süresi negatif olamaz!");
                 }
+                else if (value>720)
+                {
+                    throw new Exception("Çalışma süresi teorik olarak maksimum 720 saattir.");
+                }
                 else if (value > 180)
                 {
                     _calismaSaati = 180;

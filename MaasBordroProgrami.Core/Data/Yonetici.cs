@@ -27,13 +27,17 @@ namespace MaasBordroProgrami.Core.Data
                 {
                     throw new Exception("Çalışma saati 0 dan küçük olamaz!");
                 }
+                else if (value>720)
+                {
+                    throw new Exception("Çalışma süresi teorik olarak maksimum 720 saattir.");
+                }
                 _calismaSaati = value;
             }
         }
 
-        public decimal SaatlikUcret => 600;  //Saatlik ücreti 600 olarak sabitler (get var set yok)
+        public decimal SaatlikUcret => 750;  //Saatlik ücreti 600 olarak sabitler (get var set yok)
 
-        public decimal Bonus => 10000; //(Get var set yok) read-only bir özellik
+        public decimal Bonus => 20000; //(Get var set yok) read-only bir özellik
 
         public string Derece //Memur için derece özelliği eklediğim ve tablolarda kullanmak istediğim için burada boş bir değer döndürdüm.
         {

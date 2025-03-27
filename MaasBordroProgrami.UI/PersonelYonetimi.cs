@@ -53,9 +53,7 @@ namespace MaasBordroProgrami.UI
             txtKadro.ReadOnly = true;
             DereceGetir();
             dgvPersonelYonetimi.ClearSelection(); //Form açıldığında herhangi bir satırın seçili olmamasını sağlar.
-
             dgvPersonelYonetimi.Columns[4].DefaultCellStyle.Format = "C2";
-            dgvPersonelYonetimi.Columns[4].DefaultCellStyle.FormatProvider = new CultureInfo("tr-TR");
         }
 
         /// <summary>
@@ -73,6 +71,8 @@ namespace MaasBordroProgrami.UI
 
         private void dgvPersonelYonetimi_CellClick(object sender, DataGridViewCellEventArgs e) //Hücreye tıklayınca
         {
+            dgvPersonelYonetimi.DefaultCellStyle.SelectionBackColor = Color.FromArgb(112, 128, 144); //Seçili satırın rengi
+
             txtAdSoyad.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[0].Value.ToString();
             txtKadro.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[1].Value.ToString();
             mtxtCalismaSaati.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[3].Value.ToString();
@@ -115,57 +115,64 @@ namespace MaasBordroProgrami.UI
 
         private void btnGuncelle_Click_1(object sender, EventArgs e)
         {
-            if (dgvPersonelYonetimi.SelectedRows.Count == 0) //Eğer satır seçilmemişse
+            try
             {
-                BildirimMesaji($"Lütfen güncelleme işlemi için bir personel seçin!", Color.Red);
-                return;
-            }
+                if (dgvPersonelYonetimi.SelectedRows.Count == 0) //Eğer satır seçilmemişse
+                {
+                    BildirimMesaji($"Lütfen güncelleme işlemi için bir personel seçin!", Color.Red);
+                    return;
+                }
 
-            //Ad soyad arasında en az bir boşluk olması kontrolü ve Regex ile yanlızca harf kontrolü (Türkçe karakter olabilir)
-            if (txtAdSoyad.Text.Split(' ').Length < 2 || !Regex.IsMatch(txtAdSoyad.Text, @"^[a-zA-ZçÇğĞıİöÖşŞüÜ\s]+$"))
+                //Ad soyad arasında en az bir boşluk olması kontrolü ve Regex ile yanlızca harf kontrolü (Türkçe karakter olabilir)
+                if (txtAdSoyad.Text.Split(' ').Length < 2 || !Regex.IsMatch(txtAdSoyad.Text, @"^[a-zA-ZçÇğĞıİöÖşŞüÜ\s]+$"))
+                {
+                    epAdSoyad.SetError(txtAdSoyad, "Ad ve soyad arasında en az bir boşluk olmalı ve yalnızca harflerden oluşmalıdır.");
+                    return;
+                }
+                else
+                {
+                    epAdSoyad.SetError(txtAdSoyad, string.Empty);
+                }
+
+                if (string.IsNullOrWhiteSpace(mtxtCalismaSaati.Text))
+                {
+                    epCalismaSaati.SetError(mtxtCalismaSaati, "Çalışma saati girilmelidir");
+                    return;
+                }
+                else
+                {
+                    epCalismaSaati.SetError(mtxtCalismaSaati, string.Empty);
+                }
+
+                int seciliIndex = dgvPersonelYonetimi.SelectedRows[0].Index; //Seçili satırın indexi
+                IPersonel seciliPersonel = personeller[seciliIndex]; //Listeden o indexe ait olan personel nesnemi buldum.
+
+                seciliPersonel.AdSoyad = txtAdSoyad.Text;
+
+                if (seciliPersonel.Kadro == "Memur") //Şart eklenmese de olur (cell clickte kontrol ediliyor) sonrasında farklı personel kadroları geldiğinde karışıklık olmaması adına ekledim.
+                {
+                    seciliPersonel.Derece = cbDerece.SelectedItem.ToString();
+                }
+
+                seciliPersonel.CalismaSaati = Convert.ToInt32(mtxtCalismaSaati.Text);
+
+                DataGridViewYenile();
+                JSONDosya.PersonelListesineKaydet(personeller.ToList()); //Güncellenmiş listeyi .json dosyasına yazar
+
+                BildirimMesaji("Personel bilgileri başarıyla güncellendi.", Color.FromArgb(0, 255, 0));
+                Temizle();
+            }
+            catch (Exception ex)
             {
-                epAdSoyad.SetError(txtAdSoyad, "Ad ve soyad arasında en az bir boşluk olmalı ve yalnızca harflerden oluşmalıdır.");
-                return;
+                BildirimMesaji(ex.Message, Color.FromArgb(255, 0, 0));
             }
-            else
-            {
-                epAdSoyad.SetError(txtAdSoyad, string.Empty);
-            }
-
-            if (string.IsNullOrWhiteSpace(mtxtCalismaSaati.Text))
-            {
-                epCalismaSaati.SetError(mtxtCalismaSaati, "Çalışma saati girilmelidir");
-                return;
-            }
-            else
-            {
-                epCalismaSaati.SetError(mtxtCalismaSaati, string.Empty);
-            }
-
-            int seciliIndex = dgvPersonelYonetimi.SelectedRows[0].Index; //Seçili satırın indexi
-            IPersonel seciliPersonel = personeller[seciliIndex]; //Listeden o indexe ait olan personel nesnemi buldum.
-
-            seciliPersonel.AdSoyad = txtAdSoyad.Text;
-
-            if (seciliPersonel.Kadro == "Memur") //Şart eklenmese de olur (cell clickte kontrol ediliyor) sonrasında farklı personel kadroları geldiğinde karışıklık olmaması adına ekledim.
-            {
-                seciliPersonel.Derece = cbDerece.SelectedItem.ToString();
-            }
-
-            seciliPersonel.CalismaSaati = Convert.ToInt32(mtxtCalismaSaati.Text);
-
-            DataGridViewYenile();
-            JSONDosya.PersonelListesineKaydet(personeller.ToList()); //Güncellenmiş listeyi .json dosyasına yazar
-
-            BildirimMesaji("Personel bilgileri başarıyla güncellendi.", Color.FromArgb(0, 255, 0));
-            Temizle();
         }
 
         private void btnSil_Click(object sender, EventArgs e)
         {
             if (dgvPersonelYonetimi.SelectedRows.Count == 0)
             {
-                BildirimMesaji("Silme işlemi için lütfen bir personel seçin!", Color.FromArgb(255, 0, 0));
+                BildirimMesaji("Lütfen silme işlemi için bir personel seçin!", Color.FromArgb(255, 0, 0));
                 return;
             }
 
@@ -203,7 +210,5 @@ namespace MaasBordroProgrami.UI
             AnaSayfa form1 = new AnaSayfa();
             form1.ShowDialog();
         }
-
-
     }
 }

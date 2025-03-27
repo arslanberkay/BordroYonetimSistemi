@@ -67,6 +67,7 @@ namespace MaasBordroProgrami.UI
         {
             try
             {
+                lblBildirim.Text = string.Empty;
                 var personeller = JSONDosya.PersonelListesiOku(); //Güncel personel listemi .jsondan aldım.
 
                 if ((string.IsNullOrWhiteSpace(txtPersonelAdSoyad.Text) || txtPersonelAdSoyad.Text == "Ad soyad giriniz") && cbPersonelKadro.SelectedItem == null) //Personel adı boşsa ve kadro seçilmediyse

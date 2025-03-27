@@ -1,30 +1,44 @@
 [
   {
-    "AdSoyad": "Berkay Arslan",
-    "CalismaSaati": 145,
+    "AdSoyad": "Mira Uysal",
+    "CalismaSaati": 150,
+    "SaatlikUcret": 750.0,
+    "Kadro": "Yönetici",
+    "Derece": "-"
+  },
+  {
+    "AdSoyad": "Sefa Uysal",
+    "CalismaSaati": 190,
+    "SaatlikUcret": 500.0,
+    "Kadro": "Memur",
+    "Derece": "Düz Memur"
+  },
+  {
+    "AdSoyad": "Doğa Yıldız",
+    "CalismaSaati": 185,
+    "SaatlikUcret": 750.0,
+    "Kadro": "Yönetici",
+    "Derece": "-"
+  },
+  {
+    "AdSoyad": "Talha Din",
+    "CalismaSaati": 175,
+    "SaatlikUcret": 525.0,
+    "Kadro": "Memur",
+    "Derece": "Kıdemli Memur"
+  },
+  {
+    "AdSoyad": "Ceyda Uysal",
+    "CalismaSaati": 200,
     "SaatlikUcret": 575.0,
     "Kadro": "Memur",
     "Derece": "Baş Memur"
   },
   {
-    "AdSoyad": "Bünyamin Arslan",
-    "CalismaSaati": 120,
-    "SaatlikUcret": 600.0,
-    "Kadro": "Yönetici",
-    "Derece": "-"
-  },
-  {
-    "AdSoyad": "Ekrem Can",
-    "CalismaSaati": 160,
-    "SaatlikUcret": 600.0,
-    "Kadro": "Yönetici",
-    "Derece": "-"
-  },
-  {
-    "AdSoyad": "Ceyda Uysal",
-    "CalismaSaati": 181,
-    "SaatlikUcret": 500.0,
+    "AdSoyad": "Berkay Arslan",
+    "CalismaSaati": 140,
+    "SaatlikUcret": 550.0,
     "Kadro": "Memur",
-    "Derece": "Düz Memur"
+    "Derece": "Uzman Memur"
   }
 ]

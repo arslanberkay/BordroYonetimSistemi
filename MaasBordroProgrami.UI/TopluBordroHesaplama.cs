@@ -38,7 +38,10 @@ namespace MaasBordroProgrami.UI
                 //Tüm personellerin maaş bordrosu hesaplanır 
                 MaasBordro maasBordro = new MaasBordro();
                 maasBordro.PersonelIsmi = personel.AdSoyad;
-                maasBordro.Kadro = personel.Kadro;
+                if (personel.Kadro == "Memur")
+                    maasBordro.Kadro = personel.Derece;
+                else
+                    maasBordro.Kadro = personel.Kadro;
                 maasBordro.CalismaSaati = personel.CalismaSaati;
                 maasBordro.AnaOdeme = personel.MaasHesapla();
                 maasBordro.MesaiUcreti = personel.MesaiHesapla();
@@ -73,7 +76,7 @@ namespace MaasBordroProgrami.UI
             {
                 ListViewItem listViewItem = new ListViewItem();
                 listViewItem.Text = filtrelenmisPersonel.PersonelIsmi;
-                listViewItem.SubItems.Add(filtrelenmisPersonel.Kadro);
+                listViewItem.SubItems.Add($"{filtrelenmisPersonel.Kadro}");
                 listViewItem.SubItems.Add(filtrelenmisPersonel.CalismaSaati.ToString());
                 listViewItem.SubItems.Add(filtrelenmisPersonel.AnaOdeme.ToString("C"));
                 listViewItem.SubItems.Add(filtrelenmisPersonel.MesaiUcreti.ToString("C"));
@@ -472,6 +475,7 @@ namespace MaasBordroProgrami.UI
         private void Temizle()
         {
             lstvTumPersonelBordrosu.Items.Clear();
+            lblBildirim.Text = string.Empty;
         }
 
         private void SiralamaGorunurlukAc()

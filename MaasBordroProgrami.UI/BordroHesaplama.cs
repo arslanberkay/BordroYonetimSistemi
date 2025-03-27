@@ -61,6 +61,7 @@ namespace MaasBordroProgrami.UI
         {
             Temizle();
             epPersonel.SetError(cbPersonelAdSoyad, string.Empty); //Personel seçildiğinde uyarı ikonunu temizle
+            epBordroHesapla.SetError(btnBordroHesapla, string.Empty);
 
             if (cbPersonelAdSoyad.SelectedItem == null)
             {
@@ -98,6 +99,7 @@ namespace MaasBordroProgrami.UI
 
         private void btnJsonDosyaKaydet_Click(object sender, EventArgs e)
         {
+            //Hata kontrolleri
             if (cbPersonelAdSoyad.SelectedItem == null)
             {
                 epPersonel.SetError(cbPersonelAdSoyad, "Personel seçimi yapılmalıdır.");
@@ -111,7 +113,8 @@ namespace MaasBordroProgrami.UI
             if (lstvPersonelBordrosu.Items.Count == 0)
             {
                 epBordroHesapla.SetError(btnBordroHesapla, "Önce bordro hesaplaması yapılmalıdır.");
-                return;            }
+                return;
+            }
             else
             {
                 epBordroHesapla.SetError(btnBordroHesapla, string.Empty);
