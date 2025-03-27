@@ -37,7 +37,7 @@ namespace MaasBordroProgrami.Core.Data
 
         public decimal SaatlikUcret => 750;  //Saatlik ücreti 600 olarak sabitler (get var set yok)
 
-        public decimal Bonus => 20000; //(Get var set yok) read-only bir özellik
+        public decimal Bonus => 20000; //(Get var set yok) read-only bir özellik 
 
         public string Derece //Memur için derece özelliği eklediğim ve tablolarda kullanmak istediğim için burada boş bir değer döndürdüm.
         {

@@ -151,7 +151,6 @@ namespace MaasBordroProgrami.UI
             }
         }
 
-
         private void BildirimMesaji(string mesaj, Color renk)
         {
             lblBildirim.ForeColor = renk;

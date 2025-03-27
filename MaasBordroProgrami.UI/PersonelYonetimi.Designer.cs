@@ -1,4 +1,6 @@
-﻿namespace MaasBordroProgrami.UI
+﻿using System.Windows.Forms;
+
+namespace MaasBordroProgrami.UI
 {
     partial class PersonelYonetimi
     {
@@ -31,6 +33,7 @@
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PersonelYonetimi));
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             groupBox1 = new GroupBox();
             mtxtCalismaSaati = new MaskedTextBox();
             cbDerece = new ComboBox();
@@ -222,19 +225,31 @@
             dgvPersonelYonetimi.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvPersonelYonetimi.BackgroundColor = Color.WhiteSmoke;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle1.BackColor = Color.Silver;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 162);
             dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.Silver;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.WindowText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
             dgvPersonelYonetimi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             dgvPersonelYonetimi.ColumnHeadersHeight = 45;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 12F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dgvPersonelYonetimi.DefaultCellStyle = dataGridViewCellStyle2;
+            dgvPersonelYonetimi.EnableHeadersVisualStyles = false;
             dgvPersonelYonetimi.GridColor = Color.LightGray;
             dgvPersonelYonetimi.Location = new Point(253, 374);
             dgvPersonelYonetimi.MultiSelect = false;
             dgvPersonelYonetimi.Name = "dgvPersonelYonetimi";
             dgvPersonelYonetimi.RowHeadersWidth = 30;
+            dgvPersonelYonetimi.RowTemplate.Height = 33;
             dgvPersonelYonetimi.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvPersonelYonetimi.Size = new Size(1004, 311);
+            dgvPersonelYonetimi.Size = new Size(1004, 332);
             dgvPersonelYonetimi.TabIndex = 2;
             dgvPersonelYonetimi.CellClick += dgvPersonelYonetimi_CellClick;
             // 

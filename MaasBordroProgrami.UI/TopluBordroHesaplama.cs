@@ -24,6 +24,7 @@ namespace MaasBordroProgrami.UI
         public TopluBordroHesaplama()
         {
             InitializeComponent();
+            toolTip1.SetToolTip(lblBilgi, "Bu bölümde, 150 saat altında çalışan personeller, tüm personeller ve sıralama işlemleri sonucu oluşan GÜNCEL tabloyu PDF, Excel veya Mail olarak dışa aktarabilirsiniz.");
         }
 
         public static List<MaasBordro> tumPersonelBordro = new List<MaasBordro>(); //Tüm personelin bordro bilgilerini tutan bir listedir.
@@ -58,12 +59,12 @@ namespace MaasBordroProgrami.UI
         {
             lstvTumPersonelBordrosu.View = View.Details;
             lstvTumPersonelBordrosu.GridLines = true;
-            lstvTumPersonelBordrosu.Columns.Add("Personel İsmi", 220);
-            lstvTumPersonelBordrosu.Columns.Add("Kadro", 205, HorizontalAlignment.Center);
-            lstvTumPersonelBordrosu.Columns.Add("Çalışma Saati", 220, HorizontalAlignment.Center);
-            lstvTumPersonelBordrosu.Columns.Add("Ana Ödeme", 220, HorizontalAlignment.Center);
-            lstvTumPersonelBordrosu.Columns.Add("Mesai", 220, HorizontalAlignment.Center);
-            lstvTumPersonelBordrosu.Columns.Add("Toplam Ödeme", 220, HorizontalAlignment.Center);
+            lstvTumPersonelBordrosu.Columns.Add("Personel İsmi", 215);
+            lstvTumPersonelBordrosu.Columns.Add("Kadro", 215, HorizontalAlignment.Left);
+            lstvTumPersonelBordrosu.Columns.Add("Çalışma Saati", 200, HorizontalAlignment.Left);
+            lstvTumPersonelBordrosu.Columns.Add("Ana Ödeme", 215, HorizontalAlignment.Left);
+            lstvTumPersonelBordrosu.Columns.Add("Mesai", 215, HorizontalAlignment.Left);
+            lstvTumPersonelBordrosu.Columns.Add("Toplam Ödeme", 215, HorizontalAlignment.Left);
         }
 
         /// <summary>
@@ -138,6 +139,7 @@ namespace MaasBordroProgrami.UI
 
         private void btnMailGonderme_Click(object sender, EventArgs e)
         {
+            //Mail hata kontrolleri
             if (string.IsNullOrWhiteSpace(txtMailAdresi.Text) || txtMailAdresi.Text == "ornek@gmail.com")
             {
                 epMailAdresi.SetError(txtMailAdresi, "Mail adresi girilmelidir.");
@@ -173,8 +175,6 @@ namespace MaasBordroProgrami.UI
             txtMailAdresi.Text = string.Empty;
             chkPdf.Checked = chkExcel.Checked = false;
         }
-
-
 
         public void PDFOlustur()
         {
@@ -251,7 +251,6 @@ namespace MaasBordroProgrami.UI
                 BildirimMesaji("PDF dosyası oluşturulurken hata oluştu!", Color.FromArgb(255, 0, 0));
             }
         }
-
 
         private void BildirimMesaji(string mesaj, Color renk)
         {
@@ -505,6 +504,7 @@ namespace MaasBordroProgrami.UI
             btnPdfOlustur.Visible = durum;
             btnExcelOlustur.Visible = durum;
             btnMailGonderimGecis.Visible = durum;
+            lblBilgi.Visible = durum;
             pnlMailGonderimAlani.Visible = !durum;
         }
 

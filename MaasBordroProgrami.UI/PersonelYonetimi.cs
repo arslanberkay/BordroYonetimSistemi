@@ -34,17 +34,22 @@ namespace MaasBordroProgrami.UI
             {
                 personeller = new BindingList<IPersonel>(JSONDosya.PersonelListesiOku());
                 dgvPersonelYonetimi.DataSource = personeller;
-                dgvPersonelYonetimi.Columns[0].HeaderText = "Ad Soyad";
-                dgvPersonelYonetimi.Columns[1].HeaderText = "Kadro";
-                dgvPersonelYonetimi.Columns[2].HeaderText = "Derece";
-                dgvPersonelYonetimi.Columns[3].HeaderText = "Çalışma Saati";
-                dgvPersonelYonetimi.Columns[4].HeaderText = "Saatlik Ücret";
+                BasliklariGetir();
 
             }
             catch (Exception ex)
             {
                 BildirimMesaji($"Veri yüklenirken hata oluştu : {ex.Message}", Color.FromArgb(255, 0, 0));
             }
+        }
+
+        private void BasliklariGetir()
+        {
+            dgvPersonelYonetimi.Columns[0].HeaderText = "Ad Soyad";
+            dgvPersonelYonetimi.Columns[1].HeaderText = "Kadro";
+            dgvPersonelYonetimi.Columns[2].HeaderText = "Derece";
+            dgvPersonelYonetimi.Columns[3].HeaderText = "Çalışma Saati";
+            dgvPersonelYonetimi.Columns[4].HeaderText = "Saatlik Ücret";
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -71,6 +76,9 @@ namespace MaasBordroProgrami.UI
 
         private void dgvPersonelYonetimi_CellClick(object sender, DataGridViewCellEventArgs e) //Hücreye tıklayınca
         {
+            if (e.RowIndex == -1) //Başlık satırlarına tıkladığında hata veriyordu bunun için kontrol ekledim.
+                return;
+
             dgvPersonelYonetimi.DefaultCellStyle.SelectionBackColor = Color.FromArgb(112, 128, 144); //Seçili satırın rengi
 
             txtAdSoyad.Text = dgvPersonelYonetimi.SelectedRows[0].Cells[0].Value.ToString();
@@ -105,8 +113,14 @@ namespace MaasBordroProgrami.UI
         {
             dgvPersonelYonetimi.DataSource = null;
             dgvPersonelYonetimi.DataSource = personeller;
+            BasliklariGetir();
         }
 
+        /// <summary>
+        /// Kullanıcıya ekranın yukarısında bir mesaj gösterir.
+        /// </summary>
+        /// <param name="mesaj"></param>
+        /// <param name="renk"></param>
         private void BildirimMesaji(string mesaj, Color renk)
         {
             lblBildirim.ForeColor = renk;
@@ -124,7 +138,7 @@ namespace MaasBordroProgrami.UI
                 }
 
                 //Ad soyad arasında en az bir boşluk olması kontrolü ve Regex ile yanlızca harf kontrolü (Türkçe karakter olabilir)
-                if (txtAdSoyad.Text.Split(' ').Length < 2 || !Regex.IsMatch(txtAdSoyad.Text, @"^[a-zA-ZçÇğĞıİöÖşŞüÜ\s]+$"))
+                if (txtAdSoyad.Text.Trim().Split(' ').Length < 2 || !Regex.IsMatch(txtAdSoyad.Text, @"^[a-zA-ZçÇğĞıİöÖşŞüÜ\s]+$"))
                 {
                     epAdSoyad.SetError(txtAdSoyad, "Ad ve soyad arasında en az bir boşluk olmalı ve yalnızca harflerden oluşmalıdır.");
                     return;
@@ -210,5 +224,6 @@ namespace MaasBordroProgrami.UI
             AnaSayfa form1 = new AnaSayfa();
             form1.ShowDialog();
         }
+
     }
 }

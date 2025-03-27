@@ -57,6 +57,8 @@
             epDosyaTuru = new ErrorProvider(components);
             pictureBox1 = new PictureBox();
             label2 = new Label();
+            lblBilgi = new Label();
+            toolTip1 = new ToolTip(components);
             pnlMailGonderimAlani.SuspendLayout();
             groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)epMailAdresi).BeginInit();
@@ -191,13 +193,14 @@
             ımageList3.Images.SetKeyName(0, "11615496_align_alphabetic_sort_order_icon.png");
             ımageList3.Images.SetKeyName(1, "11515530_align_alphabetic_sort_order_icon.png");
             ımageList3.Images.SetKeyName(2, "1542257_sort_arrows_ascending_descending_match_icon.png");
+            ımageList3.Images.SetKeyName(3, "3937344_help_helpdesk_info_information_question_icon.png");
             // 
             // btnCalismaSaatiSiralama
             // 
             btnCalismaSaatiSiralama.ForeColor = SystemColors.ControlLight;
             btnCalismaSaatiSiralama.ImageIndex = 2;
             btnCalismaSaatiSiralama.ImageList = ımageList3;
-            btnCalismaSaatiSiralama.Location = new Point(613, 69);
+            btnCalismaSaatiSiralama.Location = new Point(540, 69);
             btnCalismaSaatiSiralama.Name = "btnCalismaSaatiSiralama";
             btnCalismaSaatiSiralama.Size = new Size(36, 39);
             btnCalismaSaatiSiralama.TabIndex = 5;
@@ -352,12 +355,22 @@
             label2.TabIndex = 10;
             label2.Text = "ArslanSoft";
             // 
+            // lblBilgi
+            // 
+            lblBilgi.ImageIndex = 3;
+            lblBilgi.ImageList = ımageList3;
+            lblBilgi.Location = new Point(614, 543);
+            lblBilgi.Name = "lblBilgi";
+            lblBilgi.Size = new Size(36, 32);
+            lblBilgi.TabIndex = 11;
+            // 
             // TopluBordroHesaplama
             // 
             AutoScaleDimensions = new SizeF(11F, 28F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(44, 62, 80);
             ClientSize = new Size(1482, 753);
+            Controls.Add(lblBilgi);
             Controls.Add(label2);
             Controls.Add(pictureBox1);
             Controls.Add(pnlMailGonderimAlani);
@@ -418,5 +431,7 @@
         private ErrorProvider epDosyaTuru;
         private PictureBox pictureBox1;
         private Label label2;
+        private Label lblBilgi;
+        private ToolTip toolTip1;
     }
 }
