@@ -194,6 +194,7 @@
             Font = new Font("Segoe UI", 12F);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4, 3, 4, 3);
+            MaximizeBox = false;
             Name = "AnaSayfa";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Ana Sayfa";

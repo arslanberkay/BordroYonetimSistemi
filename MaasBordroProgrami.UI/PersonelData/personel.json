@@ -40,5 +40,19 @@
     "SaatlikUcret": 550.0,
     "Kadro": "Memur",
     "Derece": "Uzman Memur"
+  },
+  {
+    "AdSoyad": "Ekrem Hosanlı",
+    "CalismaSaati": 130,
+    "SaatlikUcret": 500.0,
+    "Kadro": "Memur",
+    "Derece": "Düz Memur"
+  },
+  {
+    "AdSoyad": "Aysel Vanlı",
+    "CalismaSaati": 190,
+    "SaatlikUcret": 750.0,
+    "Kadro": "Yönetici",
+    "Derece": "-"
   }
 ]

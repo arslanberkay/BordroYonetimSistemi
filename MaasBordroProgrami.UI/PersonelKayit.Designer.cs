@@ -192,7 +192,9 @@
             Controls.Add(btnPersonelEkle);
             Controls.Add(groupBox1);
             Font = new Font("Segoe UI", 12F);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4);
+            MaximizeBox = false;
             Name = "PersonelKayit";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Personel Kayıt";

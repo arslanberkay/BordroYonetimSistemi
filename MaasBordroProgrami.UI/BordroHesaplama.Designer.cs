@@ -209,7 +209,9 @@
             Controls.Add(cbPersonelAdSoyad);
             Controls.Add(label1);
             Font = new Font("Microsoft Sans Serif", 12F);
+            FormBorderStyle = FormBorderStyle.FixedSingle;
             Margin = new Padding(4);
+            MaximizeBox = false;
             Name = "BordroHesaplama";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Bordro Hesaplama";
