@@ -176,6 +176,9 @@ namespace MaasBordroProgrami.UI
             chkPdf.Checked = chkExcel.Checked = false;
         }
 
+        /// <summary>
+        /// iTextSharp kütüphanesi ile PDF dosyası oluşturulur ve ListView içeriği eklenir.
+        /// </summary>
         public void PDFOlustur()
         {
             try
@@ -189,8 +192,8 @@ namespace MaasBordroProgrami.UI
                 if (saveFileDialog.ShowDialog() == DialogResult.OK) //Kullanıcı bir dosya seçip Kaydet tuşuna basarsa
                 {
                     Document document = new Document(); //PDF'in içeriğini tutan nesne oluşturulur.
-                    PdfWriter.GetInstance(document, new FileStream(saveFileDialog.FileName, FileMode.Create)); //PDF'i belirtilen yola yazar.
-                    document.Open(); //Yazma işlemi başlar
+                    PdfWriter.GetInstance(document, new FileStream(saveFileDialog.FileName, FileMode.Create)); //Belirlenen dosya yoluna PDF dosyası oluşturulur.
+                    document.Open(); //PDF dosyası açılır ve içerisine veri yazmaya hazır hale gelir.
 
                     string arialTtf = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Fonts), "arial.ttf"); //Arial fontunun yolunu alır. PDF'e Türkçe karakter desteği vermek için bilgisayardaki Arial fontunu kullanır. 
                     BaseFont bf = BaseFont.CreateFont(arialTtf, BaseFont.IDENTITY_H, BaseFont.EMBEDDED); //Unicode karakter kümesini destekleyen bir fontu PDF'e ekler. BaseFont.EMBEDDED : Başka pclerde sorunsuz görünmesini sağlar. Fontu gömer.
@@ -216,7 +219,7 @@ namespace MaasBordroProgrami.UI
 
                     //Tablo Oluşturma
                     PdfPTable table = new PdfPTable(lstvTumPersonelBordrosu.Columns.Count); //Sütun sayısı kadar kolon içeren bir tablo
-                    table.WidthPercentage = 100;
+                    table.WidthPercentage = 100; //Tabloyu sayfa genişliğine tam olarak yayar.
 
                     //Başlıkları Ekle 
                     foreach (ColumnHeader column in lstvTumPersonelBordrosu.Columns)
@@ -257,11 +260,13 @@ namespace MaasBordroProgrami.UI
             lblBildirim.ForeColor = renk;
             lblBildirim.Text = mesaj;
         }
-
+        /// <summary>
+        /// ClosedXML küyüphanesini kullanarak ListView kontrolündeki verileri bir Excel dosyasına aktarıyor.
+        /// </summary>
         public void ExcelOlustur()
         {
             try
-            {
+            {   
                 using (var workbook = new XLWorkbook()) //Yeni bir Excel çalışma kitabı oluşturur.
                 {
                     var workSheet = workbook.AddWorksheet($"Bordro_Raporu_{DateTime.Now:yyyyMMdd}"); //Yeni bir çalışma sayfası ekler ve tarih bazlı adlandırılır.( Dinamik )
@@ -309,10 +314,10 @@ namespace MaasBordroProgrami.UI
                         saveFileDialog.Filter = "Excel Files|.xlsx";
                         saveFileDialog.Title = "Excel Dosyasını Kaydet";
 
-                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK) //Kaydetme işlemi onaylanırsa
                         {
-                            string filePath = saveFileDialog.FileName;
-                            workbook.SaveAs(filePath);
+                            string filePath = saveFileDialog.FileName; //Dosyanın kaydedileceği yolu alır.
+                            workbook.SaveAs(filePath); //Excel dosyası belirtilen konuma kaydedilir.
                             BildirimMesaji("Excel dosyası başarıyla oluşturuldu.", Color.FromArgb(0, 255, 0));
                         }
                     }

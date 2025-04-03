@@ -30,9 +30,9 @@
   {
     "AdSoyad": "Ceyda Uysal",
     "CalismaSaati": 160,
-    "SaatlikUcret": 575.0,
+    "SaatlikUcret": 550.0,
     "Kadro": "Memur",
-    "Derece": "Baş Memur"
+    "Derece": "Uzman Memur"
   },
   {
     "AdSoyad": "Berkay Arslan",
@@ -54,5 +54,19 @@
     "SaatlikUcret": 750.0,
     "Kadro": "Yönetici",
     "Derece": "-"
+  },
+  {
+    "AdSoyad": "Mehmet Ege Kırkıcı",
+    "CalismaSaati": 200,
+    "SaatlikUcret": 750.0,
+    "Kadro": "Yönetici",
+    "Derece": "-"
+  },
+  {
+    "AdSoyad": "Murat Kırkıcı",
+    "CalismaSaati": 147,
+    "SaatlikUcret": 550.0,
+    "Kadro": "Memur",
+    "Derece": "Uzman Memur"
   }
 ]
